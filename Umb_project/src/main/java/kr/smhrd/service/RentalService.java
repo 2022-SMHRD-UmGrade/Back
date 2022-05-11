@@ -21,6 +21,9 @@ public class RentalService {
 	private RaspService rpService;
 	
 	@Autowired
+	private RfidBackService rbService;
+	
+	@Autowired
 	private UmbboxMapper ubMapper;
 	
 	@Autowired
@@ -36,23 +39,26 @@ public class RentalService {
 	private RfidFrontMapper rfMapper;
 	
 	// 대여 시작
-	public void rental1(String uid, String umbbox_seq) throws NoRouteToHostException, ConnectException, IOException, Exception{
-		if(urMapper.isExistUmbBroken(uid) && ubMapper.isExistUboxID(Integer.parseInt(umbbox_seq))) { // 우산이 파손되었는지 + 보관함의 사용자 아이디가 있는지 확인
-			rbMapper.insertLog(uid); 	// 로그 입력
-			rpService.getRequestApiGet("http://172.30.1.49:8082/soleOFF");	// 솔레노이드 해제
+	public void rental1(String uid,String umbbox_seq) /* throws NoRouteToHostException, ConnectException, IOException, Exception */{
+//	if(urMapper.isExistUmbBroken(uid) && ubMapper.isExistUboxID(Integer.parseInt(umbbox_seq))) { // 우산이 파손되었는지 + 보관함의 사용자 아이디가 있는지 확인
+			rbService.insertLog(uid); // 로그 입력
+			System.out.println("로그입력: "+uid);
+//			rpService.getRequestApiGet("http://172.30.1.49:8082/soleOFF");	// 솔레노이드 해제
 			// 이미 보관함에 유저아이디는 입력된 상태로 (앱에서 진행완료) 따로 업데이트 시켜줄 필요가 없다.
-		}
+//		}
 	}
 	
 	// 대여 중간~ 최종
-	public void rental2(String uid, String umbbox_seq) throws NoRouteToHostException, ConnectException, IOException, Exception{
+	public void rental2(String uid,
+			String umbbox_seq) /* throws NoRouteToHostException, ConnectException, IOException, Exception */{
 		rfMapper.insertLog(uid);
-		rpService.getRequestApiGet("http://172.30.1.49:8082/soleON");	// 솔레노이드 잠금
-		Rent vo = null;
+		System.out.println("로그입력(f) "+uid);
+//		rpService.getRequestApiGet("http://172.30.1.49:8082/soleON");	// 솔레노이드 잠금
+		Rent vo = new Rent();
 		vo.setRent_id(ubMapper.selectUboxID(Integer.parseInt(umbbox_seq))); // 렌트 vo에 대여자 id 입력
 		vo.setUmb_seq(urMapper.selectUmbSeq(uid)); 							// 렌트 vo에 대여우산 시퀀스 입력
 		rMapper.insertRent(vo);												// 렌트 vo Insert
-		
+		System.out.println("대여자 id: "+vo.getRent_id());
 		ubMapper.updateUboxID2(umbbox_seq);	// 보관함 유저아이디 초기화
 	}
 }

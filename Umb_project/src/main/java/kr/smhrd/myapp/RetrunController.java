@@ -37,8 +37,10 @@ public class RetrunController {
 	public void frontRfid(@RequestParam(value="uid") String uid, @RequestParam(value="umbbox_seq") String umbbox_seq) throws NoRouteToHostException, ConnectException, IOException, Exception{
 			if(rfService.selectDiff() < 10 && rfService.selectDiff() != 0 && rfService.selectCheck().equals(uid)){
 				rentalService.rental2(uid, umbbox_seq); // 대여절차(최종)으로
+				System.out.println("대여절차(최종)으로");
 			}else {
 				returnService.return1(uid, umbbox_seq); // 반납절차(시작)으로
+				System.out.println("반납절차(시작)으로");
 			}			
 	}
 	
@@ -47,8 +49,10 @@ public class RetrunController {
 	public void backRfid(@RequestParam(value="uid") String uid, @RequestParam(value="umbbox_seq") String umbbox_seq) throws NoRouteToHostException, ConnectException, IOException, Exception{		
 			if(rbService.selectDiff() < 10 && rbService.selectDiff() != 0 && rbService.selectCheck().equals(uid)){
 				returnService.return2(uid, umbbox_seq); // 반납절차(최종)으로
+				System.out.println("반납절차(최종)으로");
 			}else {
 				rentalService.rental1(uid, umbbox_seq); // 대여절차(시작)으로
+				System.out.println("대여절차(시작)으로");
 			}
 	}
 }

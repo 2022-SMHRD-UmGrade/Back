@@ -19,11 +19,11 @@ import kr.smhrd.service.UmbrellaService;
 @Controller
 public class RaspController {
 
-	@Autowired
-	private UmbboxService umbboxService;
-	
-	@Autowired
-	private UmbrellaService umbrellaService;
+//	@Autowired
+//	private UmbboxService umbboxService;
+//	
+//	@Autowired
+//	private UmbrellaService umbrellaService;
 	
 //	@RequestMapping("/frontRfid")
 //	public void frontRfid(@RequestParam String uid) throws NoRouteToHostException, ConnectException, IOException, Exception {

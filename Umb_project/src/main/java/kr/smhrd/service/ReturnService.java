@@ -45,7 +45,7 @@ public class ReturnService {
 	public void return1(String uid, String umbbox_seq) throws NoRouteToHostException, ConnectException, IOException, Exception{
 		rfMapper.insertLog(uid); 				// RFID 로그 입력
 		Rent rvo = rMapper.selectOneRfid(uid); 	// 우산 uid로 렌트 VO 호출
-		Umbbox bvo = null; 						// 보관함 VO 생성, updateUboxID(bvo)로 쓰기 위함
+		Umbbox bvo = new Umbbox(); 						// 보관함 VO 생성, updateUboxID(bvo)로 쓰기 위함
 		bvo.setUbox_id(rvo.getRent_id()); 		// 보관함 VO에 사용자 ID 입력
 		bvo.setUbox_seq(Integer.parseInt(umbbox_seq));		// 보관함 VO에 보관함 일련번호 입력
 		rpService.getRequestApiGet("http://172.30.1.49:8082/soleOFF");	// 솔레노이드 해제
