@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.smhrd.mapper.UserMapper">
+	
+	<!-- 유저 회원가입 -->
+	<insert id = "userJoin" parameterType = "kr.smhrd.domain.User">
+		insert into t_user (user_id, user_pw, user_nick, user_email, user_name, user_phone, user_addr)
+		values (#{user_id}, #{user_pw}, #{user_nick}, #{user_email},#{user_name}, #{user_phone}, #{user_addr})
+	</insert>
+	
+	<!-- 유저 로그인 -->
+	<select id  = "userLogin" parameterType = "kr.smhrd.domain.User" resultType = "kr.smhrd.domain.User">
+		select * from t_user where user_id = #{user_id} and user_pw = #{user_pw}
+	</select>
+	
+	<!-- 유저 카드 등록 -->
+	<update id="updateUserBK" parameterType = "HashMap">
+		update t_user set user_type = 'P', user_b_key = #{billing_key} where user_id = #{customer_key}
+	</update>
+	
+	<!-- 유저 카드등록 취소 -->
+	<update id="updateUserBKUnused" parameterType = "String">
+		update t_user set user_type = 'U', user_b_key = 'N' where user_id = #{user_id}
+	</update>
+	
+	<!-- 유저 포인트 조회 -->
+	<select id="isExistUserPoint" parameterType = "HashMap" resultType = "java.lang.Boolean">
+		select IF(COUNT(*) = 1, 1, 0) from t_user where user_id = #{user_id} and user_point >= #{amount}
+	</select>
+	
+	<!-- 유저 포인트 수정 -->
+	<update id="updateUserPoint" parameterType = "HashMap">
+		update t_user set user_point = user_point + #{amount} where user_id = #{user_id}
+	</update>
+	
+	<!-- 유저 빌링키 조회 -->
+	<select id="selectUserBK" parameterType = "String" resultType = "String">
+		select user_b_key from t_user where user_id = #{user_id}
+	</select>
+	
+</mapper>
