@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import kr.smhrd.domain.Umbbox;
 import kr.smhrd.domain.User;
+import kr.smhrd.service.UmbboxService;
 import kr.smhrd.service.UserService;
 
 @RestController
@@ -15,6 +17,9 @@ public class AndroidController {
 
 	@Autowired
 	private UserService service;
+	
+	@Autowired
+	private UmbboxService uService;
 
 	// 유저 회원 가입
 	@RequestMapping(value = "/Join", method = RequestMethod.POST)
@@ -50,6 +55,10 @@ public class AndroidController {
 				System.out.println("대여 URL : " + get_url);
 				System.out.println("대여 User : " + get_userId);
 				
+				Umbbox vo = null; // 보관함 VO 생성
+				vo.setUbox_id(get_userId);
+				vo.setUbox_seq(1);
+				uService.updateUboxID(vo); // 보관함에 사용자 아이디 업데이트
 //				Rentservice.insertRent(null);
 
 			}
