@@ -13,7 +13,7 @@
 	
 	<!-- 앞 뒤 최근로그 1개 일치 체크 -->
 	<select id ="selectSame" resultType="java.lang.Boolean">
-		SELECT IF((SELECT rfid_uid from t_frfid ORDER BY rfid_date DESC LIMIT 1)=(SELECT rfid_uid from t_brfid ORDER BY rfid_date DESC LIMIT 1), true, false) AS result
+		SELECT IF((SELECT rfid_uid from t_frfid ORDER BY rfid_date DESC LIMIT 1)=(SELECT rfid_uid from t_brfid ORDER BY rfid_date DESC LIMIT 1), 1, 0) AS result
 	</select>
 		
 	<!-- 최근 로그 2개 시차 계산 -->

@@ -10,6 +10,14 @@
 		select ubox_status from t_umbbox where ubox_seq = #{ubox_seq}
 	</select>
 	
+	<select id="selectUboxID" parameterType = "int" resultType = "String">
+		select ubox_id from t_umbbox where ubox_seq = #{ubox_seq}
+	</select>
+	
+	<select id="isExistUboxID" parameterType = "int" resultType = "java.lang.Boolean">
+		select IF(COUNT(*) = 1, 1, 0) from t_umbbox where ubox_seq = #{ubox_seq} and ubox_id != 'D'
+	</select>
+	
 	<insert id="insertUbox" parameterType="kr.smhrd.domain.Umbbox">
 		insert into t_umbbox(ubox_loc, ubox_latitude, ubox_longitude, ubox_qty, admin_id) values (#{ubox_loc}, #{ubox_latitude}, #{ubox_longitude}, #{ubox_qty}, #{admin_id})
 	</insert>

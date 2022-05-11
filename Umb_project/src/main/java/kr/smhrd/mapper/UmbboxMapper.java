@@ -18,6 +18,12 @@ public interface UmbboxMapper {
 	// 보관함 상태 정보 조회
 	public String selectUboxStatus(int ubox_seq);
 	
+	// 보관함 유저 아이디 조회
+	public String selectUboxID(int ubox_seq);
+	
+	// 보관함에 사용자아이디가 있는지 확인
+	public boolean isExistUboxID(int ubox_seq);
+	
 	// 보관함 추가
 	public void insertUbox(Umbbox vo);
 	

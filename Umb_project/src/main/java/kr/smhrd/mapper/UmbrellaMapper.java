@@ -16,8 +16,14 @@ public interface UmbrellaMapper {
 	// 우산 개별 정보 조회
 	public Umbrella selectOneUmb(int umb_seq);
 	
+	// 우산 RFID로 우산 시퀀스 조회
+	public int selectUmbSeq(String umb_rfid);
+	
+	// 우산 RFID 조회 (DB에 등록된 우리의 우산인지 확인)
+	public boolean isExistUmb(String umb_rfid);
+	
 	// 우산 RFID 조회 (조건 + 파손되지 않은 우산)
-	public boolean isExistUmbRfid(String rfid);
+	public boolean isExistUmbBroken(String umb_rfid);
 	
 	// 우산 추가
 	public void insertUmb(Umbrella vo);

@@ -13,6 +13,7 @@ import kr.smhrd.service.RentalService;
 import kr.smhrd.service.ReturnService;
 import kr.smhrd.service.RfidBackService;
 import kr.smhrd.service.RfidFrontService;
+import kr.smhrd.service.UmbrellaService;
 
 @Controller
 public class RetrunController {
@@ -28,23 +29,26 @@ public class RetrunController {
 	@Autowired
 	private RfidBackService rbService;
 	
+	@Autowired
+	private UmbrellaService uService;
+	
 	
 	@RequestMapping("/frontRfid")
 	public void frontRfid(@RequestParam(value="uid") String uid, @RequestParam(value="umbbox_seq") String umbbox_seq) throws NoRouteToHostException, ConnectException, IOException, Exception{
-		if(rfService.selectDiff() < 15 && rbService.selectDiff() != 0){
-			rentalService.rental2(uid, umbbox_seq);
-		}else {
-			returnService.return1(uid, umbbox_seq);
-		}
+			if(rfService.selectDiff() < 10 && rfService.selectDiff() != 0 && rfService.selectCheck().equals(uid)){
+				rentalService.rental2(uid, umbbox_seq); // 대여절차(최종)으로
+			}else {
+				returnService.return1(uid, umbbox_seq); // 반납절차(시작)으로
+			}			
 	}
 	
 
 	@RequestMapping("/backRfid")
-	public void backRfid(@RequestParam(value="uid") String uid, @RequestParam(value="umbbox_seq") String umbbox_seq) throws NoRouteToHostException, ConnectException, IOException, Exception{
-		if(rbService.selectDiff() < 15 && rbService.selectDiff() != 0){
-			returnService.return2(uid, umbbox_seq);
-		}else {
-			rentalService.rental1(uid, umbbox_seq);
-		}
+	public void backRfid(@RequestParam(value="uid") String uid, @RequestParam(value="umbbox_seq") String umbbox_seq) throws NoRouteToHostException, ConnectException, IOException, Exception{		
+			if(rbService.selectDiff() < 10 && rbService.selectDiff() != 0 && rbService.selectCheck().equals(uid)){
+				returnService.return2(uid, umbbox_seq); // 반납절차(최종)으로
+			}else {
+				rentalService.rental1(uid, umbbox_seq); // 대여절차(시작)으로
+			}
 	}
 }
