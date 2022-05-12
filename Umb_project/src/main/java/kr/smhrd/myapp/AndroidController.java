@@ -66,26 +66,16 @@ public class AndroidController {
 		System.out.println("대여 URL : " + get_url);
 		System.out.println("대여 User : " + get_userId);
 				
-<<<<<<< HEAD
-		Umbbox vo = null; // 보관함 VO 생성
-		vo.setUbox_id(get_userId);
-		vo.setUbox_seq(1);
+		Umbbox vo = new Umbbox(); // 보관함 VO 생성
+		vo.setUbox_id("dong");
+		vo.setUbox_seq(3);
 		Ubox_Service.updateUboxID(vo); // 보관함에 사용자 아이디 업데이트
-		//	Rentservice.insertRent(null);
+		//Rentservice.insertRent(null);
 	}
 	
 	
 	
 	
-	
-=======
-				Umbbox vo = new Umbbox(); // 보관함 VO 생성
-				vo.setUbox_id("dong");
-				vo.setUbox_seq(3);
-				uService.updateUboxID(vo); // 보관함에 사용자 아이디 업데이트
-//				Rentservice.insertRent(null);
 
-			}
->>>>>>> 39ed82de8a5b8f76e17db9eb2808e3dd1ad6a4ef
 
 }
