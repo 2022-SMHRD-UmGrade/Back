@@ -13,25 +13,25 @@ import kr.smhrd.mapper.UserMapper;
 public class PayService {
 
 	@Autowired
-	private JsonService jService;
+	private JsonService jsonService;
 	
 	@Autowired
-	private UserMapper uMapper;
+	private UserService userService;
 	
 	public void success(String customerKey, String authKey) {
-		HttpResponse<String> response = jService.success(customerKey, authKey);
-		Map<String, String> map = jService.mapJson(response.body());
+		HttpResponse<String> response = jsonService.success(customerKey, authKey);
+		Map<String, String> map = jsonService.mapJson(response.body());
 		HashMap<String, String> bk = new HashMap<>();
 		bk.put("customer_key", customerKey);
 		bk.put("billing_key", map.get("billingKey"));
-		uMapper.updateUserBK(bk);
+		userService.updateUserBK(bk);
 		System.out.println(map.get("billingKey"));
 	}
 	
 	public void auto(String user_id, int amount, String order_id) {
-		String bk = uMapper.selectUserBK(user_id);
-		HttpResponse<String> response = jService.auto(bk, user_id, amount, order_id);
-		Map<String, String> map = jService.mapJson(response.body());
+		String bk = userService.selectUserBK(user_id);
+		HttpResponse<String> response = jsonService.auto(bk, user_id, amount, order_id);
+		Map<String, String> map = jsonService.mapJson(response.body());
 		System.out.println(map.get("status"));
 	}
 	

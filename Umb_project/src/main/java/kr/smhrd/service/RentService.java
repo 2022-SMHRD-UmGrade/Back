@@ -19,6 +19,11 @@ public class RentService {
 		return list;
 	}
 	
+	// RFID로 미반납 대여정보 추출
+	public Rent selectOneRfid(String umb_rfid) {
+		return mapper.selectOneRfid(umb_rfid);
+	}
+	
 	// 개별 대여정보 조회
 	public Rent selectOneRent(int rent_seq) {
 		return mapper.selectOneRent(rent_seq);
