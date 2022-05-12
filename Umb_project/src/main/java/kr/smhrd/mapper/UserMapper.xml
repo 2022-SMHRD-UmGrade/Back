@@ -13,6 +13,11 @@
 		select * from t_user where user_id = #{user_id} and user_pw = #{user_pw}
 	</select>
 	
+	<!-- 유저 계정 수정 -->
+	<update id="userInfoUpdate" parameterType="kr.smhrd.domain.User">
+        update t_user set user_pw = #{user_pw}, user_nick = #{user_nick}, user_email = #{user_email}, user_addr = #{user_addr} where user_id = #{user_id}
+	</update>
+	
 	<!-- 유저 카드 등록 -->
 	<update id="updateUserBK" parameterType = "HashMap">
 		update t_user set user_type = 'P', user_b_key = #{billing_key} where user_id = #{customer_key}

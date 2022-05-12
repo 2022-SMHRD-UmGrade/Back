@@ -28,10 +28,10 @@ public class AndroidController {
 
 	@Autowired
 	private UserService User_service;
-	
+
 	@Autowired
 	private UmbboxService Ubox_Service;
-	
+
 	// 유저 회원 가입
 	@RequestMapping(value = "/Android/Join", method = RequestMethod.POST)
 	public String Join(User user) {
@@ -57,6 +57,19 @@ public class AndroidController {
 		return info;
 	}
 
+	// 유저 계정 정보 수정
+	@RequestMapping(value = "/Update", method = RequestMethod.POST)
+	public String userInfoUpdate(User user) {
+		User_service.userInfoUpdate(user);
+		System.out.println(user);
+		System.out.println(user.getUser_nick());
+		System.out.println(user.getUser_email());
+		System.out.println(user.getUser_addr());
+
+		return "success";
+
+	}
+
 	// 우산대여요청
 	@RequestMapping(value = "/Android/Rent", method = RequestMethod.POST)
 	public void umbRent(HttpServletRequest httpServletRequest) {
@@ -65,17 +78,12 @@ public class AndroidController {
 		String get_userId = httpServletRequest.getParameter("userId");
 		System.out.println("대여 URL : " + get_url);
 		System.out.println("대여 User : " + get_userId);
-				
+
 		Umbbox vo = new Umbbox(); // 보관함 VO 생성
 		vo.setUbox_id("dong");
 		vo.setUbox_seq(3);
 		Ubox_Service.updateUboxID(vo); // 보관함에 사용자 아이디 업데이트
-		//Rentservice.insertRent(null);
+		// Rentservice.insertRent(null);
 	}
-	
-	
-	
-	
-
 
 }

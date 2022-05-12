@@ -18,6 +18,9 @@ public interface UserMapper {
 	//유저 로그인 
 	public User userLogin(User user);
 	
+	//유저 회원 정보 수정
+	public void userInfoUpdate(User user);
+	
 	//유저 카드등록
 	public void updateUserBK(HashMap<String, String> map);
 	
