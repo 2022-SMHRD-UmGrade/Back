@@ -52,6 +52,71 @@ function goUp(umb_seq){
 	})	
 }
 
+/*게시글 리스트*/
+function boardList(){
+	$.ajax({
+		url :  getContextPath()+"/BoardList.do",
+		type : "get",
+		dataType : "json",
+		success : htmlView,
+		error : function(){
+			alert("error")
+		}
+	})
+}
+
+/*단일 게시글*/
+function boardList(){
+	$.ajax({
+		url :  getContextPath()+"/BoardOne.do",
+		type : "get",
+		dataType : "json",
+		success : htmlView,
+		error : function(){
+			alert("error")
+		}
+	})
+}
+
+/*게시글 답변*/
+function comment(){
+	$.ajax({
+		url :  getContextPath()+"/BoardComment.do",
+		type : "get",
+		dataType : "json",
+		success : htmlView,
+		error : function(){
+			alert("error")
+		}
+	})
+}
+
+/*qna 리스트*/
+function qnaList(){
+	$.ajax({
+		url :  getContextPath()+"/QnaList.do",
+		type : "get",
+		dataType : "json",
+		success : htmlView,
+		error : function(){
+			alert("error")
+		}
+	})
+}
+
+/*qna 답변*/
+function Reply(){
+	$.ajax({
+		url :  getContextPath()+"/BoardReply.do",
+		type : "get",
+		dataType : "json",
+		success : htmlView,
+		error : function(){
+			alert("error")
+		}
+	})
+}
+
 /*function selectRt(rent_seq){
 	$.ajax({
 		url : getContextPath()+"/selectRt.do",

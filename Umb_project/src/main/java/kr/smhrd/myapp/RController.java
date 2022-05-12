@@ -2,16 +2,24 @@ package kr.smhrd.myapp;
 
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import kr.smhrd.domain.Board;
+import kr.smhrd.domain.Comment;
+import kr.smhrd.domain.Qna;
 import kr.smhrd.domain.Rent;
+import kr.smhrd.domain.Reply;
 import kr.smhrd.domain.Umbrella;
 import kr.smhrd.domain.User;
+import kr.smhrd.service.BoardService;
+import kr.smhrd.service.CommentService;
+import kr.smhrd.service.QnaService;
 import kr.smhrd.service.RentService;
+import kr.smhrd.service.ReplyService;
 import kr.smhrd.service.UmbrellaService;
 import kr.smhrd.service.UserService;
 
@@ -19,35 +27,100 @@ import kr.smhrd.service.UserService;
 public class RController {
 
 	@Autowired
-	private UserService service;
+	private UserService User_service;
 
 	@Autowired
-	private RentService rentService;
+	private RentService Rent_Service;
 
 	@Autowired
-	private UmbrellaService umbrellaService;
+	private UmbrellaService Umb_Service;
+	
+	@Autowired
+	private BoardService Board_Service;
+	
+	@Autowired
+	private CommentService Comment_Service;
+	
+	@Autowired
+	private ReplyService Reply_Service;
 
+	@Autowired
+	private QnaService Qna_Service;
+
+	// 회원 리스트 요청
 	@RequestMapping("/userList.do")
 	public List<User> user() {
-		List<User> list = service.selectUser();
+		List<User> list = User_service.selectUser();
 		return list;
 	}
 
+	// 우산 대여 리스트 요청
 	@RequestMapping("/rentList.do")
 	public List<Rent> Rent(Model model) {
-		List<Rent> list = rentService.selectRent();
+		List<Rent> list = Rent_Service.selectRent();
 		return list;
 	}
 
+	// 우산 리스트 요청
 	@RequestMapping("/umbList.do")
 	public List<Umbrella> umb() {
-		List<Umbrella> list = umbrellaService.selectUmb();
+		List<Umbrella> list = Umb_Service.selectUmb();
+		return list;
+	}
+	
+/* 커뮤니티 게시판 */
+	// 게시글 리스트 요청
+	@RequestMapping(value = "/BoardList.do")
+	public List<Board> selectBoard() {
+		System.out.println("게시글 리스트 요청");
+		List<Board> list = Board_Service.selectBoard();
+		return list;
+	}
+	
+	// 단일 게시글 정보 요청
+	@RequestMapping(value = "/BoardOne.do")
+	public Board selectOneBoard(@RequestParam(value="article_seq")int article_seq) {
+		System.out.println("단일 게시글 요청");
+		Board list = Board_Service.selectOneBoard(article_seq);
+		return list;
+	}
+	
+	// 게시글 별 댓글 리스트 요청
+	@RequestMapping(value = "/BoardComment.do")
+	public List<Comment> selectListCmt(@RequestParam(value="article_seq")int article_seq) {
+		System.out.println("게시글 별 댓글 리스트 요청");
+		List<Comment> list = Comment_Service.selectListCmt(article_seq);
 		return list;
 	}
 
+/* Qna 게시판 */	
+	// QnA 리스트 요청
+	@RequestMapping(value = "/QnaList.do")
+	public List<Qna> selectQna() {
+		System.out.println("Qna 리스트 요청");
+		List<Qna> list = Qna_Service.selectQna();
+		return list;
+	}
+	
+	// 단일 QnA 요청
+	@RequestMapping(value = "/QnaOne.do")
+	public Qna selectOneQna(@RequestParam(value="qna_seq")int qna_seq) {
+		System.out.println("Qna 리스트 요청");
+		Qna list = Qna_Service.selectOneQna(qna_seq);
+		return list;
+		}
+	
+	// QnA 별 댓글 리스트 요청
+	@RequestMapping(value = "/QnaReply.do")
+	public List<Reply> selectListReply(@RequestParam(value="qna_seq")int qna_seq) {
+		System.out.println("Qna 별 댓글 리스트 요청");
+		List<Reply> list = Reply_Service.selectListReply(qna_seq);
+		return list;
+	}
+	
 	@RequestMapping("/umbUpdate.do")
 	public void umbUp(int umb_seq) {
-		umbrellaService.updateUmbCheck(umb_seq);
+		Umb_Service.updateUmbCheck(umb_seq);
 	}
 
 //	@RequestMapping("/selectRt.do")

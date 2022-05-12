@@ -13,7 +13,7 @@ public interface CouponMapper {
 	public List<Coupon> selectCoupon();
 	
 	// 쿠폰 세부조회
-	public Coupon selectOneCoupon(int cp_seq);
+	public List<Coupon> selectOneCoupon(String cp_user);
 		
 	// 쿠폰 추가
 	public void insertCoupon(Coupon vo);

@@ -21,7 +21,8 @@ public class ReplyService {
 	
 	// 답변글 게시글별 조회
 	public List<Reply> selectListReply(int qna_seq){
-		return mapper.selectListReply(qna_seq);
+		 List<Reply> list = mapper.selectListReply(qna_seq);
+		 return list;
 	}
 	
 	// 답변글 추가
