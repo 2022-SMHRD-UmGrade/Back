@@ -28,12 +28,23 @@ public class UmbboxService {
 	public String selectUboxStatus(int ubox_seq) {
 		return mapper.selectUboxStatus(ubox_seq);
 	}
+	
+	// 보관함 유저 아이디 조회
+	public String selectUboxID(int ubox_seq) {
+		return mapper.selectUboxID(ubox_seq);
+	}
+		
+	// 보관함에 사용자아이디가 있는지 확인
+	public boolean isExistUboxID(int ubox_seq) {
+		return mapper.isExistUboxID(ubox_seq);
+	}
 		
 	// 보관함 삭제
 	public void deleteUbox(int ubox_seq) {
 		mapper.deleteUbox(ubox_seq);
 	}
 	
+	// 보관함 추가
 	public void insertUbox(Umbbox vo) {
 		mapper.insertUbox(vo);
 	}
