@@ -42,8 +42,8 @@
 		update t_umbbox set ubox_id = #{ubox_id} where ubox_seq = #{ubox_seq}
 	</update>
 	
-	<update id="updateUboxID2" parameterType="String">
-		update t_umbbox set ubox_id = 'D' where ubox_id = #{ubox_id}
+	<update id="updateUboxID2" parameterType="int">
+		update t_umbbox set ubox_id = 'D' where ubox_seq = #{ubox_seq}
 	</update>
 	
 	<delete id="deleteUbox" parameterType = "int">

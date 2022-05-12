@@ -35,7 +35,7 @@ public class RetrunController {
 	
 	@RequestMapping("/frontRfid")
 	public void frontRfid(@RequestParam(value="uid") String uid, @RequestParam(value="umbbox_seq") String umbbox_seq) throws NoRouteToHostException, ConnectException, IOException, Exception{
-			if(rfidFrontService.selectDiff() < 10 && rfidFrontService.selectDiff() != 0 && rfidFrontService.selectCheck().equals(uid)){
+			if(rfidFrontService.selectDiff() < 6 && rfidFrontService.selectCheck().equals(uid)){
 				rentalService.rental2(uid, umbbox_seq); // 대여절차(최종)으로
 				System.out.println("대여절차(최종)으로");
 			}else {
@@ -47,7 +47,7 @@ public class RetrunController {
 
 	@RequestMapping("/backRfid")
 	public void backRfid(@RequestParam(value="uid") String uid, @RequestParam(value="umbbox_seq") String umbbox_seq) throws NoRouteToHostException, ConnectException, IOException, Exception{		
-			if(rfidBackService.selectDiff() < 10 && rfidBackService.selectDiff() != 0 && rfidBackService.selectCheck().equals(uid)){
+			if(rfidBackService.selectDiff() < 6 && rfidBackService.selectCheck().equals(uid)){
 				returnService.return2(uid, umbbox_seq); // 반납절차(최종)으로
 				System.out.println("반납절차(최종)으로");
 			}else {

@@ -20,8 +20,8 @@ import kr.smhrd.mapper.UserMapper;
 @Service
 public class ReturnService {
 
-	@Autowired
-	private RaspService raspService;
+//	@Autowired
+//	private RaspService raspService;
 	
 	@Autowired
 	private PayService payService;
@@ -42,26 +42,27 @@ public class ReturnService {
 	private RfidFrontService rfidFrontService;
 	
 	// 우산 반납을 시작
-	public void return1(String uid, String umbbox_seq) throws NoRouteToHostException, ConnectException, IOException, Exception{
+	public void return1(String uid, String umbbox_seq){
 		rfidFrontService.insertLog(uid); 				// RFID 로그 입력
 		System.out.println("반납 시작 : 로그 - " + uid);
 		Rent rvo = rentService.selectOneRfid(uid); 	// 우산 uid로 렌트 VO 호출
 		Umbbox bvo = new Umbbox(); 						// 보관함 VO 생성, updateUboxID(bvo)로 쓰기 위함
 		bvo.setUbox_id(rvo.getRent_id()); 		// 보관함 VO에 사용자 ID 입력
 		bvo.setUbox_seq(Integer.parseInt(umbbox_seq));		// 보관함 VO에 보관함 일련번호 입력
-		raspService.getRequestApiGet("http://172.30.1.49:8082/soleOFF"); // 솔레노이드 해제
+		//raspService.getRequestApiGet("http://172.30.1.49:8082/soleOFF"); // 솔레노이드 해제
 		System.out.println("사용자 아이디 보관함 DB에 입력 : "+rvo.getRent_id());
 		umbboxService.updateUboxID(bvo); 			// 보관함 테이블에 사용자 아이디 업데이트
 	}
 	
 	// 우산 반납을 마무리
-	public void return2(String uid, String umbbox_seq) throws NoRouteToHostException, ConnectException, IOException, Exception{
+	public void return2(String uid, String umbbox_seq){
 		rfidBackService.insertLog(uid);				// RFID 로그 입력
 		System.out.println("반납 마무리 : 로그 - " + uid);
-		raspService.getRequestApiGet("http://172.30.1.49:8082/soleON");	// 솔레노이드 잠금
+		//raspService.getRequestApiGet("http://172.30.1.49:8082/soleON");	// 솔레노이드 잠금
 		Rent vo = rentService.selectOneRfid(uid);	// 대여정보 갖고오기 (우산 rfid로)
 		int time = rentService.selectRentTime(vo.getRent_seq());	// 사용시간 추출
-		int pay = (time!=0)?((time/24)+1)*700:0;				// 사용시간을 바탕으로 사용요금 계산
+		//int pay = (time!=0)?((time/24)+1)*700:0; // 사용시간을 바탕으로 사용요금 계산 <다시 넣어야 됨>
+		int pay = 7000;
 		HashMap<String, Object> pc = new HashMap<>();			// HashMap 호출, DB입력용
 		pc.put("user_id", vo.getRent_id());						// map에 유저아이디 입력
 		pc.put("amount", pay);									// map에 사용요금 입력
@@ -82,6 +83,6 @@ public class ReturnService {
 		System.out.println("대여기록 수정 완료 : " + vo.getPay_done());
 		
 		// 보관함 사용자 초기화
-		umbboxService.updateUboxID2(umbbox_seq);						// 보관함 초기화 (사용자 아이디 다시 디폴트값으로)
+		umbboxService.updateUboxID2(Integer.parseInt(umbbox_seq));						// 보관함 초기화 (사용자 아이디 다시 디폴트값으로)
 	}
 }

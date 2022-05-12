@@ -80,8 +80,8 @@ public class AndroidController {
 		System.out.println("대여 User : " + get_userId);
 
 		Umbbox vo = new Umbbox(); // 보관함 VO 생성
-		vo.setUbox_id("dong");
-		vo.setUbox_seq(3);
+		vo.setUbox_id("1234");
+		vo.setUbox_seq(1);
 		Ubox_Service.updateUboxID(vo); // 보관함에 사용자 아이디 업데이트
 		// Rentservice.insertRent(null);
 	}

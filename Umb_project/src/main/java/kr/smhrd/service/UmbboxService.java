@@ -75,7 +75,7 @@ public class UmbboxService {
 	}
 		
 	// 보관함 대여취소신호/대여-반납 종료신호(보관함 사용자 아이디 초기화) 전송
-	public void updateUboxID2(String ubox_id) {
-		mapper.updateUboxID2(ubox_id);
+	public void updateUboxID2(int ubox_seq) {
+		mapper.updateUboxID2(ubox_seq);
 	}
 }
