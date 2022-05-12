@@ -20,8 +20,8 @@ public class CouponService {
 	}
 	
 	// 쿠폰 세부조회
-	public Coupon selectOneCoupon(int cp_seq) {
-		return mapper.selectOneCoupon(cp_seq);
+	public List<Coupon> selectOneCoupon(String cp_user) {
+		return mapper.selectOneCoupon(cp_user);
 	}
 			
 	// 쿠폰 추가
