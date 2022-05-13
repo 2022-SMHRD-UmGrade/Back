@@ -14,6 +14,12 @@
 		select ubox_id from t_umbbox where ubox_seq = #{ubox_seq}
 	</select>
 	
+	<select id="selectUnusedUbox" resultType = "kr.smhrd.domain.Umbbox">
+		select ubox_seq
+		from t_umbbox
+		where 45 <![CDATA[<]]> (now()-ubox_id_date) and ubox_id != 'D'
+	</select>
+	
 	<select id="isExistUboxID" parameterType = "int" resultType = "java.lang.Boolean">
 		select IF(COUNT(*) = 1, 1, 0) from t_umbbox where ubox_seq = #{ubox_seq} and ubox_id != 'D'
 	</select>
@@ -39,7 +45,7 @@
 	</update>
 	
 	<update id="updateUboxID" parameterType="kr.smhrd.domain.Umbbox">
-		update t_umbbox set ubox_id = #{ubox_id} where ubox_seq = #{ubox_seq}
+		update t_umbbox set ubox_id = #{ubox_id}, ubox_id_date = now() where ubox_seq = #{ubox_seq}
 	</update>
 	
 	<update id="updateUboxID2" parameterType="int">

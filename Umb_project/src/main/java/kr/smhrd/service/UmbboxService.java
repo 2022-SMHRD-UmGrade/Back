@@ -78,4 +78,9 @@ public class UmbboxService {
 	public void updateUboxID2(int ubox_seq) {
 		mapper.updateUboxID2(ubox_seq);
 	}
+	
+	// 사용자 아이디가 등록됐지만 45초 이상 사용되지 않는 보관함 조회
+	public List<Umbbox> selectUnusedUbox(){
+		return mapper.selectUnusedUbox();
+	}
 }

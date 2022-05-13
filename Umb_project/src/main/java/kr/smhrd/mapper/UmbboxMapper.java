@@ -21,6 +21,9 @@ public interface UmbboxMapper {
 	// 보관함 유저 아이디 조회
 	public String selectUboxID(int ubox_seq);
 	
+	// 사용자 아이디가 등록됐지만 45초 이상 사용되지 않는 보관함 조회
+	public List<Umbbox> selectUnusedUbox();
+	
 	// 보관함에 사용자아이디가 있는지 확인
 	public boolean isExistUboxID(int ubox_seq);
 	

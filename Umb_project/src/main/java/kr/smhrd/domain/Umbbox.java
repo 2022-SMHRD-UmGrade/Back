@@ -19,5 +19,6 @@ public class Umbbox {
 	private String admin_id; // 보관함 관리자
 	private String ubox_check; // 보관함 점검일자
 	private String ubox_id; // 사용자 ID
+	private String ubox_id_date; // 사용자 ID 갱신시간
 	
 }
