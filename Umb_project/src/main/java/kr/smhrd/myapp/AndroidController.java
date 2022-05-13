@@ -97,6 +97,7 @@ public class AndroidController {
 		System.out.println("게시글 등록 성공!");
 		System.out.println(vo.getArticle_title());
 		System.out.println(vo.getArticle_content());
+		
 		return "success";
 	}
 
