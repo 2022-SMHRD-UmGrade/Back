@@ -6,6 +6,7 @@ import java.net.NoRouteToHostException;
 import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import kr.smhrd.domain.Rent;
@@ -82,7 +83,10 @@ public class ReturnService {
 		rentService.updateRentReturn(vo);							// 대여정보 수정
 		System.out.println("대여기록 수정 완료 : " + vo.getPay_done());
 		
-		// 보관함 사용자 초기화
-		umbboxService.updateUboxID2(Integer.parseInt(umbbox_seq));						// 보관함 초기화 (사용자 아이디 다시 디폴트값으로)
+		// 보관함 사용자 초기화 (대여취소:pay==0인 경우에는 초기화 안하고 바로 재대여 가능한 상태로)
+		if(pay!=0) {
+			umbboxService.updateUboxID2(Integer.parseInt(umbbox_seq));	// 보관함 초기화 (사용자 아이디 다시 디폴트값으로)			
+		}
 	}
+
 }

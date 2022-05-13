@@ -23,7 +23,6 @@ import kr.smhrd.service.QnaService;
 import kr.smhrd.service.ReplyService;
 import kr.smhrd.service.RfidFrontService;
 import kr.smhrd.service.UmbboxService;
-import kr.smhrd.service.UmbrellaService;
 import kr.smhrd.service.UsingCouponService;
 
 @Controller
@@ -32,6 +31,7 @@ public class HController {
 
 	@RequestMapping("/")
 	public String main() {
+		
 		return "userList";
 	}
 	

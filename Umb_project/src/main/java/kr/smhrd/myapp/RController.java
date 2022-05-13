@@ -20,51 +20,52 @@ import kr.smhrd.service.CommentService;
 import kr.smhrd.service.QnaService;
 import kr.smhrd.service.RentService;
 import kr.smhrd.service.ReplyService;
+import kr.smhrd.service.ReturnService;
 import kr.smhrd.service.UmbrellaService;
 import kr.smhrd.service.UserService;
 
 @RestController
 public class RController {
-
-	@Autowired
-	private UserService User_service;
-
-	@Autowired
-	private RentService Rent_Service;
-
-	@Autowired
-	private UmbrellaService Umb_Service;
 	
 	@Autowired
-	private BoardService Board_Service;
-	
-	@Autowired
-	private CommentService Comment_Service;
-	
-	@Autowired
-	private ReplyService Reply_Service;
+	private UserService userService;
 
 	@Autowired
-	private QnaService Qna_Service;
+	private RentService rentService;
+
+	@Autowired
+	private UmbrellaService umbrellaService;
+	
+	@Autowired
+	private BoardService boardService;
+	
+	@Autowired
+	private CommentService commentService;
+	
+	@Autowired
+	private ReplyService replyService;
+
+	@Autowired
+	private QnaService qnaService;
 
 	// 회원 리스트 요청
 	@RequestMapping("/userList.do")
 	public List<User> user() {
-		List<User> list = User_service.selectUser();
+		List<User> list = userService.selectUser();
 		return list;
 	}
 
 	// 우산 대여 리스트 요청
 	@RequestMapping("/rentList.do")
 	public List<Rent> Rent(Model model) {
-		List<Rent> list = Rent_Service.selectRent();
+		List<Rent> list = rentService.selectRent();
 		return list;
 	}
 
 	// 우산 리스트 요청
 	@RequestMapping("/umbList.do")
 	public List<Umbrella> umb() {
-		List<Umbrella> list = Umb_Service.selectUmb();
+		List<Umbrella> list = umbrellaService.selectUmb();
 		return list;
 	}
 	
@@ -73,7 +74,7 @@ public class RController {
 	@RequestMapping(value = "/BoardList.do")
 	public List<Board> selectBoard() {
 		System.out.println("게시글 리스트 요청");
-		List<Board> list = Board_Service.selectBoard();
+		List<Board> list = boardService.selectBoard();
 		return list;
 	}
 	
@@ -81,7 +82,7 @@ public class RController {
 	@RequestMapping(value = "/BoardOne.do")
 	public Board selectOneBoard(@RequestParam(value="article_seq")int article_seq) {
 		System.out.println("단일 게시글 요청");
-		Board list = Board_Service.selectOneBoard(article_seq);
+		Board list = boardService.selectOneBoard(article_seq);
 		return list;
 	}
 	
@@ -89,7 +90,7 @@ public class RController {
 	@RequestMapping(value = "/BoardComment.do")
 	public List<Comment> selectListCmt(@RequestParam(value="article_seq")int article_seq) {
 		System.out.println("게시글 별 댓글 리스트 요청");
-		List<Comment> list = Comment_Service.selectListCmt(article_seq);
+		List<Comment> list = commentService.selectListCmt(article_seq);
 		return list;
 	}
 
@@ -98,7 +99,7 @@ public class RController {
 	@RequestMapping(value = "/QnaList.do")
 	public List<Qna> selectQna() {
 		System.out.println("Qna 리스트 요청");
-		List<Qna> list = Qna_Service.selectQna();
+		List<Qna> list = qnaService.selectQna();
 		return list;
 	}
 	
@@ -106,7 +107,7 @@ public class RController {
 	@RequestMapping(value = "/QnaOne.do")
 	public Qna selectOneQna(@RequestParam(value="qna_seq")int qna_seq) {
 		System.out.println("Qna 리스트 요청");
-		Qna list = Qna_Service.selectOneQna(qna_seq);
+		Qna list = qnaService.selectOneQna(qna_seq);
 		return list;
 		}
 	
@@ -114,13 +115,13 @@ public class RController {
 	@RequestMapping(value = "/QnaReply.do")
 	public List<Reply> selectListReply(@RequestParam(value="qna_seq")int qna_seq) {
 		System.out.println("Qna 별 댓글 리스트 요청");
-		List<Reply> list = Reply_Service.selectListReply(qna_seq);
+		List<Reply> list = replyService.selectListReply(qna_seq);
 		return list;
 	}
 	
 	@RequestMapping("/umbUpdate.do")
 	public void umbUp(int umb_seq) {
-		Umb_Service.updateUmbCheck(umb_seq);
+		umbrellaService.updateUmbCheck(umb_seq);
 	}
 
 //	@RequestMapping("/selectRt.do")
