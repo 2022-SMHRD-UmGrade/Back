@@ -64,6 +64,11 @@ public class UmbrellaService {
 	public void updateUmbStatus(Umbrella vo) {
 		mapper.updateUmbStatus(vo);
 	}
+
+	public void insertUmb(Umbrella vo) {
+		mapper.insertUmb(vo);
+		
+	}
 	
 	
 }

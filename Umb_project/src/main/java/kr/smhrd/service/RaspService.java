@@ -1,38 +1,45 @@
 package kr.smhrd.service;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.ConnectException;
-import java.net.HttpURLConnection;
-import java.net.NoRouteToHostException;
-import java.net.URL;
-
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Service
 public class RaspService {
-
-	public String getRequestApiGet(String url) throws IOException, NoRouteToHostException, ConnectException, Exception
-	{
-		 URL obj = new URL(url);
-		    HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-
-		    // optional default is GET
-		    con.setRequestMethod("GET");
-
-		    //add request header 헤더를 만들어주는것.
-		    con.setRequestProperty("Accept-Charset", "UTF-8");
-		    con.setRequestProperty("Content-Type", "text/plain; charset=utf-8");
-
-		    BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-		    String inputLine;
-		    String resultXmlText = "";
-		    while ((inputLine = in.readLine()) != null) {
-		    	resultXmlText += inputLine;
-		    }
-		    in.close();
-		    con.disconnect();
-		    return resultXmlText;
-	}
+	
+		// 잠금 풀린 상태
+		   public String soleON() {
+		       return "redirect:http://172.30.1.44:8082/soleON";
+		   }
+		
+		// 잠금 상태
+		   public String soleOFF() {
+		       return "redirect:http://172.30.1.44:8082/soleOFF";
+		   }
+		
+		// fan 가동
+		   public String fanON() {
+		       return "redirect:http://172.30.1.44:8082/fanON";
+		   }
+		
+		// fan 가동 중지
+		   public String fanOFF() {
+		       return "redirect:http://172.30.1.44:8082/fanOFF";
+		   }
+		
+		// led 초록불 점등
+		   public String ledGreen() {
+		       return "redirect:http://172.30.1.44:8082/ledGreen";
+		   }
+		
+		// led 빨간불 점등
+		   public String ledRed() {
+		       return "redirect:http://172.30.1.44:8082/ledRed";
+		   }
+		
+		// led 소등
+		   public String ledOFF() {
+			      return "redirect:http://172.30.1.44:8082/ledRed";
+		   }
+	
+	
 }

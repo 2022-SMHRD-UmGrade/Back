@@ -51,20 +51,30 @@ public class RController {
 	// 회원 리스트 요청
 	@RequestMapping("/userList.do")
 	public List<User> user() {
+		System.out.println("회원 리스트 요청");
 		List<User> list = userService.selectUser();
 		return list;
 	}
 
-	// 우산 대여 리스트 요청
+	// 대여 리스트 요청
 	@RequestMapping("/rentList.do")
 	public List<Rent> Rent(Model model) {
+		System.out.println("우산 대여 리스트 요청");
 		List<Rent> list = rentService.selectRent();
 		return list;
 	}
+	
+//	// 우산 추가 요청 - 미완 -
+//	@RequestMapping("/umbInsert.do")
+//	public void umbInsert(Umbrella vo) {
+//		System.out.println("우산 추가 요청");
+//		umbrellaService.insertUmb(vo);
+//	}
 
 	// 우산 리스트 요청
 	@RequestMapping("/umbList.do")
 	public List<Umbrella> umb() {
+		System.out.println("우산 리스트 요청");
 		List<Umbrella> list = umbrellaService.selectUmb();
 		return list;
 	}
