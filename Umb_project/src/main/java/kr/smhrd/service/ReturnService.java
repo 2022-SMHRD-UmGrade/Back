@@ -86,9 +86,9 @@ public class ReturnService {
 		// 보관함 사용자 초기화 (대여취소:pay==0인 경우에는 초기화 안하고 바로 재대여 가능한 상태로)
 		if(pay!=0) {
 			umbboxService.updateUboxID2(Integer.parseInt(umbbox_seq)); // 보관함 초기화 (사용자 아이디 다시 디폴트값으로)
-			return true;
+			return false;
 		}
-		return false;
+		return true;
 	}
 
 }

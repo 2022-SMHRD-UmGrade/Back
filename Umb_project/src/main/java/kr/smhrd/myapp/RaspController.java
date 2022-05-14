@@ -4,16 +4,22 @@ import java.io.IOException;
 import java.net.ConnectException;
 import java.net.NoRouteToHostException;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
+import kr.smhrd.domain.Umbbox;
 import kr.smhrd.service.RaspService;
 import kr.smhrd.service.RentalService;
 import kr.smhrd.service.ReturnService;
 import kr.smhrd.service.RfidBackService;
 import kr.smhrd.service.RfidFrontService;
+import kr.smhrd.service.UmbboxService;
 import kr.smhrd.service.UmbrellaService;
 
 @Controller
@@ -31,20 +37,23 @@ public class RaspController {
 	private RfidBackService rfidBackService;
 	
 	@Autowired
+	private UmbboxService umbboxServive;
+	
+	@Autowired
 	private RaspService raspService;
 	
 	
 	@RequestMapping("/frontRfid")
 	public String frontRfid(@RequestParam(value="uid") String uid, @RequestParam(value="umbbox_seq") String umbbox_seq) throws NoRouteToHostException, ConnectException, IOException, Exception{
 	
-			if(rfidFrontService.selectDiff() < 6 && rfidFrontService.selectCheck().equals(uid)){
+			if(rfidFrontService.selectDiff() < 10 && rfidFrontService.selectCheck().equals(uid)){
 				System.out.println("대여절차(최종)으로");
 				rentalService.rental2(uid, umbbox_seq); // 대여절차(최종)으로
-				return raspService.soleON();
+				return raspService.Rantal2();
 			}else {
 				System.out.println("반납절차(시작)으로");
 				returnService.return1(uid, umbbox_seq); // 반납절차(시작)으로
-				return raspService.soleOFF();
+				return raspService.Return1();
 			}
 	}
 	
@@ -52,15 +61,37 @@ public class RaspController {
 	@RequestMapping("/backRfid")
 	public String backRfid(@RequestParam(value="uid") String uid, @RequestParam(value="umbbox_seq") String umbbox_seq) throws NoRouteToHostException, ConnectException, IOException, Exception{		
 	
-			if(rfidBackService.selectDiff() < 6 && rfidBackService.selectCheck().equals(uid)){
+			if(rfidBackService.selectDiff() < 10 && rfidBackService.selectCheck().equals(uid)){
 				System.out.println("반납절차(최종)으로");
 				boolean cancel = returnService.return2(uid, umbbox_seq); // 반납절차(최종)으로
-				return raspService.soleON();
+				if(cancel) {
+					return raspService.Cancel();					
+				}
+				return raspService.Return2();
 			}else {
 				System.out.println("대여절차(시작)으로");
 				rentalService.rental1(uid, umbbox_seq); // 대여절차(시작)으로
-				return raspService.soleOFF();
+				return raspService.Rantal1();
 			}
 
 	}
+	
+	// 우산대여요청
+	@RequestMapping(value = "/Android/Rent", method = RequestMethod.POST)
+	public String umbRent(HttpServletRequest httpServletRequest) {
+			System.out.println("안드로이드 : 대여 요청");
+			String get_url = httpServletRequest.getParameter("qrNum");
+			String get_userId = httpServletRequest.getParameter("userId");
+			System.out.println("대여 URL : " + get_url);
+			System.out.println("대여 User : " + get_userId);
+
+			Umbbox vo = new Umbbox(); // 보관함 VO 생성
+			vo.setUbox_id("1234");
+			vo.setUbox_seq(1);
+			umbboxServive.updateUboxID(vo); // 보관함에 사용자 아이디 업데이트
+			
+			return raspService.ledGreen();
+			// Rentservice.insertRent(null);
+	}
+	
 }
