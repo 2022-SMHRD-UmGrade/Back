@@ -6,6 +6,10 @@
 		select * from t_rent where rent_seq = #{rent_seq}
 	</select>
 	
+	<select id ="selectRentUmb" parameterType = "int" resultType = "int">
+		select count(*) from t_rent where pay_amount = -1 and umb_seq = #{umb_seq}
+	</select>
+	
 	<select id ="selectRentTime" parameterType = "int" resultType = "int">
 		select timestampdiff(hour, rent_s_date, now()) from t_rent where rent_seq = #{rent_seq}
 	</select>
@@ -16,6 +20,13 @@
 	
 	<select id ="selectOneRfid" parameterType = "String" resultType = "kr.smhrd.domain.Rent">
 		select * from t_rent where pay_amount = -1 and umb_seq = (select umb_seq from t_umbrella where umb_rfid = #{umb_rfid})
+	</select>
+	
+	<select id="selectNoReturn" resultType = "kr.smhrd.domain.Rent">
+		select rent_seq
+		from t_rent
+		where 6 <![CDATA[<]]> TIMESTAMPDIFF(DAY, rent_s_date, now())
+     		and pay_done != 'Y'
 	</select>
 	
 	<insert id="insertRent" parameterType="kr.smhrd.domain.Rent">

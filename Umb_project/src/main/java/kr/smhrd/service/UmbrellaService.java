@@ -56,8 +56,8 @@ public class UmbrellaService {
 	}
 	
 	// 우산 파손정보 수정
-	public void updateUmbBroken(Umbrella vo) {
-		mapper.updateUmbBroken(vo);
+	public void updateUmbBroken(int umb_seq) {
+		mapper.updateUmbBroken(umb_seq);
 	}
 	
 	// 우산 대여정보 수정

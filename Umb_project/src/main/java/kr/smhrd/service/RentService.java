@@ -24,6 +24,11 @@ public class RentService {
 		return mapper.selectOneRfid(umb_rfid);
 	}
 	
+	// 우산이 이미 대여가 된 상태인지 확인 (1이면 대여된 상태, 0이면 아직 대여 안 된 상태)
+	public int selectRentUmb(int umb_seq) {
+		return mapper.selectRentUmb(umb_seq);
+	}
+	
 	// 개별 대여정보 조회
 	public Rent selectOneRent(int rent_seq) {
 		return mapper.selectOneRent(rent_seq);
@@ -37,6 +42,11 @@ public class RentService {
 	// 대여시간 조회 (반납 이후)
 	public int selectRentTime2(Rent vo) {
 		return mapper.selectRentTime2(vo);
+	}
+	
+	// 7일 이상 미반납 대여정보 추출
+	public List<Rent> selectNoReturn(){
+		return mapper.selectNoReturn();
 	}
 	
 	// 대여정보 추가

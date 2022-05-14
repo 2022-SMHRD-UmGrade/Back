@@ -52,7 +52,8 @@ public class RaspService {
 		
 		// led 초록불 점등
 		public String ledGreen() {
-		     return "redirect:http://172.30.1.44:8083/ledGreen";
+			System.out.println("초록불 신호 보내기");
+		     return "redirect:http://172.30.1.44:8082/ledGreen";
 		}
 		
 		// led 빨간불 점등
@@ -62,7 +63,7 @@ public class RaspService {
 		
 		// led 소등
 		public String ledOFF() {
-			 return "redirect:http://172.30.1.44:8083/ledOFF";
+			 return "redirect:http://172.30.1.44:8082/ledOFF";
 		}
 	
 	

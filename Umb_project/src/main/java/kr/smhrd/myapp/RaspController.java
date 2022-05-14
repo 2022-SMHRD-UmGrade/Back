@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.smhrd.domain.Umbbox;
 import kr.smhrd.service.RaspService;
+import kr.smhrd.service.RentService;
 import kr.smhrd.service.RentalService;
 import kr.smhrd.service.ReturnService;
 import kr.smhrd.service.RfidBackService;
@@ -42,11 +43,17 @@ public class RaspController {
 	@Autowired
 	private RaspService raspService;
 	
+	@Autowired
+	private RentService rentService;
+	
+	@Autowired
+	private UmbrellaService umbrellaService;
+	
 	
 	@RequestMapping("/frontRfid")
 	public String frontRfid(@RequestParam(value="uid") String uid, @RequestParam(value="umbbox_seq") String umbbox_seq) throws NoRouteToHostException, ConnectException, IOException, Exception{
 	
-			if(rfidFrontService.selectDiff() < 10 && rfidFrontService.selectCheck().equals(uid)){
+			if(rentService.selectRentUmb(umbrellaService.selectUmbSeq(uid)) == 0){ // 우산의 대여/반납상태 확인
 				System.out.println("대여절차(최종)으로");
 				rentalService.rental2(uid, umbbox_seq); // 대여절차(최종)으로
 				return raspService.Rantal2();
@@ -61,7 +68,7 @@ public class RaspController {
 	@RequestMapping("/backRfid")
 	public String backRfid(@RequestParam(value="uid") String uid, @RequestParam(value="umbbox_seq") String umbbox_seq) throws NoRouteToHostException, ConnectException, IOException, Exception{		
 	
-			if(rfidBackService.selectDiff() < 10 && rfidBackService.selectCheck().equals(uid)){
+			if(rentService.selectRentUmb(umbrellaService.selectUmbSeq(uid)) > 0){ // 우산의 대여/반납상태 확인
 				System.out.println("반납절차(최종)으로");
 				boolean cancel = returnService.return2(uid, umbbox_seq); // 반납절차(최종)으로
 				if(cancel) {
@@ -77,16 +84,14 @@ public class RaspController {
 	}
 	
 	// 우산대여요청
-	@RequestMapping(value = "/Android/Rent", method = RequestMethod.POST)
-	public String umbRent(HttpServletRequest httpServletRequest) {
+	@RequestMapping("/Android/Rent")
+	public String umbRent(@RequestParam(value="qrNum") String qrNum, @RequestParam(value="userId") String userId) {
 			System.out.println("안드로이드 : 대여 요청");
-			String get_url = httpServletRequest.getParameter("qrNum");
-			String get_userId = httpServletRequest.getParameter("userId");
-			System.out.println("대여 URL : " + get_url);
-			System.out.println("대여 User : " + get_userId);
+			System.out.println("대여 URL : " + qrNum);
+			System.out.println("대여 User : " + userId);
 
 			Umbbox vo = new Umbbox(); // 보관함 VO 생성
-			vo.setUbox_id("1234");
+			vo.setUbox_id(userId);
 			vo.setUbox_seq(1);
 			umbboxServive.updateUboxID(vo); // 보관함에 사용자 아이디 업데이트
 			

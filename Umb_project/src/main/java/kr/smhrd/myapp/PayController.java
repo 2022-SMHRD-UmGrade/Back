@@ -22,10 +22,10 @@ public class PayController {
 		return "success";
 	}
 	
-	// 파라미터 4개 (billingKey, customereKey, amount, orderId), 테스트용 [수정할 예정 : 반납 절차와 통합]
+	// 분실 신고 시, 자동으로 결제 진행하고 대여내역 정리
 	@RequestMapping("/auto")
-	public String auto() {
-		//service.auto();
+	public String auto(@RequestParam(value="rent_id") String rent_id, @RequestParam(value="rent_seq") String rent_seq) {
+		service.auto(rent_id, 8000, rent_seq);
 		return "auto";
 	}
 }

@@ -17,7 +17,8 @@
 	<select id="selectUnusedUbox" resultType = "kr.smhrd.domain.Umbbox">
 		select ubox_seq
 		from t_umbbox
-		where 45 <![CDATA[<]]> (now()-ubox_id_date) and ubox_id != 'D'
+		where 50 <![CDATA[<]]> TIMESTAMPDIFF(SECOND, ubox_id_date, now())
+     		and ubox_id != 'D'
 	</select>
 	
 	<select id="isExistUboxID" parameterType = "int" resultType = "java.lang.Boolean">

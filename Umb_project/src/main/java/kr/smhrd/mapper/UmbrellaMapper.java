@@ -32,7 +32,7 @@ public interface UmbrellaMapper {
 	public void updateUmbStatus(Umbrella vo);
 	
 	// 파손정보 수정
-	public void updateUmbBroken(Umbrella vo);
+	public void updateUmbBroken(int umb_seq);
 	
 	// 점검일자 수정
 	public void updateUmbCheck(int umb_seq);
