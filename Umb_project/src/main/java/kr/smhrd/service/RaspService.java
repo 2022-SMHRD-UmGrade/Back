@@ -5,6 +5,31 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Service
 public class RaspService {
+		// 대여 절차 1
+	   public String Rantal1() {
+	       return "redirect:http://172.30.1.44:8082/Rental1";
+	   }
+	   
+	   // 대여 절차 2
+	   public String Rantal2() {
+	       return "redirect:http://172.30.1.44:8082/Rental2";
+	   }
+	   
+	   // 반납 절차 1
+	   public String Return1() {
+	       return "redirect:http://172.30.1.44:8082/Return1";
+	   }
+	   
+	   // 반납 절차 2
+	   public String Return2() {
+	       return "redirect:http://172.30.1.44:8082/Return2";
+	   }
+	   
+	   // 대여 취소
+	   public String Cancel() {
+	       return "redirect:http://172.30.1.44:8082/Cancel";
+	   }
+	
 	
 		// 잠금 풀린 상태
 		   public String soleON() {

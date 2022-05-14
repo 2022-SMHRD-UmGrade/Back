@@ -20,6 +20,7 @@ import kr.smhrd.service.BoardService;
 import kr.smhrd.service.CommentService;
 import kr.smhrd.service.CouponService;
 import kr.smhrd.service.QnaService;
+import kr.smhrd.service.RaspService;
 import kr.smhrd.service.ReplyService;
 import kr.smhrd.service.RfidFrontService;
 import kr.smhrd.service.UmbboxService;
@@ -28,6 +29,21 @@ import kr.smhrd.service.UsingCouponService;
 @Controller
 public class HController {
 
+	@Autowired
+	private RaspService Rasp_Service;
+	
+	@RequestMapping("/soleON")
+	public String test1() {
+		
+		return Rasp_Service.soleON();
+	}
+	
+	@RequestMapping("/soleOFF")
+	public String test2() {
+		
+		return Rasp_Service.soleOFF();
+	}
+	
 
 	@RequestMapping("/")
 	public String main() {
