@@ -16,7 +16,7 @@ public class PayController {
 	@Autowired
 	private PayService service;
 	
-	@RequestMapping("/success")
+	@RequestMapping("/success") // 카드 등록 페이지
 	public String success(@RequestParam(value="customerKey") String customerKey, @RequestParam(value="authKey") String authKey) {
 		service.success(customerKey, authKey);
 		return "success";

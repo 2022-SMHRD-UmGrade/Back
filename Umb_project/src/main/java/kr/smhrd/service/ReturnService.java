@@ -56,7 +56,7 @@ public class ReturnService {
 	}
 	
 	// 우산 반납을 마무리
-	public void return2(String uid, String umbbox_seq){
+	public boolean return2(String uid, String umbbox_seq){
 		rfidBackService.insertLog(uid);				// RFID 로그 입력
 		System.out.println("반납 마무리 : 로그 - " + uid);
 		//raspService.getRequestApiGet("http://172.30.1.49:8082/soleON");	// 솔레노이드 잠금
@@ -85,8 +85,10 @@ public class ReturnService {
 		
 		// 보관함 사용자 초기화 (대여취소:pay==0인 경우에는 초기화 안하고 바로 재대여 가능한 상태로)
 		if(pay!=0) {
-			umbboxService.updateUboxID2(Integer.parseInt(umbbox_seq));	// 보관함 초기화 (사용자 아이디 다시 디폴트값으로)			
+			umbboxService.updateUboxID2(Integer.parseInt(umbbox_seq)); // 보관함 초기화 (사용자 아이디 다시 디폴트값으로)
+			return true;
 		}
+		return false;
 	}
 
 }
