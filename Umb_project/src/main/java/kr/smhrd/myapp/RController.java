@@ -26,7 +26,7 @@ import kr.smhrd.service.UserService;
 
 @RestController
 public class RController {
-	
+
 	@Autowired
 	private UserService userService;
 
@@ -35,13 +35,13 @@ public class RController {
 
 	@Autowired
 	private UmbrellaService umbrellaService;
-	
+
 	@Autowired
 	private BoardService boardService;
-	
+
 	@Autowired
 	private CommentService commentService;
-	
+
 	@Autowired
 	private ReplyService replyService;
 
@@ -63,7 +63,7 @@ public class RController {
 		List<Rent> list = rentService.selectRent();
 		return list;
 	}
-	
+
 //	// 우산 추가 요청 - 미완 -
 //	@RequestMapping("/umbInsert.do")
 //	public void umbInsert(Umbrella vo) {
@@ -78,8 +78,16 @@ public class RController {
 		List<Umbrella> list = umbrellaService.selectUmb();
 		return list;
 	}
-	
-/* 커뮤니티 게시판 */
+
+	/* 커뮤니티 게시판 */
+	// 게시판 게시글 작성
+	@RequestMapping(value = "/BoardInsert.do")
+	public String insertBoard(Board vo) {
+		boardService.insertBoard(vo);
+		System.out.println("게시글 등록 성공!");
+		return "success";
+	}
+
 	// 게시글 리스트 요청
 	@RequestMapping(value = "/BoardList.do")
 	public List<Board> selectBoard() {
@@ -87,24 +95,41 @@ public class RController {
 		List<Board> list = boardService.selectBoard();
 		return list;
 	}
-	
+
 	// 단일 게시글 정보 요청
 	@RequestMapping(value = "/BoardOne.do")
-	public Board selectOneBoard(@RequestParam(value="article_seq")int article_seq) {
+	public Board selectOneBoard(@RequestParam(value = "article_seq") int article_seq) {
 		System.out.println("단일 게시글 요청");
 		Board list = boardService.selectOneBoard(article_seq);
 		return list;
 	}
-	
+
 	// 게시글 별 댓글 리스트 요청
 	@RequestMapping(value = "/BoardComment.do")
-	public List<Comment> selectListCmt(@RequestParam(value="article_seq")int article_seq) {
+	public List<Comment> selectListCmt(@RequestParam(value = "article_seq") int article_seq) {
 		System.out.println("게시글 별 댓글 리스트 요청");
 		List<Comment> list = commentService.selectListCmt(article_seq);
 		return list;
 	}
+// 안드로이드에서 하고 있는 중 Start
+	// 게시판 게시글 조회수 증가 
+//	@RequestMapping(value = "/Increment.do")
+//	public void updateBoardCnt(@RequestParam("article_seq") int article_seq) {
+//		boardService.updateBoardCnt(article_seq);
+//		System.out.println("게시글 조회 증가");
+//	}
 
-/* Qna 게시판 */	
+	// 게시판 게시글 삭제
+//	@RequestMapping(value = "/BoardDelete.do")
+//	public String deleteBoard(int article_seq) {
+//		boardService.deleteBoard(article_seq);
+//		System.out.println("게시글 삭제!");
+//
+//		return "deleteSuccess";
+//	}
+// end
+
+	/* Qna 게시판 */
 	// QnA 리스트 요청
 	@RequestMapping(value = "/QnaList.do")
 	public List<Qna> selectQna() {
@@ -112,23 +137,23 @@ public class RController {
 		List<Qna> list = qnaService.selectQna();
 		return list;
 	}
-	
+
 	// 단일 QnA 요청
 	@RequestMapping(value = "/QnaOne.do")
-	public Qna selectOneQna(@RequestParam(value="qna_seq")int qna_seq) {
+	public Qna selectOneQna(@RequestParam(value = "qna_seq") int qna_seq) {
 		System.out.println("Qna 리스트 요청");
 		Qna list = qnaService.selectOneQna(qna_seq);
 		return list;
-		}
-	
+	}
+
 	// QnA 별 댓글 리스트 요청
 	@RequestMapping(value = "/QnaReply.do")
-	public List<Reply> selectListReply(@RequestParam(value="qna_seq")int qna_seq) {
+	public List<Reply> selectListReply(@RequestParam(value = "qna_seq") int qna_seq) {
 		System.out.println("Qna 별 댓글 리스트 요청");
 		List<Reply> list = replyService.selectListReply(qna_seq);
 		return list;
 	}
-	
+
 	@RequestMapping("/umbUpdate.do")
 	public void umbUp(int umb_seq) {
 		umbrellaService.updateUmbCheck(umb_seq);
