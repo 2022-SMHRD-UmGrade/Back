@@ -88,17 +88,6 @@ public class AndroidController {
 		vo.setUbox_seq(1);
 		Ubox_Service.updateUboxID(vo); // 보관함에 사용자 아이디 업데이트
 		// Rentservice.insertRent(null);
-	}
-	
-	// 공유 게시판 게시글 작성
-	@RequestMapping(value = "/Android/InsertContent", method = RequestMethod.POST)
-	public String insertBoard(Board vo) {
-		Board_service.insertBoard(vo);
-		System.out.println("게시글 등록 성공!");
-		System.out.println(vo.getArticle_title());
-		System.out.println(vo.getArticle_content());
-		
-		return "success";
-	}
+	}	
 
 }
