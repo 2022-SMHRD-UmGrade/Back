@@ -103,6 +103,14 @@ public class RController {
 		Board list = boardService.selectOneBoard(article_seq);
 		return list;
 	}
+	
+	// 게시글 댓글 작성
+	@RequestMapping(value = "/InsertCmt.do")
+	public String insertCmt(Comment vo) {
+		System.out.println("댓글 추가");
+		commentService.insertCmt(vo);
+		return "comment insert success!";		
+	}
 
 	// 게시글 별 댓글 리스트 요청
 	@RequestMapping(value = "/BoardComment.do")
