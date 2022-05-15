@@ -79,7 +79,7 @@ public class RController {
 		return list;
 	}
 
-	/* 커뮤니티 게시판 */
+/* 커뮤니티 게시판 */
 	// 게시판 게시글 작성
 	@RequestMapping(value = "/BoardInsert.do")
 	public String insertBoard(Board vo) {
@@ -103,6 +103,14 @@ public class RController {
 		Board list = boardService.selectOneBoard(article_seq);
 		return list;
 	}
+	
+	// 게시글 댓글 작성
+	@RequestMapping(value = "/InsertCmt.do")
+	public String insertCmt(Comment vo) {
+		System.out.println("댓글 추가");
+		commentService.insertCmt(vo);
+		return "comment insert success!";		
+	}
 
 	// 게시글 별 댓글 리스트 요청
 	@RequestMapping(value = "/BoardComment.do")
@@ -111,6 +119,14 @@ public class RController {
 		List<Comment> list = commentService.selectListCmt(article_seq);
 		return list;
 	}
+	
+	// 게시글 수정
+	@RequestMapping(value = "/BoardUpdate.do")
+	public void updateBoard(Board vo) {
+		System.out.println("게시글 별 댓글 리스트 요청");
+		boardService.updateBoard(vo);
+	}
+	
 // 안드로이드에서 하고 있는 중 Start
 	// 게시판 게시글 조회수 증가 
 //	@RequestMapping(value = "/Increment.do")
@@ -129,7 +145,7 @@ public class RController {
 //	}
 // end
 
-	/* Qna 게시판 */
+/* Qna 게시판 */
 	// QnA 리스트 요청
 	@RequestMapping(value = "/QnaList.do")
 	public List<Qna> selectQna() {
