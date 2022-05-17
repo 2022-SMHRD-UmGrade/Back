@@ -10,7 +10,7 @@ public interface RfidBackMapper {
 	@Select("select * from t_brfid")
 	public List<Rfid> selectRfid();
 	
-	public void insertLog(String rfid_uid);
+	public void insertLog(Rfid vo);
 	
 	public String selectCheck();
 	

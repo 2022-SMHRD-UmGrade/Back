@@ -21,8 +21,8 @@ public class RfidFrontService {
 		return list;
 	}
 	
-	public void insertLog(String rfid_uid) {
-		mapper.insertLog(rfid_uid);
+	public void insertLog(Rfid vo) {
+		mapper.insertLog(vo);
 	}
 	
 	public String selectCheck() {

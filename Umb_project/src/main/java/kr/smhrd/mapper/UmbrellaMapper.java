@@ -19,6 +19,9 @@ public interface UmbrellaMapper {
 	// 우산 RFID로 우산 시퀀스 조회
 	public int selectUmbSeq(String umb_rfid);
 	
+	// 우산 RFID로 우산 타입 조회
+	public String selectUmbType(String umb_rfid);
+	
 	// 우산 RFID 조회 (DB에 등록된 우리의 우산인지 확인)
 	public boolean isExistUmb(String umb_rfid);
 	
