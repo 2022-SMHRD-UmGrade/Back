@@ -178,12 +178,6 @@
 		    <version>1.18.12</version>
 		    <scope>provided</scope>
 		</dependency>	
-		<!-- MySQL -->
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.11</version>
-		</dependency>
 	</dependencies>
 	<repositories>
 		<repository>

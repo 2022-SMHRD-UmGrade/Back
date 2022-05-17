@@ -13,6 +13,7 @@ import kr.smhrd.domain.Comment;
 import kr.smhrd.domain.Qna;
 import kr.smhrd.domain.Rent;
 import kr.smhrd.domain.Reply;
+import kr.smhrd.domain.Umbbox;
 import kr.smhrd.domain.Umbrella;
 import kr.smhrd.domain.User;
 import kr.smhrd.service.BoardService;
@@ -21,6 +22,7 @@ import kr.smhrd.service.QnaService;
 import kr.smhrd.service.RentService;
 import kr.smhrd.service.ReplyService;
 import kr.smhrd.service.ReturnService;
+import kr.smhrd.service.UmbboxService;
 import kr.smhrd.service.UmbrellaService;
 import kr.smhrd.service.UserService;
 
@@ -35,6 +37,9 @@ public class RController {
 
 	@Autowired
 	private UmbrellaService umbrellaService;
+	
+	@Autowired
+	private UmbboxService UmbboxService;
 
 	@Autowired
 	private BoardService boardService;
@@ -47,6 +52,8 @@ public class RController {
 
 	@Autowired
 	private QnaService qnaService;
+	
+	
 
 	// 회원 리스트 요청
 	@RequestMapping("/userList.do")
@@ -78,6 +85,15 @@ public class RController {
 		List<Umbrella> list = umbrellaService.selectUmb();
 		return list;
 	}
+	
+/* 우산 보관함 */
+	// 보관함 리스트 요청
+		@RequestMapping("/uboxList.do")
+		public List<Umbbox> uboxList() {
+			System.out.println("보관함 리스트 요청");
+			List<Umbbox> list = UmbboxService.selectUbox();
+			return list;
+		}
 
 /* 커뮤니티 게시판 */
 	// 게시판 게시글 작성
