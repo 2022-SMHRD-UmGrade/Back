@@ -29,6 +29,11 @@ public class UmbrellaService {
 		return mapper.selectUmbSeq(umb_rfid);
 	}
 	
+	// 우산 RFID로 우산 타입 조회
+	public String selectUmbType(String umb_rfid) {
+		return mapper.selectUmbType(umb_rfid);
+	}
+	
 	// 우산 RFID 조회 (조건 + 파손되지 않은 우산)
 	public boolean isExistUmbBroken(String rfid) {
 		return mapper.isExistUmbBroken(rfid);

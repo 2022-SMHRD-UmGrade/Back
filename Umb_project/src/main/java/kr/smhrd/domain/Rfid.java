@@ -11,4 +11,5 @@ public class Rfid {
 	private int rfid_seq; // 로그 일련번호
 	private String rfid_uid; // 로그 일련번호
 	private String rfid_date;
+	private int rfid_ubox; // RFID가 위치한 우산보관함 번호
 }

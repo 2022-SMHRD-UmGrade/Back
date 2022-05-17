@@ -9,7 +9,7 @@ public interface RfidFrontMapper {
 	@Select("select * from t_frfid")
 	public List<Rfid> selectRfid();
 	
-	public void insertLog(String rfid_uid);
+	public void insertLog(Rfid vo);
 	
 	public String selectCheck();
 	

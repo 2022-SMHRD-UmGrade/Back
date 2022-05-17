@@ -10,6 +10,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import kr.smhrd.domain.Rent;
+import kr.smhrd.domain.Rfid;
 import kr.smhrd.domain.Umbbox;
 import kr.smhrd.mapper.RentMapper;
 import kr.smhrd.mapper.RfidBackMapper;
@@ -37,6 +38,9 @@ public class ReturnService {
 	private UserService userService;
 	
 	@Autowired
+	private UmbrellaService umbrellaService;
+	
+	@Autowired
 	private RfidBackService rfidBackService;
 	
 	@Autowired
@@ -44,7 +48,10 @@ public class ReturnService {
 	
 	// 우산 반납을 시작
 	public void return1(String uid, String umbbox_seq){
-		rfidFrontService.insertLog(uid); 				// RFID 로그 입력
+		Rfid vo = new Rfid();
+		vo.setRfid_ubox(Integer.parseInt(umbbox_seq));
+		vo.setRfid_uid(uid);
+		rfidFrontService.insertLog(vo); 				// RFID 로그 입력
 		System.out.println("반납 시작 : 로그 - " + uid);
 		Rent rvo = rentService.selectOneRfid(uid); 	// 우산 uid로 렌트 VO 호출
 		Umbbox bvo = new Umbbox(); 						// 보관함 VO 생성, updateUboxID(bvo)로 쓰기 위함
@@ -57,12 +64,18 @@ public class ReturnService {
 	
 	// 우산 반납을 마무리
 	public boolean return2(String uid, String umbbox_seq){
-		rfidBackService.insertLog(uid);				// RFID 로그 입력
+		Rfid rvo = new Rfid();
+		rvo.setRfid_ubox(Integer.parseInt(umbbox_seq));
+		rvo.setRfid_uid(uid);
+		rfidBackService.insertLog(rvo);				// RFID 로그 입력
+		
 		System.out.println("반납 마무리 : 로그 - " + uid);
 		//raspService.getRequestApiGet("http://172.30.1.49:8082/soleON");	// 솔레노이드 잠금
 		Rent vo = rentService.selectOneRfid(uid);	// 대여정보 갖고오기 (우산 rfid로)
 		int time = rentService.selectRentTime(vo.getRent_seq());	// 사용시간 추출
-		//int pay = (time!=0)?((time/24)+1)*700:0; // 사용시간을 바탕으로 사용요금 계산 <다시 넣어야 됨>
+		int charge = (umbrellaService.selectUmbType(uid).equals("N"))?700:400; // 우산 타입에 따라 요금 차등
+		
+		//int pay = (time!=0)?((time/24)+1)*charge:0; // 사용시간을 바탕으로 사용요금 계산 <다시 넣어야 됨>
 		int pay = 7000;
 		HashMap<String, Object> pc = new HashMap<>();			// HashMap 호출, DB입력용
 		pc.put("user_id", vo.getRent_id());						// map에 유저아이디 입력

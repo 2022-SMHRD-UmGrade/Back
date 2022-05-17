@@ -10,6 +10,10 @@
 		select umb_seq from t_umbrella where umb_rfid = #{umb_rfid}
 	</select>
 	
+	<select id ="selectUmbType" parameterType = "String" resultType = "int">
+		select umb_type from t_umbrella where umb_rfid = #{umb_rfid}
+	</select>
+	
 	<select id ="isExistUmb" parameterType = "String" resultType = "java.lang.Boolean">
 		select IF(COUNT(*) = 1, 1, 0) from t_umbrella where umb_rfid = #{umb_rfid}
 	</select>
