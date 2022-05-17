@@ -114,7 +114,7 @@
 								</li>
 								<li>
 									<a href="#" class="alert alert-dismissible fade show" role="alert">
-										<img src="resources/images/kuromi2.jpg" alt="">
+										<img src="${path}/resources/images/kuromi2.jpg" alt="">
 										<h3>💜</h3>
 										<p>자리를 찾아가는 퍼즐처럼</p>
 										<p>맞춰지는 세상 속을 벗어나고만 싶어</p>
@@ -125,7 +125,7 @@
 								</li>
 								<li>
 									<a href="#" class="alert alert-dismissible fade show" role="alert">
-										<img src="resources/images/kuromi3.jpg" alt="">
+										<img src="${path}/resources/images/kuromi3.jpg" alt="">
 										<h3>💜</h3>
 										<p>날 향한 시선에 감추기만 했던</p>
 										<p>마음의 목소리를 소리 내 외치면</p>	
@@ -138,7 +138,7 @@
 								</li>
 								<li>
 									<a href="#" class="alert alert-dismissible fade show" role="alert">
-										<img src="resources/images/kuromi4.jpg" alt="">
+										<img src="${path}/resources/images/kuromi4.jpg" alt="">
 										<h3>💜</h3>
 										<p>잿빛 세상을 등지고 이 도시를 달려봐</p>
 										<p>내 맘 가는 대로 가로질러 가볼래 날 위해</p>	
@@ -152,7 +152,7 @@
 								</li>
 								<li>
 									<a href="#" class="alert alert-dismissible fade show" role="alert">
-										<img src="resources/images/kuromi5.jpg" alt="">
+										<img src="${path}/resources/images/kuromi5.jpg" alt="">
 										<h3>💜</h3>
 										<p>Run run run higher, fly fly fly higher</p>
 										<p>I, I find myself 다시 빛나는 나를 봐</p>
@@ -163,7 +163,7 @@
 								</li>
 								<li>
 									<a href="#" class="alert alert-dismissible fade show" role="alert">
-										<img src="resources/images/sanrio.jpg" alt="">
+										<img src="${path}/resources/images/sanrio.jpg" alt="">
 										<h3>💜</h3>
 										<p>Run run run higher, fly fly fly fly higher</p>
 										<p>이 어둠 속 눈을 감고</p>	
@@ -182,19 +182,19 @@
 				<div class="dropdown">
 					<a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
 						<span class="user-icon">
-							<img src="resources/images/kuromi3.jpg" alt="">
+							<img src="${path}/resources/images/kuromi3.jpg" alt="">
 						</span>
 						<span class="user-name">쿠로미💜</span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-						<a class="dropdown-item" href="profile.jsp"><i class="dw dw-user1"></i> Profile</a>
-						<a class="dropdown-item" href="faq.jsp"><i class="dw dw-help"></i> Help</a>
-						<a class="dropdown-item" href="login.jsp"><i class="dw dw-logout"></i> Log Out</a>
+						<a class="dropdown-item" href="profile"><i class="dw dw-user1"></i> Profile</a>
+						<a class="dropdown-item" href="faq"><i class="dw dw-help"></i> Help</a>
+						<a class="dropdown-item" href="login"><i class="dw dw-logout"></i> Log Out</a>
 					</div>
 				</div>
 			</div>
 			<div class="github-link">
-				<a href="https://github.com/2022-SMHRD-UmGrade" target="_blank"><img src="resources/images/github.svg" alt=""></a>
+				<a href="https://github.com/2022-SMHRD-UmGrade" target="_blank"><img src="${path}/resources/images/github.svg" alt=""></a>
 			</div>
 		</div>
 	</div>
@@ -286,9 +286,9 @@
 	<!-- Sidebar Start -->
 	<div class="left-side-bar">
 		<div class="brand-logo">
-			<a href="home.jsp">
-				<img src="resources/images/logo2.png" alt="" class="dark-logo">
-				<img src="resources/images/logo1.png" alt="" class="light-logo">
+			<a href="home">
+				<img src="${path}/resources/images/logo2.png" alt="" class="dark-logo">
+				<img src="${path}/resources/images/logo1.png" alt="" class="light-logo">
 			</a>
 			<div class="close-sidebar" data-toggle="left-sidebar-close">
 				<i class="ion-close-round"></i>
@@ -298,7 +298,7 @@
 			<div class="sidebar-menu">
 				<ul id="accordion-menu">
 					<li class="dropdown">
-						<a href="home.jsp" class="dropdown-toggle no-arrow">
+						<a href="home" class="dropdown-toggle no-arrow">
 							<span class="micon dw dw-house-1"></span><span class="mtext">Home</span>
 						</a>
 					</li>
@@ -307,8 +307,8 @@
 							<span class="micon dw dw-user"></span><span class="mtext">회원관리</span>
 						</a>
 						<ul class="submenu">
-							<li><a href="userTable.jsp">회원조회</a></li>
-							<li><a href="managerRegister.jsp">관리자등록</a></li>
+							<li><a href="userTable">회원조회</a></li>
+							<li><a href="managerRegister">관리자등록</a></li>
 						</ul>
 					</li>
 					<li class="dropdown">
@@ -316,7 +316,7 @@
 							<span class="micon dw dw-umbrella"></span><span class="mtext">우산관리</span>
 						</a>
 						<ul class="submenu">
-							<li><a href="umTable.jsp">우산조회</a></li>
+							<li><a href="umTable">우산조회</a></li>
 						</ul>
 					</li>
 					<li>
@@ -325,16 +325,21 @@
 							<span class="micon dw dw-box-1"></span><span class="mtext">보관함관리</span>
 						</a>
 						<ul class="submenu">
-							<li><a href="umBoxTable.jsp">보관함조회</a></li>
+							<li><a href="umBoxTable">보관함조회</a></li>
 						</ul>
 					</li>
+					<li class="dropdown">
+						<a href="rental" class="dropdown-toggle no-arrow">
+							<span class="micon dw dw-house-1"></span><span class="mtext">대여관리</span>
+						</a>
+					</li>
 					<li>
-						<a href="qna.jsp" class="dropdown-toggle no-arrow">
+						<a href="qna" class="dropdown-toggle no-arrow">
 							<span class="micon dw dw dw-question-1"></span><span class="mtext">질의응답</span>
 						</a>
 					</li>
 					<li>
-						<a href="calendar.jsp" class="dropdown-toggle no-arrow">
+						<a href="calendar" class="dropdown-toggle no-arrow">
 							<span class="micon dw dw-calendar1"></span><span class="mtext">달력</span>
 						</a>
 					</li>
@@ -382,7 +387,7 @@
 							<nav aria-label="breadcrumb" role="navigation">
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="#">보관함관리</a></li>
-									<li class="breadcrumb-item"><a href="umBoxTable.jsp">보관함조회</a></li>
+									<li class="breadcrumb-item"><a href="umBoxTable">보관함조회</a></li>
 									<li class="breadcrumb-item active" aria-current="page">상세보기</li>
 								</ol>
 							</nav>
@@ -505,16 +510,16 @@
 	</div>
 
 	<!-- js -->
-	<script src="resources/js/core.js"></script>
-	<script src="resources/js/script.min.js"></script>
-	<script src="resources/js/process.js"></script>
-	<script src="resources/js/layout-settings.js"></script>
+	<script src="${path}/resources/js/core.js"></script>
+	<script src="${path}/resources/js/script.min.js"></script>
+	<script src="${path}/resources/js/process.js"></script>
+	<script src="${path}/resources/js/layout-settings.js"></script>
 	<!-- switchery js -->
-	<script src="resources/src/plugins/switchery/switchery.min.js"></script>
+	<script src="${path}/resources/src/plugins/switchery/switchery.min.js"></script>
 	<!-- bootstrap-tagsinput js -->
-	<script src="resources/src/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+	<script src="${path}/resources/src/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
 	<!-- bootstrap-touchspin js -->
-	<script src="resources/src/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script>
-	<script src="resources/js/advanced-components.js"></script>
+	<script src="${path}/resources/src/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script>
+	<script src="${path}/resources/js/advanced-components.js"></script>
 </body>
 </html>

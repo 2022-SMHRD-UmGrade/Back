@@ -10,7 +10,7 @@
 	<title>회원조회</title>
 
 	<!-- Site favicon -->
-	<link rel="apple-touch-icon" sizes="180x180" href="${pageContext.request.contextPath}/resources/images/umbrella180x180.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="${path}/resources/images/umbrella180x180.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="${pageContext.request.contextPath}/resources/images/umbrella32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="${pageContext.request.contextPath}/resources/images/umbrella16x16.png">
 
@@ -324,6 +324,11 @@
 						<ul class="submenu">
 							<li><a href="umBoxTable.jsp">보관함조회</a></li>
 						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="rental" class="dropdown-toggle no-arrow">
+							<span class="micon dw dw-house-1"></span><span class="mtext">대여관리</span>
+						</a>
 					</li>
 					<li>
 						<a href="qna.jsp" class="dropdown-toggle no-arrow">

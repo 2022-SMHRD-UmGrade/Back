@@ -20,6 +20,12 @@ public class AdminController {
 		return "login";
 	}
 	
+	// 관리자 홈 이동
+		@RequestMapping("/Admin/home")
+		public String home() {
+			return "home";
+	}
+	
 	// 로그인 판별 , 세션 생성
 	@RequestMapping("/Admin/LoginCheck")
 	public String login(User vo, HttpSession session) {
@@ -38,31 +44,65 @@ public class AdminController {
 		return "Login";
 	}
 	
+	// 로그아웃
 	@RequestMapping("/Admin/Logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
 		return "Login";
 	}
-	
+/* 회원관리 */
+	// 회원리스트 페이지
 	@RequestMapping("/Admin/userTable")
 	public String UserTable() {
 		return "userTable";
 	}
 	
+	// 관리자 등록 페이지
+	@RequestMapping("/Admin/managerRegister")
+	public String managerRegister() {
+		return "managerRegister";
+	}
+	
+/* 우산관리 */
+	// 우산리스트 페이지
 	@RequestMapping("/Admin/umTable")
 	public String umTable() {
 		return "umTable";
 	}
 	
+/* QnA관리 */
+	// QnA 페이지
+	@RequestMapping("/Admin/qna")
+	public String qna() {
+		return "qna";
+	}
+
 	
+/* 달력관리 */	
+	// 대여관리 페이지
+	@RequestMapping("/Admin/rental")
+	public String rental() {
+		return "rental";
+	}
+	
+/* 달력관리 */	
+	// 달력 페이지
+	@RequestMapping("/Admin/calendar")
+	public String calendar() {
+		return "calendar";
+	}
+	
+
+	// 보관함리스트 페이지
+	@RequestMapping("/Admin/umBoxTable")
+	public String BoxTable(User vo, HttpSession session) {
+		return "umBoxTable";
+	}
+	
+	// 
 	@RequestMapping("/Admin/User")
 	public String Home(User vo, HttpSession session) {
 		return "Home";
-	}
-	
-	@RequestMapping("/Admin/boxTable")
-	public String BoxTable(User vo, HttpSession session) {
-		return "umBoxTable";
 	}
 	
 

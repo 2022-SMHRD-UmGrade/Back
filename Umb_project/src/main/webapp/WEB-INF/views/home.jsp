@@ -183,14 +183,14 @@
 						<span class="user-name">쿠로미💜</span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-						<a class="dropdown-item" href="profile.jsp"><i class="dw dw-user1"></i> Profile</a>
-						<a class="dropdown-item" href="faq.jsp"><i class="dw dw-help"></i> Help</a>
-						<a class="dropdown-item" href="login.jsp"><i class="dw dw-logout"></i> Log Out</a>
+						<a class="dropdown-item" href="profile"><i class="dw dw-user1"></i> Profile</a>
+						<a class="dropdown-item" href="faq"><i class="dw dw-help"></i> Help</a>
+						<a class="dropdown-item" href="login"><i class="dw dw-logout"></i> Log Out</a>
 					</div>
 				</div>
 			</div>
 			<div class="github-link">
-				<a href="https://github.com/2022-SMHRD-UmGrade" target="_blank"><img src="resources/images/github.svg" alt=""></a>
+				<a href="https://github.com/2022-SMHRD-UmGrade" target="_blank"><img src="${path}/resources/images/github.svg" alt=""></a>
 			</div>
 		</div>
 	</div>
@@ -282,7 +282,7 @@
 	<!-- Sidebar Start -->
 	<div class="left-side-bar">
 		<div class="brand-logo">
-			<a href="home.jsp">
+			<a href="home">
 				<img src="${pageContext.request.contextPath}/resources/images/logo2.png" alt="" class="dark-logo">
 				<img src="${pageContext.request.contextPath}/resources/images/logo1.png" alt="" class="light-logo">
 			</a>
@@ -294,7 +294,7 @@
 			<div class="sidebar-menu">
 				<ul id="accordion-menu">
 					<li class="dropdown">
-						<a href="home.jsp" class="dropdown-toggle no-arrow">
+						<a href="home" class="dropdown-toggle no-arrow">
 							<span class="micon dw dw-house-1"></span><span class="mtext">Home</span>
 						</a>
 					</li>
@@ -304,7 +304,7 @@
 						</a>
 						<ul class="submenu">
 							<li><a href="userTable">회원조회</a></li>
-							<li><a href="managerRegister.jsp">관리자등록</a></li>
+							<li><a href="managerRegister">관리자등록</a></li>
 						</ul>
 					</li>
 					<li class="dropdown">
@@ -312,7 +312,7 @@
 							<span class="micon dw dw-umbrella"></span><span class="mtext">우산관리</span>
 						</a>
 						<ul class="submenu">
-							<li><a href="umTable.jsp">우산조회</a></li>
+							<li><a href="umTable">우산조회</a></li>
 						</ul>
 					</li>
 					<li>
@@ -321,16 +321,21 @@
 							<span class="micon dw dw-box-1"></span><span class="mtext">보관함관리</span>
 						</a>
 						<ul class="submenu">
-							<li><a href="umBoxTable.jsp">보관함조회</a></li>
+							<li><a href="umBoxTable">보관함조회</a></li>
 						</ul>
 					</li>
+					<li class="dropdown">
+						<a href="rental" class="dropdown-toggle no-arrow">
+							<span class="micon dw dw-house-1"></span><span class="mtext">대여관리</span>
+						</a>
+					</li>
 					<li>
-						<a href="qna.jsp" class="dropdown-toggle no-arrow">
+						<a href="qna" class="dropdown-toggle no-arrow">
 							<span class="micon dw dw dw-question-1"></span><span class="mtext">질의응답</span>
 						</a>
 					</li>
 					<li>
-						<a href="calendar.jsp" class="dropdown-toggle no-arrow">
+						<a href="calendar" class="dropdown-toggle no-arrow">
 							<span class="micon dw dw-calendar1"></span><span class="mtext">달력</span>
 						</a>
 					</li>

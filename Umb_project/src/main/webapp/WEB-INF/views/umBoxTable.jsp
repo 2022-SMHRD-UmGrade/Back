@@ -135,7 +135,7 @@
 								</li>
 								<li>
 									<a href="#" class="alert alert-dismissible fade show" role="alert">
-										<img src="resources/images/kuromi4.jpg" alt="">
+										<img src="${path}/resources/images/kuromi4.jpg" alt="">
 										<h3>💜</h3>
 										<p>잿빛 세상을 등지고 이 도시를 달려봐</p>
 										<p>내 맘 가는 대로 가로질러 가볼래 날 위해</p>	
@@ -149,7 +149,7 @@
 								</li>
 								<li>
 									<a href="#" class="alert alert-dismissible fade show" role="alert">
-										<img src="resources/images/kuromi5.jpg" alt="">
+										<img src="${path}/resources/images/kuromi5.jpg" alt="">
 										<h3>💜</h3>
 										<p>Run run run higher, fly fly fly higher</p>
 										<p>I, I find myself 다시 빛나는 나를 봐</p>
@@ -160,7 +160,7 @@
 								</li>
 								<li>
 									<a href="#" class="alert alert-dismissible fade show" role="alert">
-										<img src="resources/images/sanrio.jpg" alt="">
+										<img src="${path}/resources/images/sanrio.jpg" alt="">
 										<h3>💜</h3>
 										<p>Run run run higher, fly fly fly fly higher</p>
 										<p>이 어둠 속 눈을 감고</p>	
@@ -179,19 +179,19 @@
 				<div class="dropdown">
 					<a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
 						<span class="user-icon">
-							<img src="resources/images/kuromi3.jpg" alt="">
+							<img src="${path}/resources/images/kuromi3.jpg" alt="">
 						</span>
 						<span class="user-name">쿠로미💜</span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-						<a class="dropdown-item" href="profile.jsp"><i class="dw dw-user1"></i> Profile</a>
-						<a class="dropdown-item" href="faq.jsp"><i class="dw dw-help"></i> Help</a>
-						<a class="dropdown-item" href="login.jsp"><i class="dw dw-logout"></i> Log Out</a>
+						<a class="dropdown-item" href="profile"><i class="dw dw-user1"></i> Profile</a>
+						<a class="dropdown-item" href="faq"><i class="dw dw-help"></i> Help</a>
+						<a class="dropdown-item" href="login"><i class="dw dw-logout"></i> Log Out</a>
 					</div>
 				</div>
 			</div>
 			<div class="github-link">
-				<a href="https://github.com/2022-SMHRD-UmGrade" target="_blank"><img src="resources/images/github.svg" alt=""></a>
+				<a href="https://github.com/2022-SMHRD-UmGrade" target="_blank"><img src="${path}/resources/images/github.svg" alt=""></a>
 			</div>
 		</div>
 	</div>
@@ -283,9 +283,9 @@
 	<!-- Sidebar Start -->
 	<div class="left-side-bar">
 		<div class="brand-logo">
-			<a href="home.jsp">
-				<img src="resources/images/logo2.png" alt="" class="dark-logo">
-				<img src="resources/images/logo1.png" alt="" class="light-logo">
+			<a href="home">
+				<img src="${path}/resources/images/logo2.png" alt="" class="dark-logo">
+				<img src="${path}/resources/images/logo1.png" alt="" class="light-logo">
 			</a>
 			<div class="close-sidebar" data-toggle="left-sidebar-close">
 				<i class="ion-close-round"></i>
@@ -295,7 +295,7 @@
 			<div class="sidebar-menu">
 				<ul id="accordion-menu">
 					<li class="dropdown">
-						<a href="home.jsp" class="dropdown-toggle no-arrow">
+						<a href="home" class="dropdown-toggle no-arrow">
 							<span class="micon dw dw-house-1"></span><span class="mtext">Home</span>
 						</a>
 					</li>
@@ -304,8 +304,8 @@
 							<span class="micon dw dw-user"></span><span class="mtext">회원관리</span>
 						</a>
 						<ul class="submenu">
-							<li><a href="userTable.jsp">회원조회</a></li>
-							<li><a href="managerRegister.jsp">관리자등록</a></li>
+							<li><a href="userTable">회원조회</a></li>
+							<li><a href="managerRegister">관리자등록</a></li>
 						</ul>
 					</li>
 					<li class="dropdown">
@@ -313,7 +313,7 @@
 							<span class="micon dw dw-umbrella"></span><span class="mtext">우산관리</span>
 						</a>
 						<ul class="submenu">
-							<li><a href="umTable.jsp">우산조회</a></li>
+							<li><a href="umTable">우산조회</a></li>
 						</ul>
 					</li>
 					<li>
@@ -322,16 +322,21 @@
 							<span class="micon dw dw-box-1"></span><span class="mtext">보관함관리</span>
 						</a>
 						<ul class="submenu">
-							<li><a href="umBoxTable.jsp">보관함조회</a></li>
+							<li><a href="umBoxTable">보관함조회</a></li>
 						</ul>
 					</li>
+					<li class="dropdown">
+						<a href="rental" class="dropdown-toggle no-arrow">
+							<span class="micon dw dw-house-1"></span><span class="mtext">대여관리</span>
+						</a>
+					</li>
 					<li>
-						<a href="qna.jsp" class="dropdown-toggle no-arrow">
+						<a href="qna" class="dropdown-toggle no-arrow">
 							<span class="micon dw dw dw-question-1"></span><span class="mtext">질의응답</span>
 						</a>
 					</li>
 					<li>
-						<a href="calendar.jsp" class="dropdown-toggle no-arrow">
+						<a href="calendar" class="dropdown-toggle no-arrow">
 							<span class="micon dw dw-calendar1"></span><span class="mtext">달력</span>
 						</a>
 					</li>
@@ -386,259 +391,7 @@
 					</div>
 				</div>
 				<!-- Simple Datatable start -->
-				<div class="card-box mb-30">
-					<div class="pd-20">
-						<h4 data-color="#A3CBE6">보관함조회</h4>
-					</div>
-					<div class="col-sm-12 text-right">
-						<a href="task-add" data-toggle="modal" data-target="#task-add" class="bg-light-blue btn text-blue weight-500"><i class="ion-plus-round"></i> Add</a>
-					</div>
-					<br>
-					<div class="pb-20">
-						<table class="data-table table stripe hover nowrap text-center">
-							<thead>
-								<tr>
-									<th>번호</th>
-									<th>관리자ID</th>
-									<th>보관함위치</th>
-									<th>설치일자</th>
-									<th>우산수량</th>
-									<th>보관함상태</th>
-									<th class="datatable-nosort">Action</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td class="table-plus">1</td>
-									<td>admin</td>
-									<td>스인재</td>
-									<td>2022-05-01</td>
-									<td>10</td>
-									<td><span class="badge badge-pill badge-primary">Primary</span></td>
-									<td>
-										<div class="dropdown">
-											<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-												<i class="dw dw-more"></i>
-											</a>
-											<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-												<a class="dropdown-item" href="umBoxDetails.jsp"><i class="dw dw-eye"></i>상세보기</a>
-												<button class="dropdown-item" id="sa-warning2"><i class="dw dw-delete-3"></i>삭제</button>
-											</div>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td class="table-plus">2</td>
-									<td>manager1</td>
-									<td>문화전당역</td>
-									<td>2022-05-02</td>
-									<td>7</td>
-									<td><span class="badge badge-pill badge-secondary">Secondary</span></td>
-									<td>
-										<div class="dropdown">
-											<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-												<i class="dw dw-more"></i>
-											</a>
-											<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-												<a class="dropdown-item" href="umBoxDetails.jsp"><i class="dw dw-eye"></i>상세보기</a>
-												<button class="dropdown-item"><i class="dw dw-delete-3"></i>삭제</button>
-											</div>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td class="table-plus">3</td>
-									<td>manager1</td>
-									<td>광주역</td>
-									<td>2022-05-01</td>
-									<td>1</td>
-									<td><span class="badge badge-pill badge-success">Success</span></td>
-									<td>
-										<div class="dropdown">
-											<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-												<i class="dw dw-more"></i>
-											</a>
-											<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-												<a class="dropdown-item" href="umBoxDetails.jsp"><i class="dw dw-eye"></i>상세보기</a>
-												<button class="dropdown-item"><i class="dw dw-delete-3"></i>삭제</button>
-											</div>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td class="table-plus">4</td>
-									<td>manager1</td>
-									<td>수완지구</td>
-									<td>2022-05-04</td>
-									<td>3</td>
-									<td><span class="badge badge-pill badge-danger">Danger</span></td>
-									<td>
-										<div class="dropdown">
-											<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-												<i class="dw dw-more"></i>
-											</a>
-											<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-												<a class="dropdown-item" href="umBoxDetails.jsp"><i class="dw dw-eye"></i>상세보기</a>
-												<button class="dropdown-item"><i class="dw dw-delete-3"></i>삭제</button>
-											</div>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td class="table-plus">5</td>
-									<td>admin</td>
-									<td>금호지구</td>
-									<td>2022-05-01</td>
-									<td>1</td>
-									<td><span class="badge badge-pill badge-warning">Warning</span></td>
-									<td>
-										<div class="dropdown">
-											<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-												<i class="dw dw-more"></i>
-											</a>
-											<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-												<a class="dropdown-item" href="umBoxDetails.jsp"><i class="dw dw-eye"></i>상세보기</a>
-												<button class="dropdown-item"><i class="dw dw-delete-3"></i>삭제</button>
-											</div>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td class="table-plus">6</td>
-									<td>manager2</td>
-									<td>상무지구</td>
-									<td>2022-05-04</td>
-									<td>2</td>
-									<td><span class="badge badge-pill badge-info">Info</span></td>
-									<td>
-										<div class="dropdown">
-											<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-												<i class="dw dw-more"></i>
-											</a>
-											<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-												<a class="dropdown-item" href="umBoxDetails.jsp"><i class="dw dw-eye"></i>상세보기</a>
-												<button class="dropdown-item"><i class="dw dw-delete-3"></i>삭제</button>
-											</div>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td class="table-plus">7</td>
-									<td>manager2</td>
-									<td>첨단지구</td>
-									<td>2022-05-06</td>
-									<td>0</td>
-									<td><span class="badge badge-pill badge-light">Light</span></td>
-									<td>
-										<div class="dropdown">
-											<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-												<i class="dw dw-more"></i>
-											</a>
-											<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-												<a class="dropdown-item" href="umBoxDetails.jsp"><i class="dw dw-eye"></i>상세보기</a>
-												<button class="dropdown-item"><i class="dw dw-delete-3"></i>삭제</button>
-											</div>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td class="table-plus">8</td>
-									<td>admin</td>
-									<td>금남로</td>
-									<td>2022-05-03</td>
-									<td>6</td>
-									<td><span class="badge badge-pill badge-dark">Dark</span></td>
-									<td>
-										<div class="dropdown">
-											<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-												<i class="dw dw-more"></i>
-											</a>
-											<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-												<a class="dropdown-item" href="umBoxDetails.jsp"><i class="dw dw-eye"></i>상세보기</a>
-												<button class="dropdown-item"><i class="dw dw-delete-3"></i>삭제</button>
-											</div>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td class="table-plus">9</td>
-									<td>manager1</td>
-									<td>어딘가</td>
-									<td>2022-05-07</td>
-									<td>5</td>
-									<td><span class="badge badge-pill badge-dark">Dark</span></td>
-									<td>
-										<div class="dropdown">
-											<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-												<i class="dw dw-more"></i>
-											</a>
-											<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-												<a class="dropdown-item" href="umBoxDetails.jsp"><i class="dw dw-eye"></i>상세보기</a>
-												<button class="dropdown-item"><i class="dw dw-delete-3"></i>삭제</button>
-											</div>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td class="table-plus">10</td>
-									<td>manager2</td>
-									<td>우리집</td>
-									<td>2022-05-01</td>
-									<td>10</td>
-									<td><span class="badge badge-pill badge-dark">Dark</span></td>
-									<td>
-										<div class="dropdown">
-											<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-												<i class="dw dw-more"></i>
-											</a>
-											<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-												<a class="dropdown-item" href="umBoxDetails.jsp"><i class="dw dw-eye"></i>상세보기</a>
-												<button class="dropdown-item"><i class="dw dw-delete-3"></i>삭제</button>
-											</div>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td class="table-plus">11</td>
-									<td>admin</td>
-									<td>쿠로미집</td>
-									<td>2022-05-07</td>
-									<td>0</td>
-									<td><span class="badge badge-pill badge-dark">Dark</span></td>
-									<td>
-										<div class="dropdown">
-											<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-												<i class="dw dw-more"></i>
-											</a>
-											<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-												<a class="dropdown-item" href="umBoxDetails.jsp"><i class="dw dw-eye"></i>상세보기</a>
-												<button class="dropdown-item"><i class="dw dw-delete-3"></i>삭제</button>
-											</div>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td class="table-plus">12</td>
-									<td>manager2</td>
-									<td>몰라</td>
-									<td>2022-05-07</td>
-									<td>9</td>
-									<td><span class="badge badge-pill badge-dark">Dark</span></td>
-									<td>
-										<div class="dropdown">
-											<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-												<i class="dw dw-more"></i>
-											</a>
-											<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-												<a class="dropdown-item" href="umBoxDetails.jsp"><i class="dw dw-eye"></i>상세보기</a>
-												<button class="dropdown-item"><i class="dw dw-delete-3"></i>삭제</button>
-											</div>
-										</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
+				<div class="card-box mb-30" id="list">
 				</div>
 				<!-- Simple Datatable End -->
 
@@ -699,57 +452,46 @@
 		</div>
 	</div>
 	<!-- js -->
-	<script src="resources/js/core.js"></script>
-	<script src="resources/js/script.min.js"></script>
-	<script src="resources/js/process.js"></script>
-	<script src="resources/js/layout-settings.js"></script>
-	<script src="resources/src/plugins/datatables/js/jquery.dataTables.min.js"></script>
-	<script src="resources/src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
-	<script src="resources/src/plugins/datatables/js/dataTables.responsive.min.js"></script>
-	<script src="resources/src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
+	<script src="${path}/resources/js/core.js"></script>
+	<script src="${path}/resources/js/script.min.js"></script>
+	<script src="${path}/resources/js/process.js"></script>
+	<script src="${path}/resources/js/layout-settings.js"></script>
+	<script src="${path}/resources/src/plugins/datatables/js/jquery.dataTables.min.js"></script>
+	<script src="${path}/resources/src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
+	<script src="${path}/resources/src/plugins/datatables/js/dataTables.responsive.min.js"></script>
+	<script src="${path}/resources/src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
 	<!-- buttons for Export datatable -->
-	<script src="resources/src/plugins/datatables/js/dataTables.buttons.min.js"></script>
-	<script src="resources/src/plugins/datatables/js/buttons.bootstrap4.min.js"></script>
-	<script src="resources/src/plugins/datatables/js/buttons.print.min.js"></script>
-	<script src="resources/src/plugins/datatables/js/buttons.html5.min.js"></script>
-	<script src="resources/src/plugins/datatables/js/buttons.flash.min.js"></script>
-	<script src="resources/src/plugins/datatables/js/pdfmake.min.js"></script>
-	<script src="resources/src/plugins/datatables/js/vfs_fonts.js"></script>
+	<script src="${path}/resources/src/plugins/datatables/js/dataTables.buttons.min.js"></script>
+	<script src="${path}/resources/src/plugins/datatables/js/buttons.bootstrap4.min.js"></script>
+	<script src="${path}/resources/src/plugins/datatables/js/buttons.print.min.js"></script>
+	<script src="${path}/resources/src/plugins/datatables/js/buttons.html5.min.js"></script>
+	<script src="${path}/resources/src/plugins/datatables/js/buttons.flash.min.js"></script>
+	<script src="${path}/resources/src/plugins/datatables/js/pdfmake.min.js"></script>
+	<script src="${path}/resources/src/plugins/datatables/js/vfs_fonts.js"></script>
 	<!-- Datatable Setting js -->
-	<script src="resources/js/datatable-setting.js"></script></body>
+	<script src="${path}/resources/js/datatable-setting.js"></script></body>
 	<!-- add sweet alert js & css in footer -->
-	<script src="resources/src/plugins/sweetalert2/sweetalert2.all.js"></script>
-	<script src="resources/src/plugins/sweetalert2/sweet-alert.init.js"></script>
-	번호 관리자ID 보관함위치 설치일자 우산수량 보관함상태
-	<script>
+	<script src="${path}/resources/src/plugins/sweetalert2/sweetalert2.all.js"></script>
+	<script src="${path}/resources/src/plugins/sweetalert2/sweet-alert.init.js"></script>
+	
 	<!-- 테이블출력 js -->
-	<script src="${pageContext.request.contextPath}/resources/js/webjs.js"></script>
+	<script src="${path}/resources/js/webjs.js"></script>
+
+<script>
 
 $(document).ready(()=>{
-	userList()
+	uboxList()
 })
 
 function htmlView(data){
 	var result ='<div class="pd-20"><h4 data-color="#A3CBE6">회원조회</h4></div><div class="pb-20"><table class="data-table table stripe hover nowrap text-center dataTable">'
 	result += '<thead><tr><th>번호</th><th>관리자ID</th><th>보관함위치</th><th>설치일자</th><th>우산수량</th><th>보관함상태<th></tr></thead><tbody>'
 	   //반복문
-	   //번호 관리자ID 보관함위치 설치일자 우산수량 보관함상태
-	   	private int ubox_seq; // 보관함 일련번호
-		private String ubox_loc; // 보관함 설치장소명
-		private Double ubox_latitude; // 위도
-		private Double ubox_longitude; // 경도
-		private String ubox_status; // 보관함 상태
-		private int ubox_qty; // 보관함 수량
-		private String ubox_inst_dt; // 보관함 설치일자
-		private String admin_id; // 보관함 관리자
-		private String ubox_check; // 보관함 점검일자
-		private String ubox_id; // 사용자 ID
-		private String ubox_id_date; // 사용자 ID 갱신시간
 	   $.each(data, (index, vo)=>{ // 오브젝트안에 있는 데이터 접근.
 		   		  result += "<tr>"
 			      result += '<td class="table-plus">'+vo.ubox_seq+'</td>'
 			      result += '<td>'+vo.admin_id+'</td>'
-			      result += '<td>'+vo.ubox_latitude+vo.ubox_longitude+'</td>'
+			      result += '<td>'+vo.ubox_latitude+"ㅁㄴㅇㄹ"+vo.ubox_longitude+'</td>'
 			      result += "<td>"+vo.user_status+"</td>"
 			      result += "<td>"+vo.point+"</td>"
 			      result += "<td>"+vo.user_joindate+"</td>"
@@ -770,7 +512,7 @@ function htmlView(data){
 	   result += "</tbody>"
 	   result += "</table>"
 	   result += "</div>"
-	   $("#usertable").html(result)
+	   $("#list").html(result)
 }
 </script>
 </html>

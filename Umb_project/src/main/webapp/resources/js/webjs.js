@@ -27,7 +27,18 @@ function umbList(){
 			alert("error")
 		}
 	})
-	
-	
-	
 }
+	
+function uboxList(){
+	$.ajax({
+		url :  getContextPath()+"/uboxList.do",
+		type : "get",
+		dataType : "json",
+		success : htmlView,
+		error : function(){
+			alert("error")
+		}
+	})	
+}
+	
+	
