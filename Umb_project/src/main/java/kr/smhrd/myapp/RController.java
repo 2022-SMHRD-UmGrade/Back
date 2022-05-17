@@ -54,12 +54,25 @@ public class RController {
 	private QnaService qnaService;
 	
 	
-
+/* 회원 */
 	// 회원 리스트 요청
 	@RequestMapping("/userList.do")
 	public List<User> user() {
 		System.out.println("회원 리스트 요청");
 		List<User> list = userService.selectUser();
+		return list;
+	}
+	
+	// 단일 회원 정보 요청
+	@RequestMapping(value = "/userOne.do")
+	public User userOne(@RequestParam(value = "user_id") String user_id) {
+		System.out.println("받은 user_id : "+user_id);
+		System.out.println("단일 회원 정보 요청");
+		User list = userService.userOne(user_id);
+		System.out.println(list.getUser_id());
+		System.out.println(list.getUser_nick());
+		System.out.println(list.getUser_phone());
+	
 		return list;
 	}
 
@@ -94,6 +107,7 @@ public class RController {
 			List<Umbbox> list = UmbboxService.selectUbox();
 			return list;
 		}
+	
 
 /* 커뮤니티 게시판 */
 	// 게시판 게시글 작성

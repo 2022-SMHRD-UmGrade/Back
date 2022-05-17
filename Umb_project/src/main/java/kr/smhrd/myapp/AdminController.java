@@ -1,10 +1,13 @@
 package kr.smhrd.myapp;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.smhrd.domain.User;
 import kr.smhrd.mapper.UserMapper;
@@ -56,6 +59,15 @@ public class AdminController {
 	public String UserTable() {
 		return "userTable";
 	}
+	
+	
+	// 단일 회원 페이지
+	@RequestMapping("/Admin/userDetails")
+	public String userDetails(Model model, @RequestParam(value="user_id") String user_id) {
+		model.addAttribute("user_id", user_id);
+		return "userDetails";
+	}
+	
 	
 	// 관리자 등록 페이지
 	@RequestMapping("/Admin/managerRegister")

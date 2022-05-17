@@ -40,5 +40,17 @@ function uboxList(){
 		}
 	})	
 }
+
+function userDetails(user_id){
+	$.ajax({
+		url :  getContextPath()+"/userOne.do?user_id="+user_id,
+		type : "get",
+		dataType : "json",
+		success : htmlView,
+		error : function(){
+			alert("error")
+		}
+	})	
+}
 	
 	

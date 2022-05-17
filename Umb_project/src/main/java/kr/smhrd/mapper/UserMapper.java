@@ -21,6 +21,8 @@ public interface UserMapper {
 	//유저 회원 정보 수정
 	public void userInfoUpdate(User user);
 	
+	// 단일 유저 조회
+	public User userOne(String user_id);
 // 안드로이드 마이페이지 화면 구성 완료시 바뀔 로직	
 //Start
 	//유저 닉네임 수정

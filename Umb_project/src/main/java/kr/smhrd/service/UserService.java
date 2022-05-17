@@ -19,7 +19,12 @@ public class UserService {
 		List<User> list = mapper.selectUser();
 		return list;
 	}
-
+	
+	// 단일 유저 조회
+	public User userOne(String user_id) {
+		return mapper.userOne(user_id);
+	}
+	
 	// 유저 회원가입
 	public void userJoin(User user) {
 		mapper.userJoin(user);
@@ -29,7 +34,6 @@ public class UserService {
 	public User userLogin(User user) {
 
 		User info = mapper.userLogin(user);
-
 		return info;
 
 	}

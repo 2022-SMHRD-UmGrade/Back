@@ -8,6 +8,11 @@
 		values (#{user_id}, #{user_pw}, #{user_nick}, #{user_email},#{user_name}, #{user_phone}, #{user_addr})
 	</insert>
 	
+	<!-- 단일 유저 조회 -->
+	<select id  = "userOne" parameterType = "String" resultType = "kr.smhrd.domain.User">
+		select * from t_user where user_id = #{user_id}
+	</select>
+	
 	<!-- 유저 로그인 -->
 	<select id  = "userLogin" parameterType = "kr.smhrd.domain.User" resultType = "kr.smhrd.domain.User">
 		select * from t_user where user_id = #{user_id} and user_pw = #{user_pw}

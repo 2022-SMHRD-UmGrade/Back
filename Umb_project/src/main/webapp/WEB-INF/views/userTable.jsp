@@ -454,7 +454,7 @@ function htmlView(data){
 			      result += '<i class="dw dw-more"></i>'
 			      result += '</a>'
 			      result += '<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">'
-			      result += '<a class="dropdown-item" href="userDetails"><i class="dw dw-eye"></i>상세보기</a>'
+			      result += '<a class="dropdown-item" href="userDetails?user_id='+vo.user_id+'"><i class="dw dw-eye"></i>상세보기</a>'
 			      result += '<button class="dropdown-item" id="sa-warning2"><i class="dw dw-delete-3"></i>삭제</button>'
 			      result += '</div></div>'
 			      result += "</td>"

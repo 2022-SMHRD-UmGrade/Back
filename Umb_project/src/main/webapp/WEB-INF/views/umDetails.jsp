@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 	<!-- Basic Page Info -->
 	<meta charset="utf-8">
 	<title>우산상세조회</title>
@@ -525,4 +526,44 @@
 	<script src="${path}/resources/js/process.js"></script>
 	<script src="${path}/resources/js/layout-settings.js"></script>
 </body>
+<script src="${path}/resources/js/webjs.js"></script>
+	
+<script>
+
+$(document).ready(()=>{
+	userDetails(${user_seq})
+})
+
+function htmlView(data){
+	var result ='<div class="pd-20"><h4 data-color="#A3CBE6">회원조회</h4></div><div class="pb-20"><table class="data-table table stripe hover nowrap text-center dataTable">'
+	result += '<thead><tr><th>순번</th><th>RFID</th><th>종류</th><th>상태</th><th>파손여부</th><th>보관함위치<th></tr></thead><tbody>'
+
+	   $.each(data, (index, vo)=>{ // 오브젝트안에 있는 데이터 접근.
+		   		  result += "<tr>"
+			      result += '<td class="table-plus">'+vo.umb_seq+'</td>'
+			      result += '<td>'+vo.umb_rfid+'</td>'
+			      result += '<td>'+vo.umb_type+'</td>'
+			      result += "<td>"+vo.umb_status+"</td>"
+			      result += "<td>"+vo.umb_broken+"</td>"
+			      result += "<td>"+vo.umbx_seq+"</td>"
+			      
+			      result += "<td>"
+			      result += '<div class="dropdown">'
+			      result += '<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">'
+			      result += '<i class="dw dw-more"></i>'
+			      result += '</a>'
+			      result += '<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">'
+			      result += '<a class="dropdown-item" href="userDetails"><i class="dw dw-eye"></i>상세보기</a>'
+			      result += '<button class="dropdown-item" id="sa-warning2"><i class="dw dw-delete-3"></i>삭제</button>'
+			      result += '</div></div>'
+			      result += "</td>"
+			      
+			      result += "</tr>"
+	   })
+	   result += "</tbody>"
+	   result += "</table>"
+	   result += "</div>"
+	   $("#list").html(result)
+}
+</script>
 </html>
