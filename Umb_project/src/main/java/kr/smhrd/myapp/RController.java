@@ -157,23 +157,23 @@ public class RController {
 		boardService.updateBoard(vo);
 	}
 	
-// 안드로이드에서 하고 있는 중 Start
+
 	// 게시판 게시글 조회수 증가 
-//	@RequestMapping(value = "/Increment.do")
-//	public void updateBoardCnt(@RequestParam("article_seq") int article_seq) {
-//		boardService.updateBoardCnt(article_seq);
-//		System.out.println("게시글 조회 증가");
-//	}
+	@RequestMapping(value = "/Increment.do")
+	public void updateBoardCnt(@RequestParam("article_seq") int article_seq) {
+		boardService.updateBoardCnt(article_seq);
+		System.out.println("게시글 조회 증가");
+	}
 
 	// 게시판 게시글 삭제
-//	@RequestMapping(value = "/BoardDelete.do")
-//	public String deleteBoard(int article_seq) {
-//		boardService.deleteBoard(article_seq);
-//		System.out.println("게시글 삭제!");
-//
-//		return "deleteSuccess";
-//	}
-// end
+	@RequestMapping(value = "/BoardDelete.do")
+	public String deleteBoard(int article_seq) {
+		boardService.deleteBoard(article_seq);
+		System.out.println("게시글 삭제!");
+
+		return "deleteSuccess";
+	}
+
 
 /* Qna 게시판 */
 	// QnA 리스트 요청
