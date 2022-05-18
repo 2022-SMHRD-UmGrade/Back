@@ -27,6 +27,9 @@
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/icon-font.min.css">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/src/plugins/jvectormap/jquery-jvectormap-2.0.3.css">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/src/plugins/datatables/css/dataTables.bootstrap4.min.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/src/plugins/datatables/css/responsive.bootstrap4.min.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/src/plugins/sweetalert2/sweetalert2.css">
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
@@ -373,69 +376,213 @@
 
 	<div class="main-container">
 		<div class="xs-pd-20-10 pd-ltr-20">
-			<div class="card-box pd-20 height-100-p mb-30">
-				<div class="row align-items-center">
-				<div class="col-md-4 text-center">
-					<img src="${pageContext.request.contextPath}/resources/images/kuromi3.jpg" alt="" />
-				</div>
-				<div class="col-md-8">
-					<h4 class="font-20 weight-500 mb-10 text-capitalize">
-						Welcome back
-					<div class="weight-600 font-30" data-color="#A094b7">
-						쿠로미💜
+				<div class="card-box mb-30">
+					<div class="pb-20">
+						<div class="pd-20">
+							<h4 class="h4 text-blue">보관함</h4>
+						</div>
+						<div class="pd-30 pt-10 height-100-p">
+							<table class="data-table table stripe hover nowrap text-center">
+								<thead>
+									<tr>
+										<th>번호</th>
+										<th>보관함위치</th>
+										<th>우산수량</th>
+										<th>보관함상태</th>
+										<th class="datatable-nosort">Action</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="table-plus">1</td>
+										<td>스인재</td>
+										<td>10</td>
+										<td><span class="badge badge-pill badge-primary">Primary</span></td>
+										<td>
+											<a class="dropdown-item" href="umBoxDetails.jsp"><i
+													class="dw dw-eye"></i></a>
+										</td>
+									</tr>
+									<tr>
+										<td class="table-plus">2</td>
+										<td>문화전당역</td>
+										<td>7</td>
+										<td><span class="badge badge-pill badge-secondary">Secondary</span></td>
+										<td>
+											<a class="dropdown-item" href="umBoxDetails.jsp"><i
+													class="dw dw-eye"></i></a>
+										</td>
+									</tr>
+									<tr>
+										<td class="table-plus">3</td>
+										<td>광주역</td>
+										<td>1</td>
+										<td><span class="badge badge-pill badge-success">Success</span></td>
+										<td>
+											<a class="dropdown-item" href="umBoxDetails.jsp"><i
+													class="dw dw-eye"></i></a>
+										</td>
+									</tr>
+									<tr>
+										<td class="table-plus">4</td>
+										<td>수완지구</td>
+										<td>3</td>
+										<td><span class="badge badge-pill badge-danger">Danger</span></td>
+										<td>
+											<a class="dropdown-item" href="umBoxDetails.jsp"><i
+													class="dw dw-eye"></i></a>
+										</td>
+									</tr>
+									<tr>
+										<td class="table-plus">5</td>
+										<td>금호지구</td>
+										<td>1</td>
+										<td><span class="badge badge-pill badge-warning">Warning</span></td>
+										<td>
+											<a class="dropdown-item" href="umBoxDetails.jsp"><i
+													class="dw dw-eye"></i></a>
+										</td>
+									</tr>
+									<tr>
+										<td class="table-plus">6</td>
+										<td>상무지구</td>
+										<td>2</td>
+										<td><span class="badge badge-pill badge-info">Info</span></td>
+										<td>
+											<a class="dropdown-item" href="umBoxDetails.jsp"><i
+													class="dw dw-eye"></i></a>
+										</td>
+									</tr>
+									<tr>
+										<td class="table-plus">7</td>
+										<td>첨단지구</td>
+										<td>0</td>
+										<td><span class="badge badge-pill badge-light">Light</span></td>
+										<td>
+											<a class="dropdown-item" href="umBoxDetails.jsp"><i
+													class="dw dw-eye"></i></a>
+										</td>
+									</tr>
+									<tr>
+										<td class="table-plus">8</td>
+										<td>금남로</td>
+										<td>6</td>
+										<td><span class="badge badge-pill badge-dark">Dark</span></td>
+										<td>
+											<a class="dropdown-item" href="umBoxDetails.jsp"><i
+													class="dw dw-eye"></i></a>
+										</td>
+									</tr>
+									<tr>
+										<td class="table-plus">9</td>
+										<td>어딘가</td>
+										<td>5</td>
+										<td><span class="badge badge-pill badge-dark">Dark</span></td>
+										<td>
+											<a class="dropdown-item" href="umBoxDetails.jsp"><i
+													class="dw dw-eye"></i></a>
+										</td>
+									</tr>
+									<tr>
+										<td class="table-plus">10</td>
+										<td>우리집</td>
+										<td>10</td>
+										<td><span class="badge badge-pill badge-dark">Dark</span></td>
+										<td>
+											<a class="dropdown-item" href="umBoxDetails.jsp"><i
+													class="dw dw-eye"></i></a>
+										</td>
+									</tr>
+									<tr>
+										<td class="table-plus">11</td>
+										<td>쿠로미집</td>
+										<td>0</td>
+										<td><span class="badge badge-pill badge-dark">Dark</span></td>
+										<td>
+											<a class="dropdown-item" href="umBoxDetails.jsp"><i
+													class="dw dw-eye"></i></a>
+										</td>
+									</tr>
+									<tr>
+										<td class="table-plus">12</td>
+										<td>몰라</td>
+										<td>9</td>
+										<td><span class="badge badge-pill badge-dark">Dark</span></td>
+										<td>
+											<a class="dropdown-item" href="umBoxDetails.jsp"><i
+													class="dw dw-eye"></i></a>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 					</div>
-					</h4>
-					<p class="font-18 max-width-600">
-						‘Um-Cycle’은 Umbrella와 Recycle의 합성어로 우산의 끊임없는 순환을 통한 공유경제 확대와 환경보호를 고려합니다.
-					</p>
 				</div>
-				</div>
-			</div>
-			<div class="card-group mb-30">
-				<div class="card card-box">
-					<img class="card-img-top" src="${pageContext.request.contextPath}/resources/images/people.png" alt="Card image cap">
-					<div class="card-body">
-						<h5 class="card-title">회원</h5>
-						<p class="card-text">6565명</p>
+				<div class="row">
+					<div class="col-lg-7 col-md-12 col-sm-12 mb-30">
+						<div class="card-box pd-30 height-100-p">
+							<h4 class="h4 text-blue">이용자</h4>
+							<div id="chart2"></div>
+						</div>
+					</div>
+					<div class="col-lg-5 col-md-12 col-sm-12 mb-30">
+						<div class="card-box pd-30 height-100-p">
+							<div class="alert alert-danger alert-dismissible fade show" role="alert">
+								우산파손신고 <a href="umDetails" class="alert-link">바로가기</a>
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="alert alert-warning alert-dismissible fade show" role="alert">
+								우산분실신고 <a href="umDetails" class="alert-link">바로가기</a>
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="alert alert-primary alert-dismissible fade show" role="alert">
+								문의 <a href="reply" class="alert-link">바로가기</a>
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="alert alert-secondary alert-dismissible fade show" role="alert">
+								보관함 상태이상 <a href="umBoxDetails" class="alert-link">바로가기</a>
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+						</div>
 					</div>
 				</div>
-				<div class="card card-box">
-					<img class="card-img-top" src="${pageContext.request.contextPath}/resources/images/umbrellaimg.png" alt="Card image cap">
-					<div class="card-body">
-						<h5 class="card-title">우산</h5>
-						<p class="card-text">16556개</p>
+				<div class="card-group mb-30">
+					<div class="card card-box">
+						<img class="card-img-top" src="${pageContext.request.contextPath}/resources/images/img3.jpg" alt="Card image cap">
+						<div class="card-body text-center">
+							<h5 class="card-title">회원</h5>
+							<p class="card-text">6565명</p>
+						</div>
+					</div>
+					<div class="card card-box text-center">
+						<img class="card-img-top" src="${pageContext.request.contextPath}/resources/images/umimg.jpg" alt="Card image cap">
+						<div class="card-body">
+							<h5 class="card-title">우산</h5>
+							<p class="card-text">16556개</p>
+						</div>
+					</div>
+					<div class="card card-box text-center">
+						<img class="card-img-top" src="${pageContext.request.contextPath}/resources/images/img2.jpg" alt="Card image cap">
+						<div class="card-body">
+							<h5 class="card-title">보관함</h5>
+							<p class="card-text">16개</p>
+						</div>
 					</div>
 				</div>
-				<div class="card card-box">
-					<img class="card-img-top" src="${pageContext.request.contextPath}/resources/images/umbrellabox.png" alt="Card image cap">
-					<div class="card-body">
-						<h5 class="card-title">보관함</h5>
-						<p class="card-text">16개</p>
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 mb-30">
+						<div class="card-box pd-30 pt-10 height-100-p">
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-12 col-md-12 col-sm-12 mb-30">
-					<div class="card-box pd-30 pt-10 height-100-p">
-						<h2 class="mb-30 h4">World Map</h2>
-						<div id="browservisit" style="width:100%!important; height:580px"></div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-7 col-md-12 col-sm-12 mb-30">
-					<div class="card-box pd-30 height-100-p">
-						<h4 class="mb-30 h4">Compliance Trend</h4>
-						<div id="compliance-trend" class="compliance-trend"></div>
-					</div>
-				</div>
-				<div class="col-lg-5 col-md-12 col-sm-12 mb-30">
-					<div class="card-box pd-30 height-100-p">
-						<h4 class="mb-30 h4">Records</h4>
-						<div id="chart" class="chart"></div>
-					</div>
-				</div>
-			</div>
 			<div class="footer-wrap pd-20 mb-20 card-box">
 				지능형 IoT융합 SW전문가과정 실전프로젝트 <a href="https://github.com/2022-SMHRD-UmGrade" target="_blank">UmGrade</a>
 			</div>
@@ -448,11 +595,47 @@
 	<script src="${pageContext.request.contextPath}/resources/js/layout-settings.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/src/plugins/jQuery-Knob-master/jquery.knob.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/src/plugins/apexcharts/apexcharts.min.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/src/plugins/highcharts-6.0.7/code/highcharts.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/src/plugins/highcharts-6.0.7/code/highcharts-more.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/src/plugins/jvectormap/jquery-jvectormap-2.0.3.min.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/src/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/src/plugins/jvectormap/jquery-jvectormap-kr-mill.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/apexcharts-setting.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/dashboard2.js"></script>
+	
+	<script src="${pageContext.request.contextPath}/resources/src/plugins/datatables/js/jquery.dataTables.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/src/plugins/datatables/js/dataTables.responsive.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
+	<!-- buttons for Export datatable -->
+	<script src="${pageContext.request.contextPath}/resources/src/plugins/datatables/js/dataTables.buttons.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/src/plugins/datatables/js/buttons.bootstrap4.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/src/plugins/datatables/js/buttons.print.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/src/plugins/datatables/js/buttons.html5.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/src/plugins/datatables/js/buttons.flash.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/src/plugins/datatables/js/pdfmake.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/src/plugins/datatables/js/vfs_fonts.js"></script>
+	
+	<script src="${pageContext.request.contextPath}/resources/src/plugins/sweetalert2/sweet-alert.init.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/src/plugins/sweetalert2/sweetalert2.all.js"></script>	
+	
+	<!-- DataTable js -->
+	<script>
+			$('document').ready(function () {
+				$('.data-table').DataTable({
+					scrollCollapse: true,
+					autoWidth: false,
+					responsive: true,
+					columnDefs: [{
+						targets: "datatable-nosort",
+						orderable: false,
+					}],
+					"lengthMenu": [[5, 15, 25, -1], [5, 15, 25, "All"]],
+					"language": {
+						"info": "_START_-_END_ of _TOTAL_ entries",
+						searchPlaceholder: "Search",
+						paginate: {
+							next: '<i class="ion-chevron-right"></i>',
+							previous: '<i class="ion-chevron-left"></i>'
+						}
+					},
+				});
+			});
+		</script>
 </body>
 </html>
