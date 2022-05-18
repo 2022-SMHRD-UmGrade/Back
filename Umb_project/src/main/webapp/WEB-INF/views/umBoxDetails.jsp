@@ -522,4 +522,21 @@
 	<script src="${path}/resources/src/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script>
 	<script src="${path}/resources/js/advanced-components.js"></script>
 </body>
+<script src="${path}/resources/js/webjs.js"></script>
+	
+<script>
+
+$(document).ready(()=>{
+	umDetails("${ubox_seq}")
+})
+
+function htmlView(data){
+	
+	var result=''
+
+	   
+
+	$("#list").html(result)
+}
+</script>
 </html>

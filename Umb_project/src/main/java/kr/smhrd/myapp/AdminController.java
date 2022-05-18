@@ -67,8 +67,7 @@ public class AdminController {
 		model.addAttribute("user_id", user_id);
 		return "userDetails";
 	}
-	
-	
+
 	// 관리자 등록 페이지
 	@RequestMapping("/Admin/managerRegister")
 	public String managerRegister() {
@@ -82,6 +81,28 @@ public class AdminController {
 		return "umTable";
 	}
 	
+	// 단일 우산 페이지
+	@RequestMapping("/Admin/umDetails")
+	public String umbDetails(Model model, @RequestParam(value="umb_seq") int umb_seq) {
+		model.addAttribute("umb_seq", umb_seq);
+		return "umDetails";
+	}
+		
+/* 대여관리 */	
+	// 대여관리 페이지
+	@RequestMapping("/Admin/rental")
+	public String rental() {
+		return "rental";
+	}
+	
+	// 단일 우산 페이지
+	@RequestMapping("/Admin/umBoxDetails")
+	public String uboxDetails(Model model, @RequestParam(value="ubox_seq") int ubox_seq) {
+		model.addAttribute("ubox_seq", ubox_seq);
+		return "umBoxDetails";
+	}
+		
+	
 /* QnA관리 */
 	// QnA 페이지
 	@RequestMapping("/Admin/qna")
@@ -90,13 +111,7 @@ public class AdminController {
 	}
 
 	
-/* 달력관리 */	
-	// 대여관리 페이지
-	@RequestMapping("/Admin/rental")
-	public String rental() {
-		return "rental";
-	}
-	
+
 /* 달력관리 */	
 	// 달력 페이지
 	@RequestMapping("/Admin/calendar")

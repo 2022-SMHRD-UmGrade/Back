@@ -75,6 +75,15 @@ public class RController {
 	
 		return list;
 	}
+	
+	// 회원 삭제 요청
+		@RequestMapping("/userDel.do")
+		public String userDel(@RequestParam(value = "user_id") String user_id) {
+			System.out.println("우산 삭제 요청");
+			System.out.println("삭제 아이디 : "+user_id);
+			userService.userDel(user_id);
+			return "asdf";
+		}
 
 	// 대여 리스트 요청
 	@RequestMapping("/rentList.do")
@@ -91,12 +100,28 @@ public class RController {
 //		umbrellaService.insertUmb(vo);
 //	}
 
+/* 우산  */
 	// 우산 리스트 요청
 	@RequestMapping("/umbList.do")
 	public List<Umbrella> umb() {
 		System.out.println("우산 리스트 요청");
 		List<Umbrella> list = umbrellaService.selectUmb();
 		return list;
+	}
+	
+	// 단일 우산 요청
+	@RequestMapping("/umbOne.do")
+	public Umbrella umbOne(@RequestParam(value = "umb_seq") int umb_seq) {
+		System.out.println("단일 우산 요청");
+		Umbrella umb = umbrellaService.selectOneUmbrella(umb_seq);
+		return umb;
+	}
+	
+	// 우산 삭제 요청
+	@RequestMapping("/umbDel.do")
+	public void umbDel(@RequestParam(value = "umb_seq") int umb_seq) {
+		System.out.println("우산 삭제 요청");
+		umbrellaService.deleteUmb(umb_seq);
 	}
 	
 /* 우산 보관함 */
@@ -107,6 +132,14 @@ public class RController {
 			List<Umbbox> list = UmbboxService.selectUbox();
 			return list;
 		}
+	// 단일 보관함 리스트 요청
+		@RequestMapping("/uboxList.do")
+		public Umbbox uboxOne(@RequestParam(value = "ubox_seq") int ubox_seq) {
+			System.out.println("보관함 리스트 요청");
+			Umbbox u = UmbboxService.selectOneUbox(ubox_seq);
+			return u;
+		}
+	
 	
 
 /* 커뮤니티 게시판 */

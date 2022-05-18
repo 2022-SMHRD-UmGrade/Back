@@ -13,6 +13,11 @@
 		select * from t_user where user_id = #{user_id}
 	</select>
 	
+	<!-- 단일 유저 삭제 -->
+	<delete id="userDel">
+		delete from t_user where user_id = #{user_id}
+	</delete>
+	
 	<!-- 유저 로그인 -->
 	<select id  = "userLogin" parameterType = "kr.smhrd.domain.User" resultType = "kr.smhrd.domain.User">
 		select * from t_user where user_id = #{user_id} and user_pw = #{user_pw}

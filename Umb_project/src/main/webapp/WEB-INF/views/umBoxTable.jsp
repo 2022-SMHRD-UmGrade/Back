@@ -97,80 +97,7 @@
 					</a>
 					<div class="dropdown-menu dropdown-menu-right">
 						<div class="notification-list mx-h-350 customscroll">
-							<ul>
-								<li>
-									<a href="#" class="alert alert-dismissible fade show" role="alert">
-										<img src="rsources/images/kuromi1.jpg" alt="">
-										<h3>💜</h3>
-										<p>빛을 잃어가는 마음과는 달리</p>
-										<p>채워지는 도시의 별은 하나둘씩 늘어가고</p>
-										<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-											<span aria-hidden="true">&times;</span>
-										</button>
-									</a>
-								</li>
-								<li>
-									<a href="#" class="alert alert-dismissible fade show" role="alert">
-										<img src="resources/images/kuromi2.jpg" alt="">
-										<h3>💜</h3>
-										<p>자리를 찾아가는 퍼즐처럼</p>
-										<p>맞춰지는 세상 속을 벗어나고만 싶어</p>
-										<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-											<span aria-hidden="true">&times;</span>
-										</button>
-									</a>
-								</li>
-								<li>
-									<a href="#" class="alert alert-dismissible fade show" role="alert">
-										<img src="resources/images/kuromi3.jpg" alt="">
-										<h3>💜</h3>
-										<p>날 향한 시선에 감추기만 했던</p>
-										<p>마음의 목소리를 소리 내 외치면</p>	
-										<p>스치는 바람을 따라 더없이 가벼워진 마음은</p>	
-										<p>내 안의 나를 깨우게 해</p>
-										<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-											<span aria-hidden="true">&times;</span>
-										</button>	
-									</a>
-								</li>
-								<li>
-									<a href="#" class="alert alert-dismissible fade show" role="alert">
-										<img src="${path}/resources/images/kuromi4.jpg" alt="">
-										<h3>💜</h3>
-										<p>잿빛 세상을 등지고 이 도시를 달려봐</p>
-										<p>내 맘 가는 대로 가로질러 가볼래 날 위해</p>	
-										<p>그곳이 어디든 날개를 펼치고 I'm flying</p>	
-										<p>저 쏟아지듯 펼쳐진 길 위로</p>	
-										<p>내 모든 걸 던져</p>
-										<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-											<span aria-hidden="true">&times;</span>
-										</button>	
-									</a>
-								</li>
-								<li>
-									<a href="#" class="alert alert-dismissible fade show" role="alert">
-										<img src="${path}/resources/images/kuromi5.jpg" alt="">
-										<h3>💜</h3>
-										<p>Run run run higher, fly fly fly higher</p>
-										<p>I, I find myself 다시 빛나는 나를 봐</p>
-										<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-											<span aria-hidden="true">&times;</span>
-										</button>	
-									</a>
-								</li>
-								<li>
-									<a href="#" class="alert alert-dismissible fade show" role="alert">
-										<img src="${path}/resources/images/sanrio.jpg" alt="">
-										<h3>💜</h3>
-										<p>Run run run higher, fly fly fly fly higher</p>
-										<p>이 어둠 속 눈을 감고</p>	
-										<p>다시 꿈을 꿔</p>
-										<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-											<span aria-hidden="true">&times;</span>
-										</button>	
-									</a>
-								</li>
-							</ul>
+							
 						</div>
 					</div>
 				</div>
@@ -502,7 +429,7 @@ function htmlView(data){
 			      result += '<i class="dw dw-more"></i>'
 			      result += '</a>'
 			      result += '<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">'
-			      result += '<a class="dropdown-item" href="userDetails?ubox_seq='+vo.ubox_seq+'"><i class="dw dw-eye"></i>상세보기</a>'
+			      result += '<a class="dropdown-item" href="umBoxDetails?ubox_seq='+vo.ubox_seq+'"><i class="dw dw-eye"></i>상세보기</a>'
 			      result += '<button class="dropdown-item" id="sa-warning2"><i class="dw dw-delete-3"></i>삭제</button>'
 			      result += '</div></div>'
 			      result += "</td>"

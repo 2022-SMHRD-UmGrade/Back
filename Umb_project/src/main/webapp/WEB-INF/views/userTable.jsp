@@ -437,6 +437,7 @@ $(document).ready(()=>{
 
 function htmlView(data){
 	var result ='<div class="pd-20"><h4 data-color="#A3CBE6">회원조회</h4></div><div class="pb-20"><table class="data-table table stripe hover nowrap text-center dataTable">'
+		//<div class="dataTables_length" id="DataTables_Table_0_length"><label>Show <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="custom-select custom-select-sm form-control form-control-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="-1">All</option></select> entries</label></div>		
 	result += '<thead><tr><th>ID</th><th>이름</th><th>닉네임</th><th>대여상태</th><th>포인트</th><th>가입일<th></tr></thead><tbody>'
 	   //반복문
 	   $.each(data, (index, vo)=>{ // 오브젝트안에 있는 데이터 접근.
@@ -455,12 +456,13 @@ function htmlView(data){
 			      result += '</a>'
 			      result += '<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">'
 			      result += '<a class="dropdown-item" href="userDetails?user_id='+vo.user_id+'"><i class="dw dw-eye"></i>상세보기</a>'
-			      result += '<button class="dropdown-item" id="sa-warning2"><i class="dw dw-delete-3"></i>삭제</button>'
-			      result += '</div></div>'
+			      result += "<button class='dropdown-item' id='sa-warning2' type='button' onclick='userDel(\"" +vo.user_id + "\")'><i class='dw dw-delete-3'></i>삭제</button>"
+			      
+			      result += '</div></div>'													
 			      result += "</td>"
 			      
 			      result += "</tr>"
-	   })
+	   })	
 	   result += "</tbody>"
 	   result += "</table>"
 	   result += "</div>"

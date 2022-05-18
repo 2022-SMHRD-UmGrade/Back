@@ -30,6 +30,11 @@ public class UserService {
 		mapper.userJoin(user);
 	}
 
+	// 유저 삭제
+	public void userDel(String user_id) {
+		mapper.userDel(user_id);
+	}
+	
 	// 유저로그인
 	public User userLogin(User user) {
 

@@ -472,6 +472,8 @@ $(document).ready(()=>{
 })
 
 function htmlView(data){
+	/* var str = JSON.stringify(data); // <> parse()
+	alert(str); */ 
 	var result ='<div class="pd-20"><h4 data-color="#A3CBE6">회원조회</h4></div><div class="pb-20"><table class="data-table table stripe hover nowrap text-center dataTable">'
 	result += '<thead><tr><th>순번</th><th>RFID</th><th>종류</th><th>상태</th><th>파손여부</th><th>보관함위치<th></tr></thead><tbody>'
 
@@ -490,8 +492,11 @@ function htmlView(data){
 			      result += '<i class="dw dw-more"></i>'
 			      result += '</a>'
 			      result += '<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">'
-			      result += '<a class="dropdown-item" href="userDetails"><i class="dw dw-eye"></i>상세보기</a>'
-			      result += '<button class="dropdown-item" id="sa-warning2"><i class="dw dw-delete-3"></i>삭제</button>'
+			      result += '<a class="dropdown-item" href="umDetails?umb_seq='+vo.umb_seq+'"><i class="dw dw-eye"></i>상세보기</a>'
+			      result += "<button class='dropdown-item' id='sa-warning2' type='button' onclick='umbDel(\"" +vo.umb_seq + "\")'><i class='dw dw-delete-3'></i>삭제</button>"
+			      
+			      
+			    	  
 			      result += '</div></div>'
 			      result += "</td>"
 			      

@@ -415,50 +415,55 @@ ${user_id}
 <script>
 
 $(document).ready(()=>{
-	userDetails("dong")
+	userDetails("${user_id}")
 })
 
 function htmlView(data){
-	var result = '<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-30"> <div class="pd-20 card-box height-100-p"> <div class="profile-photo"><a href="modal" data-toggle="modal" data-target="#modal" class="edit-avatar"><i class="fa fa-pencil"></i></a> <img src="vendors/images/kuromi3.jpg" alt="" class="avatar-photo"> <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true"> <div class="modal-dialog modal-dialog-centered" role="document"> <div class="modal-content"><div class="modal-body pd-5"><div class="img-container"><img id="image" src="vendors/images/kuromi4.jpg" alt="Picture"> </div></div><div class="modal-footer"><input type="submit" value="Update" class="btn btn-primary"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div></div></div></div></div><h5 class="text-center h5 mb-0">💜USER ID💜</h5> <p class="text-center text-muted font-14">USER NAME</p> <div class="profile-info"><h5 class="mb-20 h5 text-blue">USER 상세정보</h5><ul>'
-
-	   $.each(data, (index, vo)=>{ // 오브젝트안에 있는 데이터 접근.
-		   	result += '<li><span>닉네임:</span>'+vo.user_id+vo.user_pw+vo.user_name+vo.user_nick+'</li>'
-			   result += '<li><span>Email Address:</span>kuromi@example.com</li>'
-			   result +=  '<li><span>전화번호:</span>000-0000-0000</li>'
-			   result +=  '<li><span>주소:</span>광주광역시 동구 예술길 31-15</li>'
-			   result +=  '<li><span>생년월일:</span>2022.01.01</li>'
-			   result +=  '<li><span>가입일자:</span>2022.05.09</li>'
-			   result +=  '<li><span>회원 유형:</span>A</li>'
-			   result +=  '<li><span>회원 상태:</span>활성화</li>'
-			   result +=  '<li><span>포인트:</span>10,000,000<strong>Point</strong></li></ul></div><div class="profile-social"></div></div></div><div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 mb-30"> <div class="card-box height-100-p overflow-hidden"> <div class="profile-tab height-100-p"> <div class="profile-setting">'
+	 // 데이터를 확인하고 싶을 때.
+	//var str = JSON.stringify(data); // <> parse()
+	//alert(str);
+	//사진있는코드
+	//var result = '<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-30"> <div class="pd-20 card-box height-100-p"> <div class="profile-photo"><a href="modal" data-toggle="modal" data-target="#modal" class="edit-avatar"><i class="fa fa-pencil"></i></a> <img src="vendors/images/kuromi3.jpg" alt="" class="avatar-photo"> <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true"> <div class="modal-dialog modal-dialog-centered" role="document"> <div class="modal-content"><div class="modal-body pd-5"><div class="img-container"><img id="image" src="vendors/images/kuromi4.jpg" alt="Picture"> </div></div><div class="modal-footer"><input type="submit" value="Update" class="btn btn-primary"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div></div></div></div></div><h5 class="text-center h5 mb-0">💜USER ID💜</h5> <p class="text-center text-muted font-14">USER NAME</p> <div class="profile-info"><h5 class="mb-20 h5 text-blue">USER 상세정보</h5><ul>'
+	//사진없는 코드
+		var result = '<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-30"><div class="pd-20 card-box height-100-p"><div class="profile-info"><ul>'
+	   
+		   	result += '<li><span>닉네임:</span>'+data.user_nick+'</li>'
+			   result += '<li><span>Email Address:</span>'+data.user_email+'</li>'
+			   result +=  '<li><span>전화번호:</span>'+data.user_phone+'</li>'
+			   result +=  '<li><span>주소:</span>'+data.user_addr+'</li>'
+			   //result +=  '<li><span>생년월일:</span>2022.01.01</li>'
+			   result +=  '<li><span>가입일자:</span>'+data.user_joindate+'</li>'
+			   result +=  '<li><span>회원 유형:</span>'+data.user_type+'</li>'
+			   result +=  '<li><span>회원 상태:</span>'+data.user_status+'</li>'
+			   result +=  '<li><span>포인트:</span>'+data.user_point+'<strong>Point</strong></li></ul></div><div class="profile-social"></div></div></div><div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 mb-30"> <div class="card-box height-100-p overflow-hidden"> <div class="profile-tab height-100-p"> <div class="profile-setting">'
 			   result +=  '<form><ul class="profile-edit-list row"> <li class="weight-500 col-md-6"> <h4 class="text-blue h5 mb-20">회원정보수정</h4> <div class="form-group">'
 			   result +=  ' <label>ID</label><input class="form-control form-control-lg" type="text" readonly="" value="admin"> </div>'
 			   result +=  ' <div class="form-group">'
-			   result +=  ' <label>이름</label><input class="form-control form-control-lg" type="text" readonly="" value="쿠로미"> </div>'
+			   result +=  ' <label>이름</label><input class="form-control form-control-lg" type="text" readonly="" value="'+data.user_name+'"> </div>'
 			   result +=  ' <div class="form-group">'
-			   result +=  ' <label>닉네임</label><input class="form-control form-control-lg" type="text" readonly="" value="KUROMI"> </div>'
+			   result +=  ' <label>닉네임</label><input class="form-control form-control-lg" type="text" readonly="" value="'+data.user_nick+'"> </div>'
 			   result +=  ' <div class="form-group">'
-			   result +=  ' <label>Email</label><input class="form-control form-control-lg" type="email" readonly="" value="kuromi@example.com"> </div>'
+			   result +=  ' <label>Email</label><input class="form-control form-control-lg" type="email" readonly="" value="'+data.user_email+'"> </div>'
 			   result +=  ' <div class="form-group">'
-			   result +=  ' <label>전화번호</label><input class="form-control form-control-lg" type="text" readonly="" value="010-0000-0000"> </div>'
+			   result +=  ' <label>전화번호</label><input class="form-control form-control-lg" type="text" readonly="" value="'+data.user_phone+'"> </div>'
 			   result +=  ' <div class="form-group">'
-			   result +=  ' <label>주소</label><input class="form-control form-control-lg" type="text" readonly="" value="광주광역시 동구 예술길 31-15"> </div>'
+			   result +=  ' <label>주소</label><input class="form-control form-control-lg" type="text" readonly="" value="'+data.user_addr+'"> </div>'
+			   //result +=  ' <div class="form-group">'
+			   //result +=  ' <label>생년월일</label><input class="form-control form-control-lg date-picker" type="text" readonly=""> </div>'
 			   result +=  ' <div class="form-group">'
-			   result +=  ' <label>생년월일</label><input class="form-control form-control-lg date-picker" type="text" readonly=""> </div>'
+			   result +=  ' <label>가입일자</label><input class="form-control form-control-lg date-picker" type="text" readonly="" value="'+data.user_joindate+'"> </div>'
 			   result +=  ' <div class="form-group">'
-			   result +=  ' <label>가입일자</label><input class="form-control form-control-lg date-picker" type="text" readonly=""> </div>'
-			   result +=  ' <div class="form-group">'
-			   result +=  ' <label>회원유형</label><div class="d-flex"><div class="custom-control custom-radio mb-5 mr-20"> <input type="radio" id="radioA" name="customRadio" class="custom-control-input"> <label class="custom-control-label weight-400" for="radioA">A</label> </div><div class="custom-control custom-radio mb-5 mr-20"> <input type="radio" id="radioM" name="customRadio" class="custom-control-input"> <label class="custom-control-label weight-400" for="radioM">M</label> </div><div class="custom-control custom-radio mb-5 mr-20"> <input type="radio" id="radioU" name="customRadio" class="custom-control-input"> <label class="custom-control-label weight-400" for="radioU">U</label> </div></div></div>'
+			   result +=  ' <label>회원유형</label><div class="d-flex"><div class="custom-control custom-radio mb-5 mr-20"> <input type="radio" id="radioA" name="customRadio" class="custom-control-input"> <label class="custom-control-label weight-400" for="radioA">A</label> </div><div class="custom-control custom-radio mb-5 mr-20"> <input type="radio" id="radioM" name="customRadio" class="custom-control-input"> <label class="custom-control-label weight-400" for="radioM">M</label> </div><div class="custom-control custom-radio mb-5 mr-20"> <input type="radio" id="radioU" name="customRadio" class="custom-control-input"> <label class="custom-control-label weight-400" for="radioU">'+data.user_type+'</label> </div></div></div>'
 			   result +=  ' <div class="form-group">'
 			   result +=  ' <label>회원상태</label> <select class="selectpicker form-control form-control-lg" data-style="btn-outline-secondary btn-lg"> <option>활성화</option>'
 			   result +=  ' <option>휴먼상태</option>'
 			   result +=  ' <option>블랙</option>'
 			   result +=  ' </select></div>'
 			   result +=  ' <div class="form-group">'
-			   result +=  ' <label>포인트</label><input class="form-control form-control-lg" type="text" value="10,000,000"> </div>'
+			   result +=  ' <label>포인트</label><input class="form-control form-control-lg" type="text" value="'+data.user_point+'"> </div>'
 			   result +=  ' <div class="form-group mb-0">'
 			   result +=  ' <input type="submit" class="btn btn-primary" value="정보수정"> </div></li></ul></form></div></div></div></div>'
-	   })
+	   
 
 	   $("#list").html(result)
 }

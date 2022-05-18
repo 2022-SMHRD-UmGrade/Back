@@ -5,7 +5,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 	<!-- Basic Page Info -->
 	<meta charset="utf-8">
 	<title>우산상세조회</title>
@@ -34,7 +33,6 @@
 		window.dataLayer = window.dataLayer || [];
 		function gtag(){dataLayer.push(arguments);}
 		gtag('js', new Date());
-
 		gtag('config', 'UA-119386393-1');
 	</script>
 </head>
@@ -112,7 +110,7 @@
 								</li>
 								<li>
 									<a href="#" class="alert alert-dismissible fade show" role="alert">
-										<img src="${path}/resources/images/kuromi2.jpg" alt="">
+										<img src="${pageContext.request.contextPath}/resources/images/kuromi2.jpg" alt="">
 										<h3>💜</h3>
 										<p>자리를 찾아가는 퍼즐처럼</p>
 										<p>맞춰지는 세상 속을 벗어나고만 싶어</p>
@@ -326,11 +324,6 @@
 							<li><a href="umBoxTable">보관함조회</a></li>
 						</ul>
 					</li>
-					<li class="dropdown">
-						<a href="rental" class="dropdown-toggle no-arrow">
-							<span class="micon dw dw-house-1"></span><span class="mtext">대여관리</span>
-						</a>
-					</li>
 					<li>
 						<a href="qna" class="dropdown-toggle no-arrow">
 							<span class="micon dw dw dw-question-1"></span><span class="mtext">질의응답</span>
@@ -392,126 +385,8 @@
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-30">
-						<div class="pd-20 card-box height-100-p">
-							<div class="profile-photo">
-								<a href="modal" data-toggle="modal" data-target="#modal" class="edit-avatar"><i class="fa fa-pencil"></i></a>
-								<img src="vendors/images/kuromi3.jpg" alt="" class="avatar-photo">
-								<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-									<div class="modal-dialog modal-dialog-centered" role="document">
-										<div class="modal-content">
-											<div class="modal-body pd-5">
-												<div class="img-container">
-													<img id="image" src="vendors/images/kuromi4.jpg" alt="Picture">
-												</div>
-											</div>
-											<div class="modal-footer">
-												<input type="submit" value="Update" class="btn btn-primary">
-												<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<h5 class="text-center h5 mb-0">💜Umbrella💜</h5>
-							<p class="text-center text-muted font-14">umbrella</p>
-							<div class="profile-info">
-								<h5 class="mb-20 h5" data-color="#A3CBE6">우산 상세정보</h5>
-								<ul>
-									<li>
-										<span>순번:</span>
-										1
-									</li>								
-									<li>
-										<span>RFID:</span>
-										255.04.50.70
-									</li>
-									<li>
-										<span>종류:</span>
-										일반우산
-									</li>
-									<li>
-										<span>상태:</span>
-										미사용
-									</li>
-									<li>
-										<span>파손여부:</span>
-										파손안됨
-									</li>
-									<li>
-										<span>보관함순번:</span>
-										1
-									</li>
-								</ul>
-							</div>
-							<div class="profile-social">
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 mb-30">
-						<div class="card-box height-100-p overflow-hidden">
-							<div class="profile-tab height-100-p">
-								<div class="profile-setting">
-									<form>
-										<ul class="profile-edit-list row">
-											<li class="weight-500 col-md-6">
-												<h4 class="h5 mb-20" data-color="#A3CBE6">우산정보수정</h4>
-												<div class="form-group">
-													<label>순번</label>
-													<input class="form-control form-control-lg" type="text" readonly="" value="1">
-												</div>
-												<div class="form-group">
-													<label>RFID</label>
-													<input class="form-control form-control-lg" type="text" readonly="" value="255.04.50.70">
-												</div>
-												<div class="form-group">
-													<label>우산종류</label>
-													<div class="d-flex">
-													<div class="custom-control custom-radio mb-5 mr-20">
-														<input type="radio" id="radio1" name="customRadio" class="custom-control-input" checked onclick="return(false);">
-														<label class="custom-control-label weight-400" for="radio1">일반우산</label>
-													</div>
-													<div class="custom-control custom-radio mb-5 mr-20">
-														<input type="radio" id="radio2" name="customRadio" class="custom-control-input" onclick="return(false);">
-														<label class="custom-control-label weight-400" for="radio2">어린이우산</label>
-													</div>
-													<div class="custom-control custom-radio mb-5 mr-20">
-														<input type="radio" id="radio3" name="customRadio" class="custom-control-input" onclick="return(false);">
-														<label class="custom-control-label weight-400" for="radio3">우양산</label>
-													</div>
-													</div>
-												</div>
-												<div class="form-group">
-													<label>상태</label>
-													<select class="selectpicker form-control form-control-lg" data-style="btn-outline-secondary btn-lg">
-														<option>미사용</option>
-														<option>사용</option>
-													</select>
-												</div>
-												<div class="form-group">
-													<label>파손여부</label>
-													<select class="selectpicker form-control form-control-lg" data-style="btn-outline-secondary btn-lg">
-														<option>파손안됨</option>
-														<option>파손</option>
-													</select>
-												</div>
-												<div class="form-group">
-													<label>보관함순번</label>
-													<input class="form-control form-control-lg" type="text" readonly="" value="1">
-												</div>
+				<div class="row" id="list">
 
-												<div class="form-group mb-0">
-													<input type="submit" class=" btn btn-custom" value="정보수정">
-												</div>
-											</li>
-											
-										</ul>
-									</form>
-								</div>
-							</div>
-						</div>
-					</div>
 								
 				</div>
 
@@ -531,38 +406,49 @@
 <script>
 
 $(document).ready(()=>{
-	userDetails(${user_seq})
+	umDetails("${umb_seq}")
 })
 
 function htmlView(data){
-	var result ='<div class="pd-20"><h4 data-color="#A3CBE6">회원조회</h4></div><div class="pb-20"><table class="data-table table stripe hover nowrap text-center dataTable">'
-	result += '<thead><tr><th>순번</th><th>RFID</th><th>종류</th><th>상태</th><th>파손여부</th><th>보관함위치<th></tr></thead><tbody>'
+	 // 데이터를 확인하고 싶을 때.
+	//var str = JSON.stringify(data); // <> parse()
+	//alert(str);
+	//사진있는코드
+	//var result = '<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-30"> <div class="pd-20 card-box height-100-p"> <div class="profile-photo"><a href="modal" data-toggle="modal" data-target="#modal" class="edit-avatar"><i class="fa fa-pencil"></i></a> <img src="vendors/images/kuromi3.jpg" alt="" class="avatar-photo"> <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true"> <div class="modal-dialog modal-dialog-centered" role="document"> <div class="modal-content"><div class="modal-body pd-5"><div class="img-container"><img id="image" src="vendors/images/kuromi4.jpg" alt="Picture"> </div></div><div class="modal-footer"><input type="submit" value="Update" class="btn btn-primary"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div></div></div></div></div><h5 class="text-center h5 mb-0">💜USER ID💜</h5> <p class="text-center text-muted font-14">USER NAME</p> <div class="profile-info"><h5 class="mb-20 h5 text-blue">USER 상세정보</h5><ul>'
+	//사진없는 코드
+	var result='<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-30"> <div class="pd-20 card-box height-100-p"> <div class="profile-photo"><a href="modal" data-toggle="modal" data-target="#modal" class="edit-avatar"><i class="fa fa-pencil"></i></a> <img src="vendors/images/kuromi3.jpg" alt="" class="avatar-photo"> <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true"> <div class="modal-dialog modal-dialog-centered" role="document"> <div class="modal-content"><div class="modal-body pd-5"><div class="img-container"><img id="image" src="vendors/images/kuromi4.jpg" alt="Picture"> </div></div><div class="modal-footer"><input type="submit" value="Update" class="btn btn-primary"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div></div></div></div></div><h5 class="text-center h5 mb-0">💜Umbrella💜</h5> <p class="text-center text-muted font-14">umbrella</p> <div class="profile-info"><h5 class="mb-20 h5" data-color="#A3CBE6">우산 상세정보</h5> <ul>'
+    result+='<li><span>순번:</span>'+data.umb_seq+'</li>'
+    result+='<li><span>RFID:</span>'+data.umb_rfid+'</li>'
+    result+='<li><span>종류:</span>'+data.umb_type+'</li>'
+    result+='<li><span>상태:</span>'+data.umb_status+'</li>'
+    result+='<li><span>파손여부:</span>'+data.umb_broken+'</li>'
+    result+='<li><span>보관함순번:</span>'+data.ubox_seq+'</li>'
+    result+='</ul></div><div class="profile-social"></div></div></div><div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 mb-30"> <div class="card-box height-100-p overflow-hidden"> <div class="profile-tab height-100-p"><div class="profile-setting"><form><ul class="profile-edit-list row"><li class="weight-500 col-md-6"><h4 class="h5 mb-20" data-color="#A3CBE6">우산정보수정</h4> <div class="form-group">'
+    result+='<label>순번</label><input class="form-control form-control-lg" type="text" readonly="" value="'+data.umb_seq+'"> </div>'
+    result+='<div class="form-group"><label>RFID</label>'
+    result+='<input class="form-control form-control-lg" type="text" readonly="" value="'+data.umb_rfid+'"> </div>'
+    result+='<div class="form-group"><label>우산종류</label>'
+    result+='<div class="d-flex">'
+    result+='<div class="custom-control custom-radio mb-5 mr-20"> <input type="radio" id="radio1" name="customRadio" class="custom-control-input" checked onclick="return(false);"> <label class="custom-control-label weight-400" for="radio1">일반우산</label> </div>'
+    result+='<div class="custom-control custom-radio mb-5 mr-20"> <input type="radio" id="radio2" name="customRadio" class="custom-control-input" onclick="return(false);"> <label class="custom-control-label weight-400" for="radio2">어린이우산</label> </div>'
+    result+='<div class="custom-control custom-radio mb-5 mr-20"> <input type="radio" id="radio3" name="customRadio" class="custom-control-input" onclick="return(false);"> <label class="custom-control-label weight-400" for="radio3">우양산</label> </div>'
+    result+='</div></div>'
+    result+='<div class="form-group">'
+    result+='<label>상태</label>'
+    result+='<select class="selectpicker form-control form-control-lg" data-style="btn-outline-secondary btn-lg"> <option>미사용</option>'
+    result+='<option>사용</option></select>'
+    result+='</div><div class="form-group">'
+    result+='<label>파손여부</label>'
+    result+='<select class="selectpicker form-control form-control-lg" data-style="btn-outline-secondary btn-lg"> <option>파손안됨</option>'
+    result+='<option>파손</option>'
+    result+='</select></div><div class="form-group">'
+    result+='<label>보관함순번</label>'
+    result+='<input class="form-control form-control-lg" type="text" readonly="" value="'+data.ubox_seq+'"> </div>'
+    result+='<div class="form-group mb-0">'
+    result+='<input type="submit" class=" btn btn-custom" value="정보수정"> </div>'
+    result+='</li></ul></form></div></div></div></div>'
+	   
 
-	   $.each(data, (index, vo)=>{ // 오브젝트안에 있는 데이터 접근.
-		   		  result += "<tr>"
-			      result += '<td class="table-plus">'+vo.umb_seq+'</td>'
-			      result += '<td>'+vo.umb_rfid+'</td>'
-			      result += '<td>'+vo.umb_type+'</td>'
-			      result += "<td>"+vo.umb_status+"</td>"
-			      result += "<td>"+vo.umb_broken+"</td>"
-			      result += "<td>"+vo.umbx_seq+"</td>"
-			      
-			      result += "<td>"
-			      result += '<div class="dropdown">'
-			      result += '<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">'
-			      result += '<i class="dw dw-more"></i>'
-			      result += '</a>'
-			      result += '<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">'
-			      result += '<a class="dropdown-item" href="userDetails"><i class="dw dw-eye"></i>상세보기</a>'
-			      result += '<button class="dropdown-item" id="sa-warning2"><i class="dw dw-delete-3"></i>삭제</button>'
-			      result += '</div></div>'
-			      result += "</td>"
-			      
-			      result += "</tr>"
-	   })
-	   result += "</tbody>"
-	   result += "</table>"
-	   result += "</div>"
 	   $("#list").html(result)
 }
 </script>

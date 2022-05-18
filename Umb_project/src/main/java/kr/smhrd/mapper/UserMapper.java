@@ -18,6 +18,9 @@ public interface UserMapper {
 	//유저 로그인 
 	public User userLogin(User user);
 	
+	//유저 삭제
+	public void userDel(String user_id);
+	
 	//유저 회원 정보 수정
 	public void userInfoUpdate(User user);
 	

@@ -5,6 +5,8 @@ function getContextPath(){
    return contextPath
 }
 
+
+/*User 관련*/
 function userList(){
 	$.ajax({
 		url :  getContextPath()+"/userList.do",
@@ -15,30 +17,6 @@ function userList(){
 			alert("error")
 		}
 	})
-}
-
-function umbList(){
-	$.ajax({
-		url :  getContextPath()+"/umbList.do",
-		type : "get",
-		dataType : "json",
-		success : htmlView,
-		error : function(){
-			alert("error")
-		}
-	})
-}
-	
-function uboxList(){
-	$.ajax({
-		url :  getContextPath()+"/uboxList.do",
-		type : "get",
-		dataType : "json",
-		success : htmlView,
-		error : function(){
-			alert("error")
-		}
-	})	
 }
 
 function userDetails(user_id){
@@ -52,5 +30,90 @@ function userDetails(user_id){
 		}
 	})	
 }
+
+function userDel(user_id){
+	$.ajax({
+		url :  getContextPath()+"/userDel.do?user_id="+user_id,
+		type : "get",
+		success : userList,
+		error : function(){
+			alert("error")
+		}
+	})	
+}
+
+/*Umbrella 관련*/
+function umbList(){
+	$.ajax({
+		url :  getContextPath()+"/umbList.do",
+		type : "get",
+		dataType : "json",
+		success : htmlView,
+		error : function(){
+			alert("error")
+		}
+	})
+}
+
+function umDetails(umb_seq){
+	$.ajax({
+		url :  getContextPath()+"/umbOne.do?umb_seq="+umb_seq,
+		type : "get",
+		dataType : "json",
+		success : htmlView,
+		error : function(){
+			alert("error")
+		}
+	})	
+}
+
+function umbDel(umb_seq){
+	$.ajax({
+		url :  getContextPath()+"/umbDel.do?umb_seq="+umb_seq,
+		type : "get",
+		success : umbList,
+		error : function(){
+			alert("error")
+		}
+	})	
+}
+
+
+/*umbox 관련*/	
+function uboxList(){
+	$.ajax({
+		url :  getContextPath()+"/uboxList.do",
+		type : "get",
+		dataType : "json",
+		success : htmlView,
+		error : function(){
+			alert("error")
+		}
+	})	
+}
+
+function umDetails(ubox_seq){
+	$.ajax({
+		url :  getContextPath()+"/umbOne.do?umb_seq="+umb_seq,
+		type : "get",
+		dataType : "json",
+		success : htmlView,
+		error : function(){
+			alert("error")
+		}
+	})	
+}
+
+
+
+
+
+
+
+
+
+
+
+
 	
 	
