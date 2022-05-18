@@ -21,7 +21,6 @@ import kr.smhrd.service.CommentService;
 import kr.smhrd.service.QnaService;
 import kr.smhrd.service.RentService;
 import kr.smhrd.service.ReplyService;
-import kr.smhrd.service.ReturnService;
 import kr.smhrd.service.UmbboxService;
 import kr.smhrd.service.UmbrellaService;
 import kr.smhrd.service.UserService;
@@ -37,7 +36,7 @@ public class RController {
 
 	@Autowired
 	private UmbrellaService umbrellaService;
-	
+
 	@Autowired
 	private UmbboxService UmbboxService;
 
@@ -52,9 +51,8 @@ public class RController {
 
 	@Autowired
 	private QnaService qnaService;
-	
-	
-/* 회원 */
+
+	/* 회원 */
 	// 회원 리스트 요청
 	@RequestMapping("/userList.do")
 	public List<User> user() {
@@ -62,17 +60,17 @@ public class RController {
 		List<User> list = userService.selectUser();
 		return list;
 	}
-	
+
 	// 단일 회원 정보 요청
 	@RequestMapping(value = "/userOne.do")
 	public User userOne(@RequestParam(value = "user_id") String user_id) {
-		System.out.println("받은 user_id : "+user_id);
+		System.out.println("받은 user_id : " + user_id);
 		System.out.println("단일 회원 정보 요청");
 		User list = userService.userOne(user_id);
 		System.out.println(list.getUser_id());
 		System.out.println(list.getUser_nick());
 		System.out.println(list.getUser_phone());
-	
+
 		return list;
 	}
 	
@@ -140,9 +138,8 @@ public class RController {
 			return u;
 		}
 	
-	
 
-/* 커뮤니티 게시판 */
+	/* 커뮤니티 게시판 */
 	// 게시판 게시글 작성
 	@RequestMapping(value = "/BoardInsert.do")
 	public String insertBoard(Board vo) {
@@ -166,13 +163,13 @@ public class RController {
 		Board list = boardService.selectOneBoard(article_seq);
 		return list;
 	}
-	
+
 	// 게시글 댓글 작성
 	@RequestMapping(value = "/InsertCmt.do")
 	public String insertCmt(Comment vo) {
 		System.out.println("댓글 추가");
 		commentService.insertCmt(vo);
-		return "comment insert success!";		
+		return "comment insert success!";
 	}
 
 	// 게시글 별 댓글 리스트 요청
@@ -182,33 +179,52 @@ public class RController {
 		List<Comment> list = commentService.selectListCmt(article_seq);
 		return list;
 	}
-	
+
 	// 게시글 수정
 	@RequestMapping(value = "/BoardUpdate.do")
 	public void updateBoard(Board vo) {
 		System.out.println("게시글 별 댓글 리스트 요청");
 		boardService.updateBoard(vo);
 	}
-	
-// 안드로이드에서 하고 있는 중 Start
-	// 게시판 게시글 조회수 증가 
-//	@RequestMapping(value = "/Increment.do")
-//	public void updateBoardCnt(@RequestParam("article_seq") int article_seq) {
-//		boardService.updateBoardCnt(article_seq);
-//		System.out.println("게시글 조회 증가");
-//	}
+
+	// 게시판 게시글 조회수 증가
+	@RequestMapping(value = "/Increment.do")
+	public void updateBoardCnt(@RequestParam("article_seq") int article_seq) {
+		boardService.updateBoardCnt(article_seq);
+		System.out.println("게시글 조회 증가");
+	}
 
 	// 게시판 게시글 삭제
-//	@RequestMapping(value = "/BoardDelete.do")
-//	public String deleteBoard(int article_seq) {
-//		boardService.deleteBoard(article_seq);
-//		System.out.println("게시글 삭제!");
-//
-//		return "deleteSuccess";
-//	}
-// end
+	@RequestMapping(value = "/BoardDelete.do")
+	public String deleteBoard(int article_seq) {
+		boardService.deleteBoard(article_seq);
+		System.out.println("게시글 삭제!");
 
-/* Qna 게시판 */
+		return "deleteSuccess";
+	}
+
+	// 게시글 별 댓글 수정
+	@RequestMapping(value = "/CommentUpdate.do")
+	public void updateCmt(Comment vo) {
+		System.out.println("선택한 게시글 댓글 수정");
+		commentService.updateCmt(vo);
+	}
+
+	// 게시글 별 댓글 좋아요 수 증가
+	@RequestMapping(value = "/CommentLikse.do")
+	public void updateCmtLikes(@RequestParam(value = "cmt_seq") int cmt_seq) {
+		System.out.println("선택한 게시글 댓글 좋아요 수 증가");
+		commentService.updateCmtLikes(cmt_seq);
+	}
+
+	// 게시글 별 댓글 삭제
+	@RequestMapping(value = "/CommentDelete.do")
+	public void deleteCmt(int cmt_seq) {
+		System.out.println("선택한 댓글 삭제");
+		commentService.deleteCmt(cmt_seq);
+	}
+
+	/* Qna 게시판 */
 	// QnA 리스트 요청
 	@RequestMapping(value = "/QnaList.do")
 	public List<Qna> selectQna() {
