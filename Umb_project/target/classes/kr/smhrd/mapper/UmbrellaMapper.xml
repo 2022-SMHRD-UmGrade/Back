@@ -10,7 +10,7 @@
 		select umb_seq from t_umbrella where umb_rfid = #{umb_rfid}
 	</select>
 	
-	<select id ="selectUmbType" parameterType = "String" resultType = "int">
+	<select id ="selectUmbType" parameterType = "String" resultType = "String">
 		select umb_type from t_umbrella where umb_rfid = #{umb_rfid}
 	</select>
 	

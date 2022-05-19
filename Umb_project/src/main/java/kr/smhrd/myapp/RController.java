@@ -131,7 +131,7 @@ public class RController {
 			return list;
 		}
 	// 단일 보관함 리스트 요청
-		@RequestMapping("/uboxList.do")
+		@RequestMapping("/uboxOne.do")
 		public Umbbox uboxOne(@RequestParam(value = "ubox_seq") int ubox_seq) {
 			System.out.println("보관함 리스트 요청");
 			Umbbox u = UmbboxService.selectOneUbox(ubox_seq);

@@ -75,8 +75,8 @@ public class ReturnService {
 		int time = rentService.selectRentTime(vo.getRent_seq());	// 사용시간 추출
 		int charge = (umbrellaService.selectUmbType(uid).equals("N"))?800:600; // 우산 타입에 따라 요금 차등
 		
-		//int pay = (time!=0)?((time/24)+1)*charge:0; // 사용시간을 바탕으로 사용요금 계산 <다시 넣어야 됨>
-		int pay = 4000;
+		int pay = (time!=0)?((time/24)+1)*charge:0; // 사용시간을 바탕으로 사용요금 계산 <다시 넣어야 됨>
+		//int pay = 4000; // 테스트용 코드 (요금 하드코딩)
 		HashMap<String, Object> pc = new HashMap<>();			// HashMap 호출, DB입력용
 		pc.put("user_id", vo.getRent_id());						// map에 유저아이디 입력
 		pc.put("amount", pay);									// map에 사용요금 입력
