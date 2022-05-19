@@ -435,6 +435,7 @@ $(document).ready(()=>{
 	userList()
 })
 
+//data-table 태그 기준
 function htmlView(data){
 	var result ='<div class="pd-20"><h4 data-color="#A3CBE6">회원조회</h4></div><div class="pb-20"><table class="data-table table stripe hover nowrap text-center dataTable">'
 		//<div class="dataTables_length" id="DataTables_Table_0_length"><label>Show <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="custom-select custom-select-sm form-control form-control-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="-1">All</option></select> entries</label></div>		
