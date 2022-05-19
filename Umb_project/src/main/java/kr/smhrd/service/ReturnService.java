@@ -73,10 +73,10 @@ public class ReturnService {
 		//raspService.getRequestApiGet("http://172.30.1.49:8082/soleON");	// 솔레노이드 잠금
 		Rent vo = rentService.selectOneRfid(uid);	// 대여정보 갖고오기 (우산 rfid로)
 		int time = rentService.selectRentTime(vo.getRent_seq());	// 사용시간 추출
-		int charge = (umbrellaService.selectUmbType(uid).equals("N"))?700:400; // 우산 타입에 따라 요금 차등
+		int charge = (umbrellaService.selectUmbType(uid).equals("N"))?800:600; // 우산 타입에 따라 요금 차등
 		
 		//int pay = (time!=0)?((time/24)+1)*charge:0; // 사용시간을 바탕으로 사용요금 계산 <다시 넣어야 됨>
-		int pay = 7000;
+		int pay = 4000;
 		HashMap<String, Object> pc = new HashMap<>();			// HashMap 호출, DB입력용
 		pc.put("user_id", vo.getRent_id());						// map에 유저아이디 입력
 		pc.put("amount", pay);									// map에 사용요금 입력
