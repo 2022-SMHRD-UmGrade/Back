@@ -6,7 +6,7 @@
 	</select>
 	
 	<insert id="insertCmt" parameterType="kr.smhrd.domain.Comment">
-		insert into t_comment(article_seq, cmt_content, cmt_id) values (#{article_seq}, #{article_content}, #{cmt_content}, #{cmt_id})
+		insert into t_comment(article_seq, cmt_content, cmt_id) values (#{article_seq}, #{cmt_content}, #{cmt_id})
 	</insert>
 	
 	<update id="updateCmtLikes" parameterType="int">

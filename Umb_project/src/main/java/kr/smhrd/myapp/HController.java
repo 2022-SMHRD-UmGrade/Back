@@ -44,6 +44,12 @@ public class HController {
 		return Rasp_Service.soleOFF();
 	}
 	
+	@RequestMapping("/test123")
+	public String test() {
+		
+		return "asdf";
+	}
+	
 
 	@RequestMapping("/")
 	public String main() {
