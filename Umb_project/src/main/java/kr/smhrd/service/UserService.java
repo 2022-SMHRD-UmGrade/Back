@@ -49,20 +49,19 @@ public class UserService {
 
 	}
 	
-// 안드로이드 마이페이지 화면 구성 완료시 바뀔 로직	
-//Start
+
 	// 유저 닉네임 수정
-//	public void userNickUpdate(User user) {
-//		mapper.userNickUpdate(user);
-//			
-//			
-//	}
+	public void userNickUpdate(User user) {
+		mapper.userNickUpdate(user);
+			
+			
+	}
 
 	//유저 계정 비밀번호 수정
-//	public void userPwUpdate(User user) {
-//		mapper.userPwUpdate(user);
-//	}
-//end	
+	public void userPwUpdate(User user) {
+		mapper.userPwUpdate(user);
+	}
+	
 
 	// 유저 카드등록
 	public void updateUserBK(HashMap<String, String> map) {

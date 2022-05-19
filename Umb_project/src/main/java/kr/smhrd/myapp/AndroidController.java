@@ -78,5 +78,21 @@ public class AndroidController {
 		return "success";
 
 	}
+	
+	// 유저 닉네임 수정
+	@RequestMapping(value = "/Android/NcikUpdate", method = RequestMethod.POST)
+	public String userNickUpdate(User user) {
+		userService.userNickUpdate(user);
+		System.out.println("닉네임 수정 완료!");
+		return "success";
+	}
+	
+	// 유저 비밀번호 번경
+	@RequestMapping(value ="/Android/PwUpdate", method = RequestMethod.POST)
+	public String userPwUpdate(User user) {
+		userService.userPwUpdate(user);
+		System.out.println("비밀번호 수정 완료!");
+		return "success";
+	}
 
 }
