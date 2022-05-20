@@ -17,7 +17,7 @@
 	<select id="selectUnusedUbox" resultType = "kr.smhrd.domain.Umbbox">
 		select ubox_seq
 		from t_umbbox
-		where 50 <![CDATA[<]]> TIMESTAMPDIFF(SECOND, ubox_id_date, now())
+		where 30 <![CDATA[<]]> TIMESTAMPDIFF(SECOND, ubox_id_date, now())
      		and ubox_id != 'D'
 	</select>
 	

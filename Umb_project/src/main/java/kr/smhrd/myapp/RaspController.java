@@ -3,10 +3,12 @@ package kr.smhrd.myapp;
 import java.io.IOException;
 import java.net.ConnectException;
 import java.net.NoRouteToHostException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -98,5 +100,6 @@ public class RaspController {
 			return raspService.ledGreen();
 			// Rentservice.insertRent(null);
 	}
+
 	
 }

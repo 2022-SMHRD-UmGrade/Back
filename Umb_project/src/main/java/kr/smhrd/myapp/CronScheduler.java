@@ -9,10 +9,8 @@ import org.springframework.stereotype.Component;
 import kr.smhrd.domain.Rent;
 import kr.smhrd.domain.Umbbox;
 import kr.smhrd.service.PayService;
-import kr.smhrd.service.RaspService;
 import kr.smhrd.service.RentService;
 import kr.smhrd.service.UmbboxService;
-import kr.smhrd.service.UserService;
 
 @Component
 public class CronScheduler {
