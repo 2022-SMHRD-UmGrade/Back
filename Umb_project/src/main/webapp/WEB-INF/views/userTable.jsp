@@ -392,8 +392,25 @@
 					</div>
 				</div>
 				<!-- Simple Datatable start -->
-				<div class="card-box mb-30" id="usertable" >
-					
+				<div class="card-box mb-30" >
+					<div class="pd-20">
+						<h4 class="text-blue h4">회원조회</h4>
+					</div>
+					<div class="pb-20">
+					<table class="data-table table stripe hover nowrap text-center"  id="userlist" >
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>이름</th>
+									<th>닉네임</th>
+									<th>대여상태</th>
+									<th>포인트</th>
+									<th>가입일</th>
+									<th class="datatable-nosort">Action</th>
+								</tr>
+							</thead>
+					</table>
+					</div>							
 				</div>
 				<!-- Simple Datatable End -->
 			</div>
@@ -421,7 +438,7 @@
 	<script src="${pageContext.request.contextPath}/resources/src/plugins/datatables/js/pdfmake.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/src/plugins/datatables/js/vfs_fonts.js"></script>
 	<!-- Datatable Setting js -->
-	<script src="${pageContext.request.contextPath}/resources/js/datatable-setting.js"></script></body>
+<%-- 	<script src="${pageContext.request.contextPath}/resources/js/datatable-setting.js"></script></body> --%>
 	<!-- add sweet alert js & css in footer -->
 	<script src="${pageContext.request.contextPath}/resources/src/plugins/sweetalert2/sweetalert2.all.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/src/plugins/sweetalert2/sweet-alert.init.js"></script>
@@ -429,45 +446,49 @@
 	<!-- 테이블출력 js -->
 	<script src="${pageContext.request.contextPath}/resources/js/webjs.js"></script>
 	
-<script>
+	<script>
+	$(document).ready(function() {
+	    $("#userlist").DataTable({
+	    	scrollCollapse: true,
+		      autoWidth: false,
+		      responsive: true,
+		      columnDefs: [{
+		         targets: "datatable-nosort",
+		         orderable: false,
+		      }],
+		      "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+		      "language": {
+		         "info": "_START_-_END_ of _TOTAL_ entries",
+		         searchPlaceholder: "Search",
+		         paginate: {
+		            next: '<i class="ion-chevron-right"></i>',
+		            previous: '<i class="ion-chevron-left"></i>'  
+		         }
+		      },
+	    	ajax:{
+	    		url :  getContextPath()+"/userList.do", 
+	    		type : "get",
+	    		dataType : "json",
+	    		dataSrc :''
+	        },
+	        columns:[
+	        	{data:"user_id"},
+	        	{data:"user_name"},
+	        	{data:"user_nick"},
+	        	{data:"user_status"},
+	        	{data:"user_point"},
+	        	{data:"user_joindate"},
+	        	{
+	              data: null,
+	              render: function ( data, type, row ) {
+	                return '<div class="dropdown"><a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown"><i class="dw dw-more"></i></a><div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"><a class="dropdown-item" href="userDetails"><i class="dw dw-eye"></i>상세보기</a><button class="dropdown-item" ><i class="dw dw-delete-3"></i>삭제</button></div></div>';
 
-$(document).ready(()=>{
-	userList()
-})
+	              }
+	            }       	
+	        ]        
+	    });
+	});
 
-//data-table 태그 기준
-function htmlView(data){
-	var result ='<div class="pd-20"><h4 data-color="#A3CBE6">회원조회</h4></div><div class="pb-20"><table class="data-table table stripe hover nowrap text-center dataTable">'
-		//<div class="dataTables_length" id="DataTables_Table_0_length"><label>Show <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="custom-select custom-select-sm form-control form-control-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="-1">All</option></select> entries</label></div>		
-	result += '<thead><tr><th>ID</th><th>이름</th><th>닉네임</th><th>대여상태</th><th>포인트</th><th>가입일<th></tr></thead><tbody>'
-	   //반복문
-	   $.each(data, (index, vo)=>{ // 오브젝트안에 있는 데이터 접근.
-		   		  result += "<tr>"
-			      result += '<td class="table-plus">'+vo.user_id+'</td>'
-			      result += '<td>'+vo.user_name+'</td>'
-			      result += '<td>'+vo.user_nick+'</td>'
-			      result += "<td>"+vo.user_status+"</td>"
-			      result += "<td>"+vo.point+"</td>"
-			      result += "<td>"+vo.user_joindate+"</td>"
-			      
-			      result += "<td>"
-			      result += '<div class="dropdown">'
-			      result += '<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">'
-			      result += '<i class="dw dw-more"></i>'
-			      result += '</a>'
-			      result += '<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">'
-			      result += '<a class="dropdown-item" href="userDetails?user_id='+vo.user_id+'"><i class="dw dw-eye"></i>상세보기</a>'
-			      result += "<button class='dropdown-item' id='sa-warning2' type='button' onclick='userDel(\"" +vo.user_id + "\")'><i class='dw dw-delete-3'></i>삭제</button>"
-			      
-			      result += '</div></div>'													
-			      result += "</td>"
-			      
-			      result += "</tr>"
-	   })	
-	   result += "</tbody>"
-	   result += "</table>"
-	   result += "</div>"
-	   $("#usertable").html(result)
-}
-</script>
+	</script>
+	
 </html>

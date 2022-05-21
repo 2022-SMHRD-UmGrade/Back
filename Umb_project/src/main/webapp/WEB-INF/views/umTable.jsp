@@ -369,76 +369,103 @@
 	<!-- Sidebar End -->
 
 	<div class="main-container">
-		<div class="pd-ltr-20 xs-pd-20-10">
-			<div class="min-height-200px">
-				<div class="page-header">
-					<div class="row">
-						<div class="col-md-6 col-sm-12">
-							<div class="title">
-								<h4>우산조회</h4>
-							</div>
-							<nav aria-label="breadcrumb" role="navigation">
-								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="#">우산관리</a></li>
-									<li class="breadcrumb-item active" aria-current="page">우산조회</li>
-								</ol>
-							</nav>
-						</div>
-					</div>
-				</div>
-				
-				<!-- Export Datatable start -->
-				<div class="card-box mb-30" id="list">
-				</div>
-				<!-- add task popup start 우산추가 -->
-				<div class="modal fade customscroll" id="task-add" tabindex="-1" role="dialog">
-					<div class="modal-dialog modal-dialog-centered" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalLongTitle">우산추가</h5>
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Close Modal">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<div class="modal-body pd-0">
-								<div class="task-list-form">
-									<ul>
-										<li>
-											<form>
-												<div class="form-group row">
-													<label class="col-md-4">우산종류</label>
-													<div class="col-md-8">
-														<select class="selectpicker form-control" data-style="btn-outline-primary" data-selected-text-format="count" data-count-selected-text= "{0} people selected">
-															<option>일반우산</option>
-															<option>어린이우산</option>
-															<option>우양산</option>
-														</select>
-													</div>
-												</div>
-												<div class="form-group row mb-0">
-													<label class="col-md-4">RFID</label>
-													<div class="col-md-8">
-														<input type="text" class="form-control">
-													</div>
-												</div>
-											</form>
-										</li>										
-									</ul>
-								</div>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-primary" id="sa-success2">Add</button>
-								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- add task popup End -->
-			</div>
-			<div class="footer-wrap pd-20 mb-20 card-box">
-				지능형 IoT융합 SW전문가과정 실전프로젝트 <a href="https://github.com/2022-SMHRD-UmGrade" target="_blank">UmGrade</a>
-			</div>
-		</div>
+	    <div class="pd-ltr-20 xs-pd-20-10">
+	        <div class="min-height-200px">
+	            <div class="page-header">
+	                <div class="row">
+	                    <div class="col-md-6 col-sm-12">
+	                        <div class="title">
+	                            <h4>우산조회</h4>
+	                        </div>
+	                        <nav aria-label="breadcrumb" role="navigation">
+	                            <ol class="breadcrumb">
+	                                <li class="breadcrumb-item"><a href="#">우산관리</a></li>
+	                                <li class="breadcrumb-item active" aria-current="page">우산조회</li>
+	                            </ol>
+	                        </nav>
+	                    </div>
+	                </div>
+	            </div>
+	            
+	            <!-- Export Datatable start -->
+	            <div class="card-box mb-30">
+	                <div class="pd-20">
+	                    <h4 data-color="#A3CBE6">우산조회</h4>
+	                </div>
+	                <div class="col-sm-12 text-right">
+	                    <a href="task-add" data-toggle="modal" data-target="#task-add" class="bg-light-blue btn text-blue weight-500"><i class="ion-plus-round"></i> Add</a>
+	                    <button class="bg-light-red btn text-red-50 weight-500"><i class="icon-copy ion-trash-b">Delete</i></button>
+	                </div>
+	                <div class="pb-20">
+	                    <table class="table stripe hover data-table-export-checkbox nowrap text-center" id="umlist">
+	                        <thead>
+	                            <tr>
+	                                <th><div class="dt-checkbox">
+	                                    <input type="checkbox" name="select_all" value="1" id="example-select-all">
+	                                    <span class="dt-checkbox-label"></span>
+	                                </div>
+	                                </th>
+	                                <th class="table-plus">순번</th>
+	                                <th>RFID</th>
+	                                <th>종류</th>
+	                                <th>상태</th>
+	                                <th>파손여부</th>
+	                                <th>우산보관함</th>
+	                                <th class="datatable-nosort">Action</th>
+	                            </tr>
+	                        </thead>                      
+	                    </table>
+	                </div>
+	            </div>
+	            <!-- add task popup start 우산추가 -->
+	            <div class="modal fade customscroll" id="task-add" tabindex="-1" role="dialog">
+	                <div class="modal-dialog modal-dialog-centered" role="document">
+	                    <div class="modal-content">
+	                        <div class="modal-header">
+	                            <h5 class="modal-title" id="exampleModalLongTitle">우산추가</h5>
+	                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Close Modal">
+	                                <span aria-hidden="true">&times;</span>
+	                            </button>
+	                        </div>
+	                        <div class="modal-body pd-0">
+	                            <div class="task-list-form">
+	                                <ul>
+	                                    <li>
+	                                        <form>
+	                                            <div class="form-group row">
+	                                                <label class="col-md-4">우산종류</label>
+	                                                <div class="col-md-8">
+	                                                    <select class="selectpicker form-control" data-style="btn-outline-primary" data-selected-text-format="count" data-count-selected-text= "{0} people selected">
+	                                                        <option>일반우산</option>
+	                                                        <option>어린이우산</option>
+	                                                        <option>우양산</option>
+	                                                    </select>
+	                                                </div>
+	                                            </div>
+	                                            <div class="form-group row mb-0">
+	                                                <label class="col-md-4">RFID</label>
+	                                                <div class="col-md-8">
+	                                                    <input type="text" class="form-control">
+	                                                </div>
+	                                            </div>
+	                                        </form>
+	                                    </li>										
+	                                </ul>
+	                            </div>
+	                        </div>
+	                        <div class="modal-footer">
+	                            <button type="button" class="btn btn-primary" id="sa-success2">Add</button>
+	                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	            <!-- add task popup End -->
+	        </div>
+	        <div class="footer-wrap pd-20 mb-20 card-box">
+	            지능형 IoT융합 SW전문가과정 실전프로젝트 <a href="https://github.com/2022-SMHRD-UmGrade" target="_blank">UmGrade</a>
+	        </div>
+	    </div>
 	</div>
 	<!-- js -->
 	<script src="${path}/resources/js/core.js"></script>
@@ -458,14 +485,91 @@
 	<script src="${path}/resources/src/plugins/datatables/js/pdfmake.min.js"></script>
 	<script src="${path}/resources/src/plugins/datatables/js/vfs_fonts.js"></script>
 	<!-- Datatable Setting js -->
-	<script src="${path}/resources/js/datatable-setting.js"></script></body>
+
 	<!-- add sweet alert js & css in footer -->
 	<script src="${path}/resources/src/plugins/sweetalert2/sweetalert2.all.js"></script>
 	<script src="${path}/resources/src/plugins/sweetalert2/sweet-alert.init.js"></script>
 	<!-- 테이블출력 js -->
 	<script src="${path}/resources/js/webjs.js"></script>
 	
-<script>
+	<script>
+	$(document).ready(function() {
+	    var table = $("#umlist").DataTable({
+	    	scrollCollapse: true,
+			autoWidth: false,
+			responsive: true,
+			columnDefs: [{
+				targets: "datatable-nosort",
+				orderable: false,
+			}],
+			"lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+			"language": {
+				"info": "_START_-_END_ of _TOTAL_ entries",
+				searchPlaceholder: "Search",
+				paginate: {
+					next: '<i class="ion-chevron-right"></i>',
+					previous: '<i class="ion-chevron-left"></i>'  
+				}
+			},
+			dom: 'Bfrtp',
+			buttons: [
+			'copy', 'csv', 'pdf', 'print'
+			],
+			'columnDefs': [{
+				'targets': 0,
+				'searchable': false,
+				'orderable': false,
+				'className': 'dt-body-center',
+				'render': function (data, type, full, meta){
+					return '<div class="dt-checkbox"><input type="checkbox" name="id[]" value="' + $('<div/>').text(data).html() + '"><span class="dt-checkbox-label"></span></div>';
+				}
+			}],
+			'order': [[1, 'asc']],
+		      ajax:{
+		    		url :  getContextPath()+"/umbList.do", 
+		    		type : "get",
+		    		dataType : "json",
+		    		dataSrc :''
+		    	},
+		    	columns:[
+		    		{data:null},
+		    		{data:"umb_seq"},
+		    		{data:"umb_rfid"},
+		    		{data:"umb_type"},
+		    		{data:"umb_status"},
+		    		{data:"umb_broken"},
+		    		{data:"ubox_seq"},
+		    		{
+			              data: null,
+			              render: function ( data, type, row ) {
+			                return '<div class="dropdown"><a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown"><i class="dw dw-more"></i></a><div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"><a class="dropdown-item" href="umDetails"><i class="dw dw-eye"></i>상세보기</a><button class="dropdown-item"><i class="dw dw-delete-3"></i>삭제</button></div></div>';
+
+			              }
+			            } 
+		    	]		    	
+		    });
+	    
+	    
+		$('#example-select-all').on('click', function(){
+			var rows = table.rows({ 'search': 'applied' }).nodes();
+			$('input[type="checkbox"]', rows).prop('checked', this.checked);
+		});
+
+		$('.checkbox-datatable tbody').on('change', 'input[type="checkbox"]', function(){
+			if(!this.checked){
+				var el = $('#example-select-all').get(0);
+				if(el && el.checked && ('indeterminate' in el)){
+					el.indeterminate = true;
+				}
+			}
+		});
+	    
+	});
+
+
+	</script>
+
+<!-- <script>
 
 $(document).ready(()=>{
 	umbList()
@@ -507,5 +611,5 @@ function htmlView(data){
 	   result += "</div>"
 	   $("#list").html(result)
 }
-</script>
+</script> -->
 </html>
