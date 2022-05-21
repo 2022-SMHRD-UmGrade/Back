@@ -12,7 +12,7 @@ function userList(){
 		url :  getContextPath()+"/userList.do",
 		type : "get",
 		dataType : "json",
-		success : htmlView,
+		success : userList1,
 		error : function(){
 			alert("error")
 		}
@@ -35,7 +35,7 @@ function userDel(user_id){
 	$.ajax({
 		url :  getContextPath()+"/userDel.do?user_id="+user_id,
 		type : "get",
-		success : userList,
+		success : userList1,
 		error : function(){
 			alert("error")
 		}
@@ -71,7 +71,7 @@ function umbDel(umb_seq){
 	$.ajax({
 		url :  getContextPath()+"/umbDel.do?umb_seq="+umb_seq,
 		type : "get",
-		success : umbList,
+		success : umbList1,
 		error : function(){
 			alert("error")
 		}
@@ -92,7 +92,21 @@ function uboxList(){
 	})	
 }
 
+
 function umDetails(ubox_seq){
+	$.ajax({
+		url :  getContextPath()+"/uboxOne.do?ubox_seq="+ubox_seq,
+		type : "get",
+		dataType : "json",
+		success : htmlView,
+		error : function(){
+			alert("error")
+		}
+	})	
+}
+
+
+/*function umDetails(umb_seq){
 	$.ajax({
 		url :  getContextPath()+"/umbOne.do?umb_seq="+umb_seq,
 		type : "get",
@@ -102,7 +116,7 @@ function umDetails(ubox_seq){
 			alert("error")
 		}
 	})	
-}
+}*/
 
 
 
