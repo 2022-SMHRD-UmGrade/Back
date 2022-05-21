@@ -83,4 +83,5 @@ public class UmbboxService {
 	public List<Umbbox> selectUnusedUbox(){
 		return mapper.selectUnusedUbox();
 	}
+	
 }

@@ -22,6 +22,7 @@ public interface UmbrellaMapper {
 	// 우산 RFID로 우산 타입 조회
 	public String selectUmbType(String umb_rfid);
 	
+	
 	// 우산 RFID 조회 (DB에 등록된 우리의 우산인지 확인)
 	public boolean isExistUmb(String umb_rfid);
 	
@@ -36,6 +37,9 @@ public interface UmbrellaMapper {
 	
 	// 파손정보 수정
 	public void updateUmbBroken(int umb_seq);
+	
+	// 파손정보 수정(버튼으로 수정)
+	public void updateUmbBroken2(String rent_id);
 	
 	// 점검일자 수정
 	public void updateUmbCheck(int umb_seq);

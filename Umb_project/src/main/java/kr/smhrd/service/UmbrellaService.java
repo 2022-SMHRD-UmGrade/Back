@@ -65,15 +65,22 @@ public class UmbrellaService {
 		mapper.updateUmbBroken(umb_seq);
 	}
 	
+	// 파손정보 수정(버튼으로 수정)
+	public void updateUmbBroken2(String rent_id) {
+		mapper.updateUmbBroken2(rent_id);
+	}
+	
 	// 우산 대여정보 수정
 	public void updateUmbStatus(Umbrella vo) {
 		mapper.updateUmbStatus(vo);
 	}
-
+	
 	public void insertUmb(Umbrella vo) {
 		mapper.insertUmb(vo);
 		
 	}
+	
+	
 	
 	
 }
