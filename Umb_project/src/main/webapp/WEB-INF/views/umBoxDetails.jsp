@@ -377,134 +377,8 @@
 
 	<div class="main-container">
 		<div class="pd-ltr-20 xs-pd-20-10">
-			<div class="min-height-200px">
-				<div class="page-header">
-					<div class="row">
-						<div class="col-md-6 col-sm-12">
-							<div class="title">
-								<h4>보관함정보상세보기</h4>
-							</div>
-							<nav aria-label="breadcrumb" role="navigation">
-								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="#">보관함관리</a></li>
-									<li class="breadcrumb-item"><a href="umBoxTable">보관함조회</a></li>
-									<li class="breadcrumb-item active" aria-current="page">상세보기</li>
-								</ol>
-							</nav>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-30">
-						<div class="pd-20 card-box height-100-p">
-							<div class="profile-photo">
-								<a href="modal" data-toggle="modal" data-target="#modal" class="edit-avatar"><i class="fa fa-pencil"></i></a>
-								<img src="vendors/images/kuromi3.jpg" alt="" class="avatar-photo">
-								<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-									<div class="modal-dialog modal-dialog-centered" role="document">
-										<div class="modal-content">
-											<div class="modal-body pd-5">
-												<div class="img-container">
-													<img id="image" src="vendors/images/kuromi4.jpg" alt="Picture">
-												</div>
-											</div>
-											<div class="modal-footer">
-												<input type="submit" value="Update" class="btn btn-primary">
-												<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<h5 class="text-center h5 mb-0">💜UmbrellaBox💜</h5>
-							<p class="text-center text-muted font-14">umbrellaBox</p>
-							<div class="profile-info">
-								<h5 class="mb-20 h5" data-color="#A3CBE6">보관함상세정보</h5>
-								<ul>
-									<li>
-										<span>순번:</span>
-										1
-									</li>								
-									<li>
-										<span>장소:</span>
-										스마트인재개발원
-									</li>
-									<li>
-										<span>주소:</span>
-										광주광역시 동구 예술길 31-15
-									</li>
-									<li>
-										<span>보관함상태:</span>
-										상태
-									</li>
-									<li>
-										<span>우산수량:</span>
-										10<strong>개</strong>
-									</li>
-									<li>
-										<span>설치일자:</span>
-										2022.05.09
-									</li>
-									<li>
-										<span>관리자ID:</span>
-										admin
-									</li>
-								</ul>
-							</div>
-							<div class="profile-social">
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 mb-30">
-						<div class="card-box height-100-p overflow-hidden">
-							<div class="profile-tab height-100-p">
-								<div class="profile-setting">
-									<form>
-										<ul class="profile-edit-list row">
-											<li class="weight-500 col-md-6">
-												<h4 class="h5 mb-20" data-color="#A3CBE6">보관함정보수정</h4>
-												<div class="form-group">
-													<label>순번</label>
-													<input class="form-control form-control-lg" type="text" readonly="" value="1">
-												</div>
-												<div class="form-group">
-													<label>장소</label>
-													<input class="form-control form-control-lg" type="text" value="스마트인재개발원">
-												</div>
-												<div class="form-group">
-													<label>주소</label>
-													<input class="form-control form-control-lg" type="text" value="광주광역시 동구 예술길 31-15">
-												</div>
-												<div class="form-group">
-													<label>보관함상태</label>
-													<select class="selectpicker form-control form-control-lg" data-style="btn-outline-secondary btn-lg">
-														<option>상태</option>
-														<option>무슨상태</option>
-													</select>
-												</div>
-												<div class="form-group">
-													<label>우산수량</label>
-													<input class="form-control form-control-lg" id="demo3" type="text" value="10" name="demo3">
-												</div>
-												<div class="form-group">
-													<label>설치일자</label>
-													<input class="form-control form-control-lg date-picker" type="text" readonly="">
-												</div>
-												<div class="form-group mb-0">
-													<input type="submit" class="btn btn-custom" value="정보수정">
-												</div>
-											</li>											
-										</ul>
-									</form>
-								</div>
-							</div>
-						</div>
-					</div>								
-				</div>
+			<div class="min-height-200px" id="list">
 
-			<div class="footer-wrap pd-20 mb-20 card-box">
-				지능형 IoT융합 SW전문가과정 실전프로젝트 <a href="https://github.com/2022-SMHRD-UmGrade" target="_blank">UmGrade</a>
-			</div>
 
 		</div>
 	</div>
@@ -527,16 +401,39 @@
 <script>
 
 $(document).ready(()=>{
-	umDetails("${ubox_seq}")
+	umboxDetails("1")
 })
 
 function htmlView(data){
-	
-	var result=''
+	 // 데이터를 확인하고 싶을 때.
+	//var str = JSON.stringify(data); // <> parse()
+	//alert(str);
+	//사진있는코드
+	//var result = '<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-30"> <div class="pd-20 card-box height-100-p"> <div class="profile-photo"><a href="modal" data-toggle="modal" data-target="#modal" class="edit-avatar"><i class="fa fa-pencil"></i></a> <img src="vendors/images/kuromi3.jpg" alt="" class="avatar-photo"> <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true"> <div class="modal-dialog modal-dialog-centered" role="document"> <div class="modal-content"><div class="modal-body pd-5"><div class="img-container"><img id="image" src="vendors/images/kuromi4.jpg" alt="Picture"> </div></div><div class="modal-footer"><input type="submit" value="Update" class="btn btn-primary"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div></div></div></div></div><h5 class="text-center h5 mb-0">💜USER ID💜</h5> <p class="text-center text-muted font-14">USER NAME</p> <div class="profile-info"><h5 class="mb-20 h5 text-blue">USER 상세정보</h5><ul>'
+	//사진없는 코드
 
+		let result = '<div class="page-header"><div class="row"><div class="col-md-6 col-sm-12"><div class="title"><h4>보관함정보상세보기</h4></div><nav aria-label="breadcrumb" role="navigation"> <ol class="breadcrumb"><li class="breadcrumb-item"><a href="#">보관함관리</a></li> <li class="breadcrumb-item"><a href="umBoxTable">보관함조회</a></li> <li class="breadcrumb-item active" aria-current="page">상세보기</li> </ol></nav></div></div></div><div class="row">'
+		result += '<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-30"> <div class="pd-20 card-box height-100-p"> <div class="profile-photo"><a href="modal" data-toggle="modal" data-target="#modal" class="edit-avatar"><i class="fa fa-pencil"></i></a> <img src="vendors/images/kuromi3.jpg" alt="" class="avatar-photo"> <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true"> <div class="modal-dialog modal-dialog-centered" role="document"> <div class="modal-content"><div class="modal-body pd-5"><div class="img-container"><img id="image" src="vendors/images/kuromi4.jpg" alt="Picture"> </div></div><div class="modal-footer"><input type="submit" value="Update" class="btn btn-primary"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div></div></div></div></div><h5 class="text-center h5 mb-0">UmbrellaBox</h5> <p class="text-center text-muted font-14">umbrellaBox</p> <div class="profile-info"><h5 class="mb-20 h5" data-color="#A3CBE6">보관함상세정보</h5> <ul>'
+		result += ' <li><span>순번:</span>'+data.ubox_seq+'</li>'
+		result += '<li><span>주소:</span>'+data.ubox_loc+'</li>'
+		result += '<li><span>보관함상태:</span>'+data.ubox_status+'</li>'
+		result += '<li><span>우산수량:</span>'+data.ubox_qty+'<strong>개</strong></li>'
+		result += '<li><span>설치일자:</span>'+data.ubox_inst_dt+'</li>'
+		result += '<li><span>관리자ID:</span>'+data.admin_id+'</li></ul></div>'
+		result += '<div class="profile-social"></div></div></div><div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 mb-30"> <div class="card-box height-100-p overflow-hidden"> <div class="profile-tab height-100-p"> <div class="profile-setting"><form>'
+		result += '<ul class="profile-edit-list row"> <li class="weight-500 col-md-6">'
+		result += '<h4 class="h5 mb-20" data-color="#A3CBE6">보관함정보수정</h4> <div class="form-group">'
+		result += '<label>순번</label><input class="form-control form-control-lg" type="text" readonly="" value="'+data.ubox_seq+'"> </div><div class="form-group">'
+		result += '<label>주소</label><input class="form-control form-control-lg" type="text" value="'+data.ubox_loc+'"> </div><div class="form-group">'
+		result += '<label>보관함상태</label><select class="selectpicker form-control form-control-lg" data-style="btn-outline-secondary btn-lg"> <option>상태</option>'
+		result += '<option>무슨상태</option></select></div><div class="form-group">'
+		result += '<label>우산수량</label><input class="form-control form-control-lg" id="demo3" type="text" value="10" name="demo3"> </div><div class="form-group">'
+		result += '<label>설치일자</label><input class="form-control form-control-lg date-picker" type="text" readonly="" value="'+data.ubox_inst_dt+'"> </div><div class="form-group mb-0"><input type="submit" class="btn btn-custom" value="정보수정"> </div>'
+		result += '</li></ul></form></div></div></div></div></div>'
+		result += '<div class="footer-wrap pd-20 mb-20 card-box"> 지능형 IoT융합 SW전문가과정 실전프로젝트 <a href="https://github.com/2022-SMHRD-UmGrade" target="_blank">UmGrade</a> </div>'
 	   
 
-	$("#list").html(result)
+	   $("#list").html(result)
 }
 </script>
 </html>

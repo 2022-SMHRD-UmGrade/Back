@@ -137,6 +137,12 @@ public class RController {
 			Umbbox u = UmbboxService.selectOneUbox(ubox_seq);
 			return u;
 		}
+		// 보관함 삭제 요청
+		@RequestMapping("/uboxDel.do")
+		public void umboxDel(@RequestParam(value = "ubox_seq") int ubox_seq) {
+			System.out.println("보관함 삭제 요청");
+			UmbboxService.deleteUbox(ubox_seq);
+		}
 	
 
 	/* 커뮤니티 게시판 */
@@ -223,6 +229,21 @@ public class RController {
 		System.out.println("선택한 댓글 삭제");
 		commentService.deleteCmt(cmt_seq);
 	}
+	
+/* 대여 관련 */
+	// 대여 리스트 요청
+		@RequestMapping(value = "/RentalList.do")
+		public List<Rent> RentalList() {
+			System.out.println("대여 리스트 요청");
+			List<Rent> list = rentService.selectRent();
+			return list;
+		}
+	// 대여 삭제
+		@RequestMapping(value = "/rentalDel.do")
+		public void rentalDel(@RequestParam(value = "rent_seq") int rent_seq) {
+			System.out.println(rent_seq+"번 대여 삭제");
+			rentService.deleteRent(rent_seq);
+		}
 
 	/* Qna 게시판 */
 	// QnA 리스트 요청

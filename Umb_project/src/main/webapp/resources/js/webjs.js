@@ -92,8 +92,7 @@ function uboxList(){
 	})	
 }
 
-
-function umDetails(ubox_seq){
+function umboxDetails(ubox_seq){
 	$.ajax({
 		url :  getContextPath()+"/uboxOne.do?ubox_seq="+ubox_seq,
 		type : "get",
@@ -104,6 +103,42 @@ function umDetails(ubox_seq){
 		}
 	})	
 }
+
+function uboxDel(ubox_seq){
+	$.ajax({
+		url :  getContextPath()+"/uboxDel.do?ubox_seq="+ubox_seq,
+		type : "get",
+		success : uboxList1,
+		error : function(){
+			alert("error"+ubox_seq)
+		}
+	})	
+}
+
+/*rental 관련*/
+function rentalList(){
+	$.ajax({
+		url :  getContextPath()+"/RentalList.do",
+		type : "get",
+		dataType : "json",
+		success : htmlView,
+		error : function(){
+			alert("error")
+		}
+	})	
+}
+
+function rentalDel(rent_seq){
+	$.ajax({
+		url :  getContextPath()+"/rentalDel.do?rent_seq="+rent_seq,
+		type : "get",
+		success : rental1,
+		error : function(){
+			alert("error"+ubox_seq)
+		}
+	})	
+}
+
 
 
 /*function umDetails(umb_seq){
