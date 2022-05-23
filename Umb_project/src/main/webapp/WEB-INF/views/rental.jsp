@@ -178,7 +178,7 @@
 				<div class="dropdown">
 					<a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
 						<span class="user-icon">
-							<img src="resources/images/kuromi3.jpg" alt="">
+							<img src="${pageContext.request.contextPath}/resources/images/kuromi3.jpg" alt="">
 						</span>
 						<span class="user-name">쿠로미💜</span>
 					</a>
@@ -282,8 +282,8 @@
 	<div class="left-side-bar">
 		<div class="brand-logo">
 			<a href="home">
-				<img src="resources/images/logo2.png" alt="" class="dark-logo">
-				<img src="resources/images/logo1.png" alt="" class="light-logo">
+				<img src="${pageContext.request.contextPath}/resources/images/logo2.png" alt="" class="dark-logo">
+				<img src="${pageContext.request.contextPath}/resources/images/logo1.png" alt="" class="light-logo">
 			</a>
 			<div class="close-sidebar" data-toggle="left-sidebar-close">
 				<i class="ion-close-round"></i>
@@ -480,14 +480,7 @@
 		    		{data:"rent_e_date"},
 		    		{data:"pay_method"},
 		    		{data:"pay_amount"},
-		    		{
-			              data: null,
-			              render: function ( data, type, row ) {
-/* 			            	var str = JSON.stringify(data); 
-			            	alert(str); */
-			                return "<div class='dropdown'><a class='btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle' href='#' role='button' data-toggle='dropdown'><i class='dw dw-more'></i></a><div class='dropdown-menu dropdown-menu-right dropdown-menu-icon-list'><a class='dropdown-item' href='umDetails?umb_seq="+row.ubox_seq+"'><i class='dw dw-eye'></i>상세보기</a><button class='dropdown-item' type='button' onclick='rentalDel(\"" +row.rent_seq + "\")'><i class='dw dw-delete-3'></i>삭제</button></div></div>";
-			              }
-			            } 
+		    		{data:"pay_done"} 
 		    	]		    	
 		    });
 	    
