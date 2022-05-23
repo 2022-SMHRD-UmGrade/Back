@@ -178,7 +178,7 @@
 				<div class="dropdown">
 					<a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
 						<span class="user-icon">
-							<img src="resources/images/kuromi3.jpg" alt="">
+							<img src="${pageContext.request.contextPath}/resources/images/kuromi3.jpg" alt="">
 						</span>
 						<span class="user-name">쿠로미💜</span>
 					</a>
@@ -282,8 +282,8 @@
 	<div class="left-side-bar">
 		<div class="brand-logo">
 			<a href="home">
-				<img src="resources/images/logo2.png" alt="" class="dark-logo">
-				<img src="resources/images/logo1.png" alt="" class="light-logo">
+				<img src="${pageContext.request.contextPath}/resources/images/logo2.png" alt="" class="dark-logo">
+				<img src="${pageContext.request.contextPath}/resources/images/logo1.png" alt="" class="light-logo">
 			</a>
 			<div class="close-sidebar" data-toggle="left-sidebar-close">
 				<i class="ion-close-round"></i>
@@ -394,7 +394,7 @@
 						<h4 data-color="#A3CBE6">대여관리</h4>
 					</div>
 					<div class="pb-20">
-						<table class="data-table table stripe hover nowrap text-center">
+						<table class="table stripe hover data-table-export-checkbox nowrap text-center" id="rentallist">
 							<thead>
 								<tr>
 									<th>순번</th>
@@ -405,130 +405,9 @@
 									<th>결제수단</th>
 									<th>결제금액</th>
 									<th>결제여부</th>
+									<th class="datatable-nosort">Action</th>
 								</tr>
 							</thead>
-							<tbody>
-								<tr>
-									<td class="table-plus">1</td>
-									<td>id</td>
-									<td>1</td>
-									<td>2022-05-01</td>
-									<td>2022-05-17</td>
-									<td>카드</td>
-									<td>5000원</td>
-									<td><span class="badge badge-pill badge-primary">ㅇㅋ</span></td>								
-								</tr>
-								<tr>
-									<td class="table-plus">1</td>
-									<td>id</td>
-									<td>1</td>
-									<td>2022-05-01</td>
-									<td>2022-05-17</td>
-									<td>카드</td>
-									<td>5000원</td>
-									<td><span class="badge badge-pill badge-primary">ㅇㅋ</span></td>								
-								</tr>
-								<tr>
-									<td class="table-plus">1</td>
-									<td>id</td>
-									<td>1</td>
-									<td>2022-05-01</td>
-									<td>2022-05-17</td>
-									<td>카드</td>
-									<td>5000원</td>
-									<td><span class="badge badge-pill badge-primary">ㅇㅋ</span></td>								
-								</tr>
-								<tr>
-									<td class="table-plus">1</td>
-									<td>id</td>
-									<td>1</td>
-									<td>2022-05-01</td>
-									<td>2022-05-17</td>
-									<td>카드</td>
-									<td>5000원</td>
-									<td><span class="badge badge-pill badge-primary">ㅇㅋ</span></td>								
-								</tr>
-								<tr>
-									<td class="table-plus">1</td>
-									<td>id</td>
-									<td>1</td>
-									<td>2022-05-01</td>
-									<td>2022-05-17</td>
-									<td>카드</td>
-									<td>5000원</td>
-									<td><span class="badge badge-pill badge-primary">ㅇㅋ</span></td>								
-								</tr>
-								<tr>
-									<td class="table-plus">1</td>
-									<td>id</td>
-									<td>1</td>
-									<td>2022-05-01</td>
-									<td>2022-05-17</td>
-									<td>카드</td>
-									<td>5000원</td>
-									<td><span class="badge badge-pill badge-primary">ㅇㅋ</span></td>								
-								</tr>
-								<tr>
-									<td class="table-plus">1</td>
-									<td>id</td>
-									<td>1</td>
-									<td>2022-05-01</td>
-									<td>2022-05-17</td>
-									<td>카드</td>
-									<td>5000원</td>
-									<td><span class="badge badge-pill badge-primary">ㅇㅋ</span></td>								
-								</tr>
-								<tr>
-									<td class="table-plus">1</td>
-									<td>id</td>
-									<td>1</td>
-									<td>2022-05-01</td>
-									<td>2022-05-17</td>
-									<td>카드</td>
-									<td>5000원</td>
-									<td><span class="badge badge-pill badge-primary">ㅇㅋ</span></td>								
-								</tr>
-								<tr>
-									<td class="table-plus">1</td>
-									<td>id</td>
-									<td>1</td>
-									<td>2022-05-01</td>
-									<td>2022-05-17</td>
-									<td>카드</td>
-									<td>5000원</td>
-									<td><span class="badge badge-pill badge-primary">ㅇㅋ</span></td>								
-								</tr>
-								<tr>
-									<td class="table-plus">1</td>
-									<td>id</td>
-									<td>1</td>
-									<td>2022-05-01</td>
-									<td>2022-05-17</td>
-									<td>카드</td>
-									<td>5000원</td>
-									<td><span class="badge badge-pill badge-primary">ㅇㅋ</span></td>								
-								</tr>
-								<tr>
-									<td class="table-plus">1</td>
-									<td>id</td>
-									<td>1</td>
-									<td>2022-05-01</td>
-									<td>2022-05-17</td>
-									<td>카드</td>
-									<td>5000원</td>
-									<td><span class="badge badge-pill badge-primary">ㅇㅋ</span></td>								
-								</tr>
-								<tr>
-									<td class="table-plus">1</td>
-									<td>id</td>
-									<td>1</td>
-									<td>2022-05-01</td>
-									<td>2022-05-17</td>
-									<td>카드</td>
-									<td>5000원</td>
-									<td><span class="badge badge-pill badge-primary">ㅇㅋ</span></td>								
-								</tr>
-							</tbody>
 						</table>
 					</div>
 				</div>
@@ -561,4 +440,75 @@
 	<!-- add sweet alert js & css in footer -->
 	<script src="${path}/resources/src/plugins/sweetalert2/sweetalert2.all.js"></script>
 	<script src="${path}/resources/src/plugins/sweetalert2/sweet-alert.init.js"></script>
+	<script src="${path}/resources/js/webjs.js"></script>
+	
+	<script>
+	$(document).ready(()=>{
+		rental1()
+	})
+
+	function rental1() {
+	    var table = $("#rentallist").DataTable({
+	    	scrollCollapse: true,
+			autoWidth: false,
+			responsive: true,
+			destroy: true,
+			columnDefs: [{
+				targets: "datatable-nosort",
+				orderable: false,
+			}],
+			"lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+			"language": {
+				"info": "_START_-_END_ of _TOTAL_ entries",
+				searchPlaceholder: "Search",
+				paginate: {
+					next: '<i class="ion-chevron-right"></i>',
+					previous: '<i class="ion-chevron-left"></i>'  
+				}
+			},
+			destroy: true,
+		      ajax:{
+		    		url :  getContextPath()+"/RentalList.do", 
+		    		type : "get",
+		    		dataType : "json",
+		    		dataSrc :''
+		    	},
+		    	columns:[
+		    		{data:"rent_seq"},
+		    		{data:"rent_id"},
+		    		{data:"umb_seq"},
+		    		{data:"rent_s_date"},
+		    		{data:"rent_e_date"},
+		    		{data:"pay_method"},
+		    		{data:"pay_amount"},
+		    		{data:"pay_done"},
+		    		{
+			              data: null,
+			              render: function ( data, type, row ) {
+			                return "<a class='dropdown-item' href='rantalDetails?rent_seq="+row.rent_seq+"'><i class='dw dw-eye'></i></a>";
+			              }
+			            }
+		    	]		    	
+		    });
+	    
+	    
+		$('#example-select-all').on('click', function(){
+			var rows = table.rows({ 'search': 'applied' }).nodes();
+			$('input[type="checkbox"]', rows).prop('checked', this.checked);
+		});
+
+		$('.checkbox-datatable tbody').on('change', 'input[type="checkbox"]', function(){
+			if(!this.checked){
+				var el = $('#example-select-all').get(0);
+				if(el && el.checked && ('indeterminate' in el)){
+					el.indeterminate = true;
+				}
+			}
+		});
+	    
+	}
+
+
+	</script>
+	
 </html>

@@ -317,10 +317,30 @@
 						</div>
 					</div>
 				</div>
-				<!-- Simple Datatable start -->
-				<div class="card-box mb-30" id="list">
+				<div class="card-box mb-30">
+    			<div class="pd-20">
+        		<h4 data-color="#A3CBE6">보관함조회</h4>
+    			</div>
+    			<div class="col-sm-12 text-right">
+        		<a href="task-add" data-toggle="modal" data-target="#task-add" class="bg-light-blue btn text-blue weight-500"><i class="ion-plus-round"></i> Add</a>
+    			</div>
+    			<br>
+    			<div class="pb-20">
+        			<table class="data-table table stripe hover nowrap text-center" id="umbBoxlist">
+            			<thead>
+                			<tr>
+			                    <th>번호</th>
+			                    <th>관리자ID</th>
+			                    <th>보관함위치</th>
+			                    <th>보관함상태</th>
+			                    <th>설치일자</th>
+			                    <th>우산수량</th>
+			                    <th class="datatable-nosort">Action</th>
+                			</tr>
+				            </thead>
+				        </table>
+				    </div>
 				</div>
-				<!-- Simple Datatable End -->
 
 				<!-- add task popup start 보관함 추가 -->
 				<div class="modal fade customscroll" id="task-add" tabindex="-1" role="dialog">
@@ -396,15 +416,67 @@
 	<script src="${path}/resources/src/plugins/datatables/js/pdfmake.min.js"></script>
 	<script src="${path}/resources/src/plugins/datatables/js/vfs_fonts.js"></script>
 	<!-- Datatable Setting js -->
-	<script src="${path}/resources/js/datatable-setting.js"></script></body>
 	<!-- add sweet alert js & css in footer -->
 	<script src="${path}/resources/src/plugins/sweetalert2/sweetalert2.all.js"></script>
 	<script src="${path}/resources/src/plugins/sweetalert2/sweet-alert.init.js"></script>
 	
 	<!-- 테이블출력 js -->
 	<script src="${path}/resources/js/webjs.js"></script>
+	
+	
+	<script>
+	
+	$(document).ready(()=>{
+		uboxList1()
+	})
 
-<script>
+	function uboxList1() {
+	    $("#umbBoxlist").DataTable({
+	    	scrollCollapse: true,
+		      autoWidth: false,
+		      responsive: true,
+		      destroy: true,
+		      columnDefs: [{
+		         targets: "datatable-nosort",
+		         orderable: false,
+		      }],
+		      "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+		      "language": {
+		         "info": "_START_-_END_ of _TOTAL_ entries",
+		         searchPlaceholder: "Search",
+		         paginate: {
+		            next: '<i class="ion-chevron-right"></i>',
+		            previous: '<i class="ion-chevron-left"></i>'  
+		         }
+		      },
+	    	ajax:{
+	    		url :  getContextPath()+"/uboxList.do", 
+	    		type : "get",
+	    		dataType : "json",
+	    		dataSrc :''
+	        },
+	        columns:[
+	        	{data:"ubox_seq"},
+	        	{data:"admin_id"},
+	        	{data:"ubox_loc"},
+	        	{data:"ubox_status"},
+	        	{data:"ubox_inst_dt"},
+	        	{data:"ubox_qty"},
+	        	{
+		              data: null,
+		              render: function ( data, type, row ) {
+		            	  return "<div class='dropdown'><a class='btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle' href='#' role='button' data-toggle='dropdown'><i class='dw dw-more'></i></a><div class='dropdown-menu dropdown-menu-right dropdown-menu-icon-list'><a class='dropdown-item' href='umBoxDetails?ubox_seq="+row.ubox_seq+"'><i class='dw dw-eye'></i>상세보기</a><button class='dropdown-item' type='button' onclick='uboxDel(\"" +row.ubox_seq + "\")'><i class='dw dw-delete-3'></i>삭제</button></div></div>";
+
+		              }
+		            } 
+	        	
+	        ]        
+	    });
+	}
+
+	</script>
+
+<!-- <script>
 
 $(document).ready(()=>{
 	uboxList()
@@ -441,5 +513,5 @@ function htmlView(data){
 	   result += "</div>"
 	   $("#list").html(result)
 }
-</script>
+</script> -->
 </html>

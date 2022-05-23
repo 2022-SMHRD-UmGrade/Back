@@ -27,11 +27,15 @@
 	</insert>
 	
 	<update id="updateUmbStatus" parameterType="kr.smhrd.domain.Umbrella">
-		update t_umbrella set umb_status = #{umb_status} where umb_seq = #{umb_seq}
+		update t_umbrella set umb_status = #{umb_status}, umb_check = now(), ubox_seq = #{ubox_seq} where umb_rfid = #{umb_rfid}
 	</update>
 	
 	<update id="updateUmbBroken" parameterType="int">
 		update t_umbrella set umb_broken = 'Y' where umb_seq = #{umb_seq}
+	</update>
+	
+	<update id="updateUmbBroken2" parameterType="String">
+		update t_umbrella set umb_broken = 'Y' where umb_seq = (select umb_seq from t_rent where rent_id=#{rent_id} and 30 <![CDATA[>]]> TIMESTAMPDIFF(SECOND, rent_e_date, now()) and pay_done = 'Y' order by rent_e_date DESC LIMIT 1)
 	</update>
 	
 	<update id="updateUmbCheck" parameterType="int">

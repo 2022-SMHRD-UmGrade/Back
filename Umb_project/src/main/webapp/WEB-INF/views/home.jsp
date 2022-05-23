@@ -382,7 +382,7 @@
 							<h4 class="h4 text-blue">보관함</h4>
 						</div>
 						<div class="pd-30 pt-10 height-100-p">
-							<table class="data-table table stripe hover nowrap text-center">
+							<table class="data-table table stripe hover nowrap text-center" id="umboxlist">
 								<thead>
 									<tr>
 										<th>번호</th>
@@ -392,128 +392,6 @@
 										<th class="datatable-nosort">Action</th>
 									</tr>
 								</thead>
-								<tbody>
-									<tr>
-										<td class="table-plus">1</td>
-										<td>스인재</td>
-										<td>10</td>
-										<td><span class="badge badge-pill badge-primary">Primary</span></td>
-										<td>
-											<a class="dropdown-item" href="umBoxDetails.jsp"><i
-													class="dw dw-eye"></i></a>
-										</td>
-									</tr>
-									<tr>
-										<td class="table-plus">2</td>
-										<td>문화전당역</td>
-										<td>7</td>
-										<td><span class="badge badge-pill badge-secondary">Secondary</span></td>
-										<td>
-											<a class="dropdown-item" href="umBoxDetails.jsp"><i
-													class="dw dw-eye"></i></a>
-										</td>
-									</tr>
-									<tr>
-										<td class="table-plus">3</td>
-										<td>광주역</td>
-										<td>1</td>
-										<td><span class="badge badge-pill badge-success">Success</span></td>
-										<td>
-											<a class="dropdown-item" href="umBoxDetails.jsp"><i
-													class="dw dw-eye"></i></a>
-										</td>
-									</tr>
-									<tr>
-										<td class="table-plus">4</td>
-										<td>수완지구</td>
-										<td>3</td>
-										<td><span class="badge badge-pill badge-danger">Danger</span></td>
-										<td>
-											<a class="dropdown-item" href="umBoxDetails.jsp"><i
-													class="dw dw-eye"></i></a>
-										</td>
-									</tr>
-									<tr>
-										<td class="table-plus">5</td>
-										<td>금호지구</td>
-										<td>1</td>
-										<td><span class="badge badge-pill badge-warning">Warning</span></td>
-										<td>
-											<a class="dropdown-item" href="umBoxDetails.jsp"><i
-													class="dw dw-eye"></i></a>
-										</td>
-									</tr>
-									<tr>
-										<td class="table-plus">6</td>
-										<td>상무지구</td>
-										<td>2</td>
-										<td><span class="badge badge-pill badge-info">Info</span></td>
-										<td>
-											<a class="dropdown-item" href="umBoxDetails.jsp"><i
-													class="dw dw-eye"></i></a>
-										</td>
-									</tr>
-									<tr>
-										<td class="table-plus">7</td>
-										<td>첨단지구</td>
-										<td>0</td>
-										<td><span class="badge badge-pill badge-light">Light</span></td>
-										<td>
-											<a class="dropdown-item" href="umBoxDetails.jsp"><i
-													class="dw dw-eye"></i></a>
-										</td>
-									</tr>
-									<tr>
-										<td class="table-plus">8</td>
-										<td>금남로</td>
-										<td>6</td>
-										<td><span class="badge badge-pill badge-dark">Dark</span></td>
-										<td>
-											<a class="dropdown-item" href="umBoxDetails.jsp"><i
-													class="dw dw-eye"></i></a>
-										</td>
-									</tr>
-									<tr>
-										<td class="table-plus">9</td>
-										<td>어딘가</td>
-										<td>5</td>
-										<td><span class="badge badge-pill badge-dark">Dark</span></td>
-										<td>
-											<a class="dropdown-item" href="umBoxDetails.jsp"><i
-													class="dw dw-eye"></i></a>
-										</td>
-									</tr>
-									<tr>
-										<td class="table-plus">10</td>
-										<td>우리집</td>
-										<td>10</td>
-										<td><span class="badge badge-pill badge-dark">Dark</span></td>
-										<td>
-											<a class="dropdown-item" href="umBoxDetails.jsp"><i
-													class="dw dw-eye"></i></a>
-										</td>
-									</tr>
-									<tr>
-										<td class="table-plus">11</td>
-										<td>쿠로미집</td>
-										<td>0</td>
-										<td><span class="badge badge-pill badge-dark">Dark</span></td>
-										<td>
-											<a class="dropdown-item" href="umBoxDetails.jsp"><i
-													class="dw dw-eye"></i></a>
-										</td>
-									</tr>
-									<tr>
-										<td class="table-plus">12</td>
-										<td>몰라</td>
-										<td>9</td>
-										<td><span class="badge badge-pill badge-dark">Dark</span></td>
-										<td>
-											<a class="dropdown-item" href="umBoxDetails.jsp"><i
-													class="dw dw-eye"></i></a>
-										</td>
-									</tr>
-								</tbody>
 							</table>
 						</div>
 					</div>
@@ -613,29 +491,55 @@
 	
 	<script src="${pageContext.request.contextPath}/resources/src/plugins/sweetalert2/sweet-alert.init.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/src/plugins/sweetalert2/sweetalert2.all.js"></script>	
+		<!-- 테이블출력 js -->
+	<script src="${path}/resources/js/webjs.js"></script>
 	
 	<!-- DataTable js -->
 	<script>
-			$('document').ready(function () {
-				$('.data-table').DataTable({
-					scrollCollapse: true,
-					autoWidth: false,
-					responsive: true,
-					columnDefs: [{
-						targets: "datatable-nosort",
-						orderable: false,
-					}],
-					"lengthMenu": [[5, 15, 25, -1], [5, 15, 25, "All"]],
-					"language": {
-						"info": "_START_-_END_ of _TOTAL_ entries",
-						searchPlaceholder: "Search",
-						paginate: {
-							next: '<i class="ion-chevron-right"></i>',
-							previous: '<i class="ion-chevron-left"></i>'
-						}
-					},
-				});
-			});
-		</script>
+	
+	$(document).ready(()=>{
+		uboxList1()
+	});
+	
+	function uboxList1() {
+	    $("#umboxlist").DataTable({
+	    	scrollCollapse: true,
+			autoWidth: false,
+			responsive: true,
+			columnDefs: [{
+				targets: "datatable-nosort",
+				orderable: false,
+			}],
+			"lengthMenu": [[5, 15, 25, -1], [5, 15, 25, "All"]],
+			"language": {
+				"info": "_START_-_END_ of _TOTAL_ entries",
+				searchPlaceholder: "Search",
+				paginate: {
+					next: '<i class="ion-chevron-right"></i>',
+					previous: '<i class="ion-chevron-left"></i>'
+				}
+			},
+	    	ajax:{
+	    		url :  getContextPath()+"/uboxList.do", 
+	    		type : "get",
+	    		dataType : "json",
+	    		dataSrc :''
+	        },
+	        columns:[
+	        	{data:"ubox_seq"},
+	        	{data:"ubox_loc"},
+	        	{data:"ubox_qty"},
+	        	{data:"ubox_status"},
+	        	{
+	              data: null,
+	              render: function ( data, type, row ) {
+	                return "<a class='dropdown-item' href='umBoxDetails?ubox_seq="+row.ubox_seq+"'><i class='dw dw-eye'></i></a>";
+	              }
+	            }
+	        ]        
+	    });
+	}
+
+	</script>
 </body>
 </html>

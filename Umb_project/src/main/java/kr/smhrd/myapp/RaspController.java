@@ -3,10 +3,12 @@ package kr.smhrd.myapp;
 import java.io.IOException;
 import java.net.ConnectException;
 import java.net.NoRouteToHostException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -32,12 +34,6 @@ public class RaspController {
 	private RentalService rentalService;
 	
 	@Autowired
-	private RfidFrontService rfidFrontService;
-	
-	@Autowired
-	private RfidBackService rfidBackService;
-	
-	@Autowired
 	private UmbboxService umbboxServive;
 	
 	@Autowired
@@ -51,7 +47,7 @@ public class RaspController {
 	
 	
 	@RequestMapping("/frontRfid")
-	public String frontRfid(@RequestParam(value="uid") String uid, @RequestParam(value="umbbox_seq") String umbbox_seq) throws NoRouteToHostException, ConnectException, IOException, Exception{
+	public String frontRfid(@RequestParam(value="uid") String uid, @RequestParam(value="umbbox_seq") String umbbox_seq){
 	
 			if(rentService.selectRentUmb(umbrellaService.selectUmbSeq(uid)) == 0){ // 우산의 대여/반납상태 확인
 				System.out.println("대여절차(최종)으로");
@@ -66,7 +62,7 @@ public class RaspController {
 	
 
 	@RequestMapping("/backRfid")
-	public String backRfid(@RequestParam(value="uid") String uid, @RequestParam(value="umbbox_seq") String umbbox_seq) throws NoRouteToHostException, ConnectException, IOException, Exception{		
+	public String backRfid(@RequestParam(value="uid") String uid, @RequestParam(value="umbbox_seq") String umbbox_seq){		
 	
 			if(rentService.selectRentUmb(umbrellaService.selectUmbSeq(uid)) > 0){ // 우산의 대여/반납상태 확인
 				System.out.println("반납절차(최종)으로");
@@ -75,19 +71,25 @@ public class RaspController {
 					return raspService.Cancel();					
 				}
 				return raspService.Return2();
-			}else {
+			}else if(umbrellaService.isExistUmbBroken(uid) && umbboxServive.isExistUboxID(Integer.parseInt(umbbox_seq))) {
 				System.out.println("대여절차(시작)으로");
 				rentalService.rental1(uid, umbbox_seq); // 대여절차(시작)으로
 				return raspService.Rantal1();
+			}else if(umbboxServive.isExistUboxID(Integer.parseInt(umbbox_seq))){
+				System.out.println("파손우산은 대여하지 못합니다.");
+				return raspService.warning_broken();
+			}else {
+				System.out.println("QR코드를 입력하지 않으면 대여가 불가합니다.");
+				return raspService.warning_noQR();
 			}
 
 	}
 	
 	// 우산대여요청
 	@RequestMapping("/Android/Rent")
-	public String umbRent(@RequestParam(value="qrNum") String qrNum, @RequestParam(value="userId") String userId) {
+	public String umbRent(@RequestParam(value="uboxId") String uboxId, @RequestParam(value="userId") String userId) {
 			System.out.println("안드로이드 : 대여 요청");
-			System.out.println("대여 URL : " + qrNum);
+			System.out.println("대여 URL : " + uboxId);
 			System.out.println("대여 User : " + userId);
 
 			Umbbox vo = new Umbbox(); // 보관함 VO 생성
@@ -98,5 +100,12 @@ public class RaspController {
 			return raspService.ledGreen();
 			// Rentservice.insertRent(null);
 	}
+	
+	@RequestMapping("/broken")
+	public void broken(){
+		umbrellaService.updateUmbBroken2(umbboxServive.selectUboxID(1));
+		System.out.println("버튼 신호 받았습니다.");
+	}
+
 	
 }

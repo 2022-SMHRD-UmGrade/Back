@@ -1,23 +1,15 @@
 package kr.smhrd.service;
 
-import java.io.IOException;
-import java.net.ConnectException;
-import java.net.NoRouteToHostException;
+
 import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import kr.smhrd.domain.Rent;
 import kr.smhrd.domain.Rfid;
 import kr.smhrd.domain.Umbbox;
-import kr.smhrd.mapper.RentMapper;
-import kr.smhrd.mapper.RfidBackMapper;
-import kr.smhrd.mapper.RfidFrontMapper;
-import kr.smhrd.mapper.UmbboxMapper;
-import kr.smhrd.mapper.UmbrellaMapper;
-import kr.smhrd.mapper.UserMapper;
+import kr.smhrd.domain.Umbrella;
 
 @Service
 public class ReturnService {
@@ -95,6 +87,12 @@ public class ReturnService {
 		vo.setPay_amount(pay);								 	// 결제금액 수정
 		rentService.updateRentReturn(vo);							// 대여정보 수정
 		System.out.println("대여기록 수정 완료 : " + vo.getPay_done());
+		
+		Umbrella uvo = new Umbrella();  // 우산 정보 수정
+		uvo.setUbox_seq(Integer.parseInt(umbbox_seq)); // 반납한 우산보관함 번호
+		uvo.setUmb_status("N"); // 대여된 상태가 아니라는 뜻
+		uvo.setUmb_rfid(uid); // rfid으로 분류
+		umbrellaService.updateUmbStatus(uvo);
 		
 		// 보관함 사용자 초기화 (대여취소:pay==0인 경우에는 초기화 안하고 바로 재대여 가능한 상태로)
 		if(pay!=0) {
