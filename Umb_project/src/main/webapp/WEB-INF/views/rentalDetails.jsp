@@ -328,7 +328,7 @@
 						<a href="rental" class="dropdown-toggle no-arrow">
 							<span class="micon dw dw-house-1"></span><span class="mtext">대여관리</span>
 						</a>
-					</li>					
+					</li>
 					<li>
 						<a href="qna" class="dropdown-toggle no-arrow">
 							<span class="micon dw dw dw-question-1"></span><span class="mtext">질의응답</span>
@@ -378,12 +378,11 @@
 					<div class="row">
 						<div class="col-md-6 col-sm-12">
 							<div class="title">
-								<h4>우산정보상세보기</h4>
+								<h4>대여정보상세보기</h4>
 							</div>
 							<nav aria-label="breadcrumb" role="navigation">
 								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="#">우산관리</a></li>
-									<li class="breadcrumb-item"><a href="umTable">우산조회</a></li>
+									<li class="breadcrumb-item"><a href="#">대여관리</a></li>
 									<li class="breadcrumb-item active" aria-current="page">상세보기</li>
 								</ol>
 							</nav>
@@ -411,7 +410,7 @@
 <script>
 
 $(document).ready(()=>{
-	umDetails("${umb_seq}")
+	rentalDetails("${rent_seq}")
 })
 
 function htmlView(data){
@@ -422,13 +421,15 @@ function htmlView(data){
 	//var result = '<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-30"> <div class="pd-20 card-box height-100-p"> <div class="profile-photo"><a href="modal" data-toggle="modal" data-target="#modal" class="edit-avatar"><i class="fa fa-pencil"></i></a> <img src="vendors/images/kuromi3.jpg" alt="" class="avatar-photo"> <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true"> <div class="modal-dialog modal-dialog-centered" role="document"> <div class="modal-content"><div class="modal-body pd-5"><div class="img-container"><img id="image" src="vendors/images/kuromi4.jpg" alt="Picture"> </div></div><div class="modal-footer"><input type="submit" value="Update" class="btn btn-primary"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div></div></div></div></div><h5 class="text-center h5 mb-0">💜USER ID💜</h5> <p class="text-center text-muted font-14">USER NAME</p> <div class="profile-info"><h5 class="mb-20 h5 text-blue">USER 상세정보</h5><ul>'
 	//사진없는 코드
 	var result='<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-30"> <div class="pd-20 card-box height-100-p"><h5 class="text-center h5 mb-0">💜Umbrella💜</h5> <p class="text-center text-muted font-14">umbrella</p> <div class="profile-info"><h5 class="mb-20 h5" data-color="#A3CBE6">우산 상세정보</h5> <ul>'
-    result+='<li><span>순번:</span>'+data.umb_seq+'</li>'
-    result+='<li><span>RFID:</span>'+data.umb_rfid+'</li>'
-    result+='<li><span>종류:</span>'+data.umb_type+'</li>'
-    result+='<li><span>상태:</span>'+data.umb_status+'</li>'
-    result+='<li><span>파손여부:</span>'+data.umb_broken+'</li>'
-    result+='<li><span>보관함순번:</span>'+data.ubox_seq+'</li>'
-    result+='</ul></div><div class="profile-social"></div></div></div><div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 mb-30"> <div class="card-box height-100-p overflow-hidden"> <div class="profile-tab height-100-p"><div class="profile-setting"><form><ul class="profile-edit-list row"><li class="weight-500 col-md-6"><h4 class="h5 mb-20" data-color="#A3CBE6">우산정보수정</h4> <div class="form-group">'
+    result+='<li><span>순번:</span>'+data.rent_seq+'</li>'
+    result+='<li><span>대여자 ID:</span>'+data.rent_id+'</li>'
+    result+='<li><span>대여우산순번:</span>'+data.umb_seq+'</li>'
+    result+='<li><span>대여일자:</span>'+data.rent_s_date+'</li>'
+    result+='<li><span>반납일자:</span>'+data.rent_e_date+'</li>'
+    result+='<li><span>결제수단:</span>'+data.pay_method+'</li>'
+    result+='<li><span>결제금액:</span>'+data.pay_amount+'</li>'
+    result+='<li><span>결제여부:</span>'+data.pay_done+'</li>'
+    result+='</ul></div><div class="profile-social"></div></div></div><div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 mb-30"> <div class="card-box height-100-p overflow-hidden"> <div class="profile-tab height-100-p"><div class="profile-setting"><form><ul class="profile-edit-list row"><li class="weight-500 col-md-6"><h4 class="h5 mb-20" data-color="#A3CBE6">대여정보수정</h4> <div class="form-group">'
     result+='<label>순번</label><input class="form-control form-control-lg" type="text" readonly="" value="'+data.umb_seq+'"> </div>'
     result+='<div class="form-group"><label>RFID</label>'
     result+='<input class="form-control form-control-lg" type="text" readonly="" value="'+data.umb_rfid+'"> </div>'
@@ -448,7 +449,7 @@ function htmlView(data){
     result+='<option>파손</option>'
     result+='</select></div><div class="form-group">'
     result+='<label>보관함순번</label>'
-    result+='<input class="form-control form-control-lg" type="text" readonly="" value="'+data.ubox_seq+'"> </div>'
+    result+='<input class="form-control form-control-lg" type="text" readonly="" value="'+data.rent_seq+'"> </div>'
     result+='<div class="form-group mb-0">'
     result+='<input type="submit" class=" btn btn-custom" value="정보수정"> </div>'
     result+='</li></ul></form></div></div></div></div>'

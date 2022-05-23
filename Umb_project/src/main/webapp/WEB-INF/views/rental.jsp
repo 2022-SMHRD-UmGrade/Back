@@ -405,6 +405,7 @@
 									<th>결제수단</th>
 									<th>결제금액</th>
 									<th>결제여부</th>
+									<th class="datatable-nosort">Action</th>
 								</tr>
 							</thead>
 						</table>
@@ -480,7 +481,13 @@
 		    		{data:"rent_e_date"},
 		    		{data:"pay_method"},
 		    		{data:"pay_amount"},
-		    		{data:"pay_done"} 
+		    		{data:"pay_done"},
+		    		{
+			              data: null,
+			              render: function ( data, type, row ) {
+			                return "<a class='dropdown-item' href='rantalDetails?rent_seq="+row.rent_seq+"'><i class='dw dw-eye'></i></a>";
+			              }
+			            }
 		    	]		    	
 		    });
 	    
