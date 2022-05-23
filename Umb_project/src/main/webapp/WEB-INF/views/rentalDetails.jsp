@@ -389,9 +389,55 @@
 						</div>
 					</div>
 				</div>
-				<div class="row" id="list">
+				<div class="invoice-wrap mb-30">
+					<div class="invoice-box">
+						<div class="invoice-header">
+							
+						</div>
+						<h4 class="text-center mb-30 weight-600">대여정보상세보기</h4>
+						<div class="row pb-30">
+							<div class="col-md-6">
+								<h5 class="mb-15">대여자ID </h5>
+								<p class="font-14 mb-5">대여순번: <strong class="weight-600">4556</strong></p>
+							</div>
+							<div class="col-md-6">
+								<div class="text-right">
+									<p class="font-14 mb-5">우산순번: </strong></p>
+									<p class="font-14 mb-5">1</p>
 
-								
+								</div>
+							</div>
+						</div>
+						<div class="invoice-desc pb-30">
+							<div class="invoice-desc-head clearfix">
+								<div class="invoice-sub text-center">대여일자</div>
+								<div class="invoice-sub text-center">반납일자</div>
+							</div>
+							<div class="invoice-desc-body">
+								<ul>
+									<li class="clearfix">
+										<div class="invoice-sub weight-600 text-center">ㄴㄻㄴㅇ</div>
+										<div class="invoice-sub weight-600 text-center">ㄹㄴㅁㅇㄴㅁㄹ</div>
+									</li>
+							</div>
+							<div class="invoice-desc-footer">
+								<div class="invoice-desc-head clearfix">
+									<div class="invoice-sub text-center">결제수단</div>
+									<div class="invoice-rate text-center">결제여부</div>
+									<div class="invoice-subtotal">결제금액</div>
+								</div>
+								<div class="invoice-desc-body">
+									<ul>
+										<li class="clearfix">
+											<div class="invoice-sub text-center"><strong class="weight-600">C</strong></div>
+											<div class="invoice-rate text-center"><strong class="weight-600">Y</strong></div>
+											<div class="invoice-subtotal"><span class="weight-600 font-24 text-danger">$8000</span></div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 
 			<div class="footer-wrap pd-20 mb-20 card-box">
@@ -399,6 +445,7 @@
 			</div>
 		</div>
 	</div>
+	
 	<!-- js -->
 	<script src="${path}/resources/js/core.js"></script>
 	<script src="${path}/resources/js/script.min.js"></script>
@@ -414,45 +461,19 @@ $(document).ready(()=>{
 })
 
 function htmlView(data){
-	 // 데이터를 확인하고 싶을 때.
-	//var str = JSON.stringify(data); // <> parse()
-	//alert(str);
-	//사진있는코드
-	//var result = '<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-30"> <div class="pd-20 card-box height-100-p"> <div class="profile-photo"><a href="modal" data-toggle="modal" data-target="#modal" class="edit-avatar"><i class="fa fa-pencil"></i></a> <img src="vendors/images/kuromi3.jpg" alt="" class="avatar-photo"> <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true"> <div class="modal-dialog modal-dialog-centered" role="document"> <div class="modal-content"><div class="modal-body pd-5"><div class="img-container"><img id="image" src="vendors/images/kuromi4.jpg" alt="Picture"> </div></div><div class="modal-footer"><input type="submit" value="Update" class="btn btn-primary"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div></div></div></div></div><h5 class="text-center h5 mb-0">💜USER ID💜</h5> <p class="text-center text-muted font-14">USER NAME</p> <div class="profile-info"><h5 class="mb-20 h5 text-blue">USER 상세정보</h5><ul>'
-	//사진없는 코드
+
 	var result='<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-30"> <div class="pd-20 card-box height-100-p"><h5 class="text-center h5 mb-0">💜Umbrella💜</h5> <p class="text-center text-muted font-14">umbrella</p> <div class="profile-info"><h5 class="mb-20 h5" data-color="#A3CBE6">우산 상세정보</h5> <ul>'
     result+='<li><span>순번:</span>'+data.rent_seq+'</li>'
     result+='<li><span>대여자 ID:</span>'+data.rent_id+'</li>'
     result+='<li><span>대여우산순번:</span>'+data.umb_seq+'</li>'
-    result+='<li><span>대여일자:</span>'+data.rent_s_date+'</li>'
+    result+='<li><span>대여우산순번:</span>'+data.rent_s_date+'</li>'
     result+='<li><span>반납일자:</span>'+data.rent_e_date+'</li>'
+    
     result+='<li><span>결제수단:</span>'+data.pay_method+'</li>'
     result+='<li><span>결제금액:</span>'+data.pay_amount+'</li>'
     result+='<li><span>결제여부:</span>'+data.pay_done+'</li>'
-    result+='</ul></div><div class="profile-social"></div></div></div><div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 mb-30"> <div class="card-box height-100-p overflow-hidden"> <div class="profile-tab height-100-p"><div class="profile-setting"><form><ul class="profile-edit-list row"><li class="weight-500 col-md-6"><h4 class="h5 mb-20" data-color="#A3CBE6">대여정보수정</h4> <div class="form-group">'
-    result+='<label>순번</label><input class="form-control form-control-lg" type="text" readonly="" value="'+data.umb_seq+'"> </div>'
-    result+='<div class="form-group"><label>RFID</label>'
-    result+='<input class="form-control form-control-lg" type="text" readonly="" value="'+data.umb_rfid+'"> </div>'
-    result+='<div class="form-group"><label>우산종류</label>'
-    result+='<div class="d-flex">'
-    result+='<div class="custom-control custom-radio mb-5 mr-20"> <input type="radio" id="radio1" name="customRadio" class="custom-control-input" checked onclick="return(false);"> <label class="custom-control-label weight-400" for="radio1">일반우산</label> </div>'
-    result+='<div class="custom-control custom-radio mb-5 mr-20"> <input type="radio" id="radio2" name="customRadio" class="custom-control-input" onclick="return(false);"> <label class="custom-control-label weight-400" for="radio2">어린이우산</label> </div>'
-    result+='<div class="custom-control custom-radio mb-5 mr-20"> <input type="radio" id="radio3" name="customRadio" class="custom-control-input" onclick="return(false);"> <label class="custom-control-label weight-400" for="radio3">우양산</label> </div>'
-    result+='</div></div>'
-    result+='<div class="form-group">'
-    result+='<label>상태</label>'
-    result+='<select class="selectpicker form-control form-control-lg" data-style="btn-outline-secondary btn-lg"> <option>미사용</option>'
-    result+='<option>사용</option></select>'
-    result+='</div><div class="form-group">'
-    result+='<label>파손여부</label>'
-    result+='<select class="selectpicker form-control form-control-lg" data-style="btn-outline-secondary btn-lg"> <option>파손안됨</option>'
-    result+='<option>파손</option>'
-    result+='</select></div><div class="form-group">'
-    result+='<label>보관함순번</label>'
-    result+='<input class="form-control form-control-lg" type="text" readonly="" value="'+data.rent_seq+'"> </div>'
-    result+='<div class="form-group mb-0">'
-    result+='<input type="submit" class=" btn btn-custom" value="정보수정"> </div>'
-    result+='</li></ul></form></div></div></div></div>'
+    result+='</ul></div><div class="profile-social"></div></div></div>'
+   
 	   
 
 	   $("#list").html(result)
