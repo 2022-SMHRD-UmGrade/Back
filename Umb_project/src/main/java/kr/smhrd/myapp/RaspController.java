@@ -87,9 +87,9 @@ public class RaspController {
 	
 	// 우산대여요청
 	@RequestMapping("/Android/Rent")
-	public String umbRent(@RequestParam(value="qrNum") String qrNum, @RequestParam(value="userId") String userId) {
+	public String umbRent(@RequestParam(value="uboxId") String uboxId, @RequestParam(value="userId") String userId) {
 			System.out.println("안드로이드 : 대여 요청");
-			System.out.println("대여 URL : " + qrNum);
+			System.out.println("대여 URL : " + uboxId);
 			System.out.println("대여 User : " + userId);
 
 			Umbbox vo = new Umbbox(); // 보관함 VO 생성
