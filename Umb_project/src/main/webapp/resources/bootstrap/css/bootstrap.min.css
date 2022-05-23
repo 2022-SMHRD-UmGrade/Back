@@ -1175,6 +1175,10 @@ progress {
     flex: 0 0 auto;
     width: 16.66666667%;
   }
+  .pricing-tables .container .row .offset-lg-2{
+  	margin-left: 16.66666667%;
+    margin-right: 16.66666667%;
+  }
   .col-lg-3 {
     flex: 0 0 auto;
     width: 25%;
