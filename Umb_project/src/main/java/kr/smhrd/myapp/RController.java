@@ -174,7 +174,8 @@ public class RController {
 
 	// 게시글 별 댓글 리스트 요청
 	@RequestMapping(value = "/BoardComment.do")
-	public List<Comment> selectListCmt(@RequestParam(value = "article_seq") int article_seq) {
+	public List<Comment> selectListCmt(@RequestParam(value = ""
+			+ "") int article_seq) {
 		System.out.println("게시글 별 댓글 리스트 요청");
 		List<Comment> list = commentService.selectListCmt(article_seq);
 		return list;
