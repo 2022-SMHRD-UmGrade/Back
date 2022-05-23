@@ -95,7 +95,8 @@ public class AdminController {
 		return "rental";
 	}
 	
-	// 단일 우산 페이지
+/* 보관함 관련 */
+	// 단일 보관함 페이지
 	@RequestMapping("/Admin/umBoxDetails")
 	public String uboxDetails(Model model, @RequestParam(value="ubox_seq") int ubox_seq) {
 		model.addAttribute("ubox_seq", ubox_seq);

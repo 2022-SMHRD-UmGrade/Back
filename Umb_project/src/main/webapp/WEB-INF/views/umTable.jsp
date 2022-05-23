@@ -493,11 +493,16 @@
 	<script src="${path}/resources/js/webjs.js"></script>
 	
 	<script>
-	$(document).ready(function() {
+	$(document).ready(()=>{
+		umbList1()
+	})
+
+	function umbList1() {
 	    var table = $("#umlist").DataTable({
 	    	scrollCollapse: true,
 			autoWidth: false,
 			responsive: true,
+			destroy: true,
 			columnDefs: [{
 				targets: "datatable-nosort",
 				orderable: false,
@@ -542,8 +547,7 @@
 		    		{
 			              data: null,
 			              render: function ( data, type, row ) {
-			                return '<div class="dropdown"><a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown"><i class="dw dw-more"></i></a><div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"><a class="dropdown-item" href="umDetails"><i class="dw dw-eye"></i>상세보기</a><button class="dropdown-item"><i class="dw dw-delete-3"></i>삭제</button></div></div>';
-
+			                return "<div class='dropdown'><a class='btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle' href='#' role='button' data-toggle='dropdown'><i class='dw dw-more'></i></a><div class='dropdown-menu dropdown-menu-right dropdown-menu-icon-list'><a class='dropdown-item' href='umDetails?umb_seq="+row.umb_seq+"'><i class='dw dw-eye'></i>상세보기</a><button class='dropdown-item' type='button' onclick='umbDel(\"" +row.umb_seq + "\")'><i class='dw dw-delete-3'></i>삭제</button></div></div>";
 			              }
 			            } 
 		    	]		    	
@@ -564,7 +568,7 @@
 			}
 		});
 	    
-	});
+	}
 
 
 	</script>
@@ -591,7 +595,7 @@ function htmlView(data){
 			      result += "<td>"+vo.umbx_seq+"</td>"
 			      
 			      result += "<td>"
-			      result += '<div class="dropdown">'
+			      result += '<div class="dropdown">'	
 			      result += '<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">'
 			      result += '<i class="dw dw-more"></i>'
 			      result += '</a>'

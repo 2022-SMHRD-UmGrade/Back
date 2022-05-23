@@ -425,11 +425,17 @@
 	
 	
 	<script>
-	$(document).ready(function() {
+	
+	$(document).ready(()=>{
+		uboxList1()
+	})
+
+	function uboxList1() {
 	    $("#umbBoxlist").DataTable({
 	    	scrollCollapse: true,
 		      autoWidth: false,
 		      responsive: true,
+		      destroy: true,
 		      columnDefs: [{
 		         targets: "datatable-nosort",
 		         orderable: false,
@@ -459,14 +465,14 @@
 	        	{
 		              data: null,
 		              render: function ( data, type, row ) {
-		                return '<div class="dropdown"><a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown"><i class="dw dw-more"></i></a><div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"><a class="dropdown-item" href="umBoxDetails"><i class="dw dw-eye"></i>상세보기</a><button class="dropdown-item"><i class="dw dw-delete-3"></i>삭제</button></div></div>';
+		            	  return "<div class='dropdown'><a class='btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle' href='#' role='button' data-toggle='dropdown'><i class='dw dw-more'></i></a><div class='dropdown-menu dropdown-menu-right dropdown-menu-icon-list'><a class='dropdown-item' href='umBoxDetails?ubox_seq="+row.ubox_seq+"'><i class='dw dw-eye'></i>상세보기</a><button class='dropdown-item' type='button' onclick='uboxDel(\"" +row.ubox_seq + "\")'><i class='dw dw-delete-3'></i>삭제</button></div></div>";
 
 		              }
 		            } 
 	        	
 	        ]        
 	    });
-	});
+	}
 
 	</script>
 

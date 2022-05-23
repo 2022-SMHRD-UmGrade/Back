@@ -497,7 +497,11 @@
 	<!-- DataTable js -->
 	<script>
 	
-	$(document).ready(function() {
+	$(document).ready(()=>{
+		uboxList1()
+	});
+	
+	function uboxList1() {
 	    $("#umboxlist").DataTable({
 	    	scrollCollapse: true,
 			autoWidth: false,
@@ -529,12 +533,12 @@
 	        	{
 	              data: null,
 	              render: function ( data, type, row ) {
-	                return '<a class="dropdown-item" href="umBoxDetails"><i class="dw dw-eye"></i></a>';
+	                return "<a class='dropdown-item' href='umBoxDetails?ubox_seq="+row.ubox_seq+"'><i class='dw dw-eye'></i></a>";
 	              }
 	            }
 	        ]        
 	    });
-	});
+	}
 
 	</script>
 </body>

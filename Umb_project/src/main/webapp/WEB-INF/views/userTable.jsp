@@ -445,9 +445,13 @@
 	
 	<!-- 테이블출력 js -->
 	<script src="${pageContext.request.contextPath}/resources/js/webjs.js"></script>
-	
+	 
 	<script>
-	$(document).ready(function() {
+	$(document).ready(()=>{
+		userList1()
+	})
+	
+	function userList1(data) {
 	    $("#userlist").DataTable({
 	    	scrollCollapse: true,
 		      autoWidth: false,
@@ -465,11 +469,12 @@
 		            previous: '<i class="ion-chevron-left"></i>'  
 		         }
 		      },
+		      destroy: true,
 	    	ajax:{
 	    		url :  getContextPath()+"/userList.do", 
 	    		type : "get",
 	    		dataType : "json",
-	    		dataSrc :''
+	    		dataSrc :'',
 	        },
 	        columns:[
 	        	{data:"user_id"},
@@ -481,13 +486,14 @@
 	        	{
 	              data: null,
 	              render: function ( data, type, row ) {
-	                return '<div class="dropdown"><a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown"><i class="dw dw-more"></i></a><div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"><a class="dropdown-item" href="userDetails"><i class="dw dw-eye"></i>상세보기</a><button class="dropdown-item" ><i class="dw dw-delete-3"></i>삭제</button></div></div>';
+	            	  
+	                return "<div class='dropdown'><a class='btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle' href='#' role='button' data-toggle='dropdown'><i class='dw dw-more'></i></a><div class='dropdown-menu dropdown-menu-right dropdown-menu-icon-list'><a class='dropdown-item' href='userDetails?user_id="+row.user_id+"'><i class='dw dw-eye'></i>상세보기</a><button class='dropdown-item' type='button' onclick='userDel(\"" +row.user_id + "\")'><i class='dw dw-delete-3'></i>삭제</button></div></div>";
 
 	              }
 	            }       	
 	        ]        
 	    });
-	});
+	}
 
 	</script>
 	
