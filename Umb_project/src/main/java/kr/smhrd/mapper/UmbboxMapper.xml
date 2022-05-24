@@ -33,6 +33,10 @@
 		update t_umbbox set ubox_status = #{ubox_status}
 	</update>
 	
+	<update id="webUbox" parameterType="kr.smhrd.domain.Umbbox">
+		update t_umbbox set ubox_qty = #{ubox_qty}, ubox_status= #{ubox_status}, ubox_loc= #{ubox_loc}  where ubox_seq = #{ubox_seq}
+	</update>
+	
 	<update id="updateUbox" parameterType="kr.smhrd.domain.Umbbox">
 		update t_umbbox set ubox_loc = #{ubox_loc}, ubox_latitude = #{ubox_latitude}, ubox_longitude = #{ubox_longitude}, ubox_qty = #{ubox_qty} where ubox_seq = #{ubox_seq}
 	</update>

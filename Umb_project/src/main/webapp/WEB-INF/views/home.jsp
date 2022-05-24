@@ -406,25 +406,25 @@
 					<div class="col-lg-5 col-md-12 col-sm-12 mb-30">
 						<div class="card-box pd-30 height-100-p">
 							<div class="alert alert-danger alert-dismissible fade show" role="alert">
-								우산파손신고 <a href="umDetails" class="alert-link">바로가기</a>
+								우산파손신고 <a href="home" class="alert-link">바로가기</a>
 								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 									<span aria-hidden="true">&times;</span>
 								</button>
 							</div>
 							<div class="alert alert-warning alert-dismissible fade show" role="alert">
-								우산분실신고 <a href="umDetails" class="alert-link">바로가기</a>
+								우산분실신고 <a href="home" class="alert-link">바로가기</a>
 								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 									<span aria-hidden="true">&times;</span>
 								</button>
 							</div>
 							<div class="alert alert-primary alert-dismissible fade show" role="alert">
-								문의 <a href="reply" class="alert-link">바로가기</a>
+								문의 <a href="home" class="alert-link">바로가기</a>
 								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 									<span aria-hidden="true">&times;</span>
 								</button>
 							</div>
 							<div class="alert alert-secondary alert-dismissible fade show" role="alert">
-								보관함 상태이상 <a href="umBoxDetails" class="alert-link">바로가기</a>
+								보관함 상태이상 <a href="home" class="alert-link">바로가기</a>
 								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 									<span aria-hidden="true">&times;</span>
 								</button>

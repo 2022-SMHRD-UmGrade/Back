@@ -33,6 +33,9 @@ public interface UmbboxMapper {
 	// 보관함 상태 수정
 	public void updateUboxStatus(String status);
 
+	/* 보관함 업데이트 (웹) */
+	public void webUbox(Umbbox vo);
+	
 	// 보관함 세부내용(설치장소명, 위도, 경도, 수량) 일괄 수정
 	public void updateUbox(Umbbox vo);
 	

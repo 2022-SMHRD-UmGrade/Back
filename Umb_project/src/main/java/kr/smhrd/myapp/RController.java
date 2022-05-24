@@ -127,7 +127,6 @@ public class RController {
 		System.out.println(vo.getUmb_status());
 		System.out.println(vo.getUmb_broken());
 		
-		
 		umbrellaService.updateUmb(vo);
 	}
 	
@@ -166,6 +165,18 @@ public class RController {
 		public void umboxDel(@RequestParam(value = "ubox_seq") int ubox_seq) {
 			System.out.println("보관함 삭제 요청");
 			UmbboxService.deleteUbox(ubox_seq);
+		}
+		
+		// 보관함 정보 수정 요청
+		@RequestMapping("/uboxUpdate.do")
+		public void uboxUpdate(Umbbox vo) {
+			System.out.println("보관함정보 수정 요청");
+			System.out.println(vo.getUbox_seq());
+			System.out.println(vo.getUbox_status());
+			System.out.println(vo.getUbox_loc());
+			System.out.println(vo.getUbox_qty());
+			
+			UmbboxService.webUbox(vo);
 		}
 	
 

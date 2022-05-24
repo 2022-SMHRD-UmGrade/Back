@@ -58,7 +58,12 @@ public class UmbboxService {
 	public void updateUboxStatus(String status) {
 		mapper.updateUboxStatus(status);
 	}
-		
+	
+	// 보관함 세부내용(설치장소명, 위도, 경도, 수량) 일괄 수정2
+	public void webUbox(Umbbox vo) {
+		mapper.webUbox(vo);
+	}
+	
 	// 보관함 세부내용(설치장소명, 위도, 경도, 수량) 일괄 수정
 	public void updateUbox(Umbbox vo) {
 		mapper.updateUbox(vo);

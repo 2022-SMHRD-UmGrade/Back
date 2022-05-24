@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<%=request.getAttribute("ubox_seq")%>
 	<!-- Basic Page Info -->
 	<meta charset="utf-8">
 	<title>보관함상세조회</title>
@@ -401,7 +402,7 @@
 <script>
 
 $(document).ready(()=>{
-	umboxDetails("1")
+	umboxDetails("${ubox_seq}")
 })
 
 function htmlView(data){
@@ -424,16 +425,38 @@ function htmlView(data){
 		result += '<ul class="profile-edit-list row"> <li class="weight-500 col-md-6">'
 		result += '<h4 class="h5 mb-20" data-color="#A3CBE6">보관함정보수정</h4> <div class="form-group">'
 		result += '<label>순번</label><input class="form-control form-control-lg" type="text" readonly="" value="'+data.ubox_seq+'"> </div><div class="form-group">'
-		result += '<label>주소</label><input class="form-control form-control-lg" type="text" value="'+data.ubox_loc+'"> </div><div class="form-group">'
-		result += '<label>보관함상태</label><select class="selectpicker form-control form-control-lg" data-style="btn-outline-secondary btn-lg"> <option>상태</option>'
-		result += '<option>무슨상태</option></select></div><div class="form-group">'
-		result += '<label>우산수량</label><input class="form-control form-control-lg" id="demo3" type="text" value="10" name="demo3"> </div><div class="form-group">'
-		result += '<label>설치일자</label><input class="form-control form-control-lg date-picker" type="text" readonly="" value="'+data.ubox_inst_dt+'"> </div><div class="form-group mb-0"><input type="submit" class="btn btn-custom" value="정보수정"> </div>'
+		result += '<label>주소</label><input class="form-control form-control-lg" type="text" id="loc" value="'+data.ubox_loc+'"> </div><div class="form-group">'
+		result += '<label>보관함상태</label><select class="selectpicker form-control form-control-lg" data-style="btn-outline-secondary btn-lg" name="select1"> <option value="N">사용상태</option>'
+		result += '<option value="D">미사용상태</option></select></div><div class="form-group">'
+		result += '<label>우산수량</label><input class="form-control form-control-lg" id="qty" type="text" value="'+data.ubox_qty+'" name="demo3"> </div><div class="form-group">'
+		result += '<label>설치일자</label><input class="form-control form-control-lg date-picker" type="text" readonly="" value="'+data.ubox_inst_dt+'"> </div><div class="form-group mb-0"><input type="button" class="btn btn-custom" value="정보수정" onclick="update()")> </div>'
 		result += '</li></ul></form></div></div></div></div></div>'
 		result += '<div class="footer-wrap pd-20 mb-20 card-box"> 지능형 IoT융합 SW전문가과정 실전프로젝트 <a href="https://github.com/2022-SMHRD-UmGrade" target="_blank">UmGrade</a> </div>'
 	   
 
 	   $("#list").html(result)
 }
+
+function update() {
+	var ubox_seq = "${ubox_seq}";
+ 	var ubox_status = $("select[name=select1]").val();
+	var ubox_loc = $("#loc").val();
+	var ubox_qty = $("#qty").val();
+	
+	/* alert(ubox_seq + ubox_status + ubox_loc + ubox_qty) */
+	/* alert(ubox_loc) */
+	
+   	$.ajax({
+		url :  getContextPath()+"/uboxUpdate.do?ubox_seq="+ubox_seq+"&ubox_status="+ubox_status+"&ubox_loc="+ubox_loc+"&ubox_qty="+ubox_qty,
+		type : "get",
+		async: false,
+		success : document.location.reload(),
+		error : function(){
+			alert("error")
+		}
+	}) 
+ 
+}
+
 </script>
 </html>
