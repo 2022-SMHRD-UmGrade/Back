@@ -5,6 +5,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<%=request.getAttribute("umb_seq")%>
+
 	<!-- Basic Page Info -->
 	<meta charset="utf-8">
 	<title>우산상세조회</title>
@@ -440,21 +442,38 @@ function htmlView(data){
     result+='</div></div>'
     result+='<div class="form-group">'
     result+='<label>상태</label>'
-    result+='<select class="selectpicker form-control form-control-lg" data-style="btn-outline-secondary btn-lg"> <option>미사용</option>'
-    result+='<option>사용</option></select>'
+    result+='<select class="selectpicker form-control form-control-lg" data-style="btn-outline-secondary btn-lg" name="select1"> <option value="N">미대여</option>'
+    result+='<option value="R">대여중</option></select>'
     result+='</div><div class="form-group">'
     result+='<label>파손여부</label>'
-    result+='<select class="selectpicker form-control form-control-lg" data-style="btn-outline-secondary btn-lg"> <option>파손안됨</option>'
-    result+='<option>파손</option>'
+    result+='<select class="selectpicker form-control form-control-lg" data-style="btn-outline-secondary btn-lg" name="select2"> <option value="N">파손안됨</option>'
+    result+='<option value="Y">파손</option>'
     result+='</select></div><div class="form-group">'
     result+='<label>보관함순번</label>'
     result+='<input class="form-control form-control-lg" type="text" readonly="" value="'+data.ubox_seq+'"> </div>'
     result+='<div class="form-group mb-0">'
-    result+='<input type="submit" class=" btn btn-custom" value="정보수정"> </div>'
+    result+='<input type="button" class=" btn btn-custom" value="정보수정" onclick="update()"> </div>'
     result+='</li></ul></form></div></div></div></div>'
 	   
 
 	   $("#list").html(result)
+}
+
+function update() {
+	var umb_seq = "${umb_seq}"
+ 	var umb_status = $("select[name=select1]").val();
+	var umb_broken = $("select[name=select2]").val(); 
+	
+ 	$.ajax({
+		url :  getContextPath()+"/umbUpdate.do?umb_seq="+umb_seq+"&umb_status="+umb_status+"&umb_broken="+umb_broken,
+		type : "get",
+		async: false,
+		success : document.location.reload(),
+		error : function(){
+			alert("error")
+		}
+	})
+	
 }
 </script>
 </html>

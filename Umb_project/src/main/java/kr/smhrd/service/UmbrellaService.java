@@ -23,6 +23,11 @@ public class UmbrellaService {
 	public Umbrella selectOneUmbrella(int umb_seq) {
 		return mapper.selectOneUmb(umb_seq);
 	}
+	
+	// 우산 정보 업데이트 (웹)
+	public void updateUmb(Umbrella vo) {
+		mapper.updateUmb(vo);
+	}
 
 	// 우산 RFID로 우산 시퀀스 조회
 	public int selectUmbSeq(String umb_rfid) {

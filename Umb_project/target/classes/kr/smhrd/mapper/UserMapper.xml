@@ -28,6 +28,11 @@
         update t_user set user_pw = #{user_pw}, user_nick = #{user_nick}, user_email = #{user_email}, user_addr = #{user_addr} where user_id = #{user_id}
 	</update>
 	
+	<!-- 유저 계정 수정 -->
+	<update id="userInfoUpdate2" parameterType="kr.smhrd.domain.User">
+        update t_user set user_type = #{user_type}, user_status = #{user_status}, user_point = #{user_point} where user_id = #{user_id}
+	</update>
+	
 	<!-- 유저 닉네임 수정 -->
 	<update id="userNickUpdate" parameterType="kr.smhrd.domain.User">
         update t_user set user_nick = #{user_nick} where user_id = #{user_id}

@@ -453,19 +453,38 @@ function htmlView(data){
 			   result +=  ' <div class="form-group">'
 			   result +=  ' <label>가입일자</label><input class="form-control form-control-lg date-picker" type="text" readonly="" value="'+data.user_joindate+'"> </div>'
 			   result +=  ' <div class="form-group">'
-			   result +=  ' <label>회원유형</label><div class="d-flex"><div class="custom-control custom-radio mb-5 mr-20"> <input type="radio" id="radioA" name="customRadio" class="custom-control-input"> <label class="custom-control-label weight-400" for="radioA">A</label> </div><div class="custom-control custom-radio mb-5 mr-20"> <input type="radio" id="radioM" name="customRadio" class="custom-control-input"> <label class="custom-control-label weight-400" for="radioM">M</label> </div><div class="custom-control custom-radio mb-5 mr-20"> <input type="radio" id="radioU" name="customRadio" class="custom-control-input"> <label class="custom-control-label weight-400" for="radioU">'+data.user_type+'</label> </div></div></div>'
+			   result +=  ' <label>회원유형</label><div class="d-flex"><div class="custom-control custom-radio mb-5 mr-20"> <input type="radio" id="radioA" value="A" name="customRadio" class="custom-control-input"> <label class="custom-control-label weight-400" for="radioA">A</label> </div><div class="custom-control custom-radio mb-5 mr-20"> <input type="radio" id="radioM"name="customRadio" class="custom-control-input" value="M"> <label class="custom-control-label weight-400" for="radioM">M</label> </div><div class="custom-control custom-radio mb-5 mr-20"> <input type="radio" id="radioU" name="customRadio" class="custom-control-input" value="U"> <label class="custom-control-label weight-400" for="radioU">N</label> </div></div></div>'
 			   result +=  ' <div class="form-group">'
-			   result +=  ' <label>회원상태</label> <select class="selectpicker form-control form-control-lg" data-style="btn-outline-secondary btn-lg"> <option>활성화</option>'
-			   result +=  ' <option>휴먼상태</option>'
-			   result +=  ' <option>블랙</option>'
+			   result +=  ' <label>회원상태</label> <select class="selectpicker form-control form-control-lg" data-style="btn-outline-secondary btn-lg" name="select1"> <option value="N">활성화</option>'
+			   result +=  ' <option value="S">휴면상태</option>'
+			   result +=  ' <option value="B">블랙</option>'
 			   result +=  ' </select></div>'
 			   result +=  ' <div class="form-group">'
-			   result +=  ' <label>포인트</label><input class="form-control form-control-lg" type="text" value="'+data.user_point+'"> </div>'
+			   result +=  ' <label>포인트</label><input class="form-control form-control-lg" id="point" type="text" value="'+data.user_point+'"> </div>'
 			   result +=  ' <div class="form-group mb-0">'
-			   result +=  ' <input type="submit" class="btn btn-primary" value="정보수정"> </div></li></ul></form></div></div></div></div>'
+			   result +=  ' <input type="button" id="SendBtn" class="btn btn-primary" value="정보수정" onclick="update()"> </div></li></ul></form></div></div></div></div>'
 	   
 
 	   $("#list").html(result)
+}
+
+
+function update() {
+	var user_id = "${user_id}"
+ 	var user_type = $('input[name="customRadio"]:checked').val()
+	var user_status = $("select[name=select1]").val(); 
+	var user_point = $("#point").val();
+	
+ 	$.ajax({
+		url :  getContextPath()+"/userUpdate.do?user_type="+user_type+"&user_status="+user_status+"&user_point="+user_point+"&user_id="+user_id,
+		type : "get",
+		async: false,
+		success : document.location.reload(),
+		error : function(){
+			alert("error"+ubox_seq)
+		}
+	}) 
+	
 }
 </script>
 </html>

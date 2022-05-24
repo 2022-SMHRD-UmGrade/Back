@@ -110,6 +110,14 @@ public class AdminController {
 	public String qna() {
 		return "qna";
 	}
+	
+/* 단일 reply */
+	// 단일 QnA 페이지
+	@RequestMapping("/Admin/reply")
+	public String reply() {
+		
+		return "reply";
+	}
 
 	
 

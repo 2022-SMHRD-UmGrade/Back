@@ -32,6 +32,9 @@ public interface UmbrellaMapper {
 	// 우산 추가
 	public void insertUmb(Umbrella vo);
 	
+	//우산 정보 업데이트(웹)
+	public void updateUmb(Umbrella vo);
+	
 	// 대여정보 수정
 	public void updateUmbStatus(Umbrella vo);
 	

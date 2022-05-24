@@ -82,6 +82,18 @@ public class RController {
 			userService.userDel(user_id);
 			return "asdf";
 		}
+		
+	// 회원 정보 수정 요청
+		@RequestMapping("/userUpdate.do")
+		public void userUpdate(User vo) {
+			System.out.println("회원정보 수정 요청");
+			System.out.println(vo.getUser_id());
+			System.out.println(vo.getUser_type());
+			System.out.println(vo.getUser_status());
+			
+			userService.userInfoUpdate2(vo);
+		}
+	
 
 	// 대여 리스트 요청
 	@RequestMapping("/rentList.do")
@@ -105,6 +117,18 @@ public class RController {
 		System.out.println("우산 리스트 요청");
 		List<Umbrella> list = umbrellaService.selectUmb();
 		return list;
+	}
+	
+	// 우산 정보 수정 요청
+	@RequestMapping("/umbUpdate.do")
+	public void umbUpdate(Umbrella vo) {
+		System.out.println("우산정보 수정 요청");
+		System.out.println(vo.getUmb_seq());
+		System.out.println(vo.getUmb_status());
+		System.out.println(vo.getUmb_broken());
+		
+		
+		umbrellaService.updateUmb(vo);
 	}
 	
 	// 단일 우산 요청
@@ -271,10 +295,10 @@ public class RController {
 		return list;
 	}
 
-	@RequestMapping("/umbUpdate.do")
-	public void umbUp(int umb_seq) {
-		umbrellaService.updateUmbCheck(umb_seq);
-	}
+	/*
+	 * @RequestMapping("/umbUpdate.do") public void umbUp(int umb_seq) {
+	 * umbrellaService.updateUmbCheck(umb_seq); }
+	 */
 
 //	@RequestMapping("/selectRt.do")
 //	public int selectRt(int rent_seq) {

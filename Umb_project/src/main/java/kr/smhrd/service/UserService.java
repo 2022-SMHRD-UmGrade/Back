@@ -49,6 +49,11 @@ public class UserService {
 
 	}
 	
+	// 유저 회원정보 수정2
+	public void userInfoUpdate2(User user) {
+		mapper.userInfoUpdate2(user);
+	}
+	
 
 	// 유저 닉네임 수정
 	public void userNickUpdate(User user) {

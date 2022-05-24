@@ -24,6 +24,9 @@ public interface UserMapper {
 	//유저 회원 정보 수정
 	public void userInfoUpdate(User user);
 	
+	//유저 회원 정보 수정2
+	public void userInfoUpdate2(User user);
+	
 	// 단일 유저 조회
 	public User userOne(String user_id);
 
