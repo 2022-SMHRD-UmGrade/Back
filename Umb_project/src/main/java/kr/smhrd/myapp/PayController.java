@@ -25,7 +25,7 @@ public class PayController {
 	// 분실 신고 시, 자동으로 결제 진행하고 대여내역 정리
 	@RequestMapping("/auto")
 	public String auto(@RequestParam(value="rent_id") String rent_id, @RequestParam(value="rent_seq") String rent_seq) {
-		service.auto(rent_id, 8000, rent_seq);
+		service.auto(rent_id, 13600, rent_seq);
 		return "auto";
 	}
 }
