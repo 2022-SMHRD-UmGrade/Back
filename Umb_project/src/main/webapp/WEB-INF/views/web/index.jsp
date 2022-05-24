@@ -62,11 +62,6 @@
     <!-- faq -->
     <!-- <div id="faq"></div> -->
     <%@ include file="/WEB-INF/views/web/faq.jsp" %>
-    <!-- <iframe
-      src=""
-      style="width: 100%; height: 50vw"
-      scrolling="no"
-    ></iframe> -->
 
     <!-- guidelines -->
     <div id="guidelines"><%@ include file="/WEB-INF/views/web/guidelines.jsp" %></div>

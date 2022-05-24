@@ -64,7 +64,8 @@
     <div id="container"><%@ include file="/WEB-INF/views/web/container.jsp" %></div>
 
     <!-- map -->
-    <div id="map"><%@ include file="/WEB-INF/views/web/map.jsp" %></div>
+    <!--<div id="map"></div>-->
+    <%--<%@ include file="/WEB-INF/views/web/map.jsp" %> --%>
 
     <!-- Scripts -->
     <script src="resources/jquery/jquery.min.js"></script>

@@ -6,7 +6,9 @@ import org.springframework.stereotype.Service;
 public class RaspService {
 	
 	
+
 	String ip = "192.168.43.87:8083";
+
 	
 		// 대여 절차 1
 	   public String Rantal1() {

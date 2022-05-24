@@ -139,6 +139,8 @@ function rentalDel(rent_seq){
 	})	
 }
 
+/*qna 관련*/
+
 
 
 /*function umDetails(umb_seq){
