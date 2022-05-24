@@ -397,7 +397,7 @@
 							<h4 data-color="#A3CBE6">질의응답</h4>
 						</div>
 					</div>
-					<table class="table table-bordered">
+					<table class="table stripe hover data-table-export-checkbox nowrap text-center" id="list">
 						<thead>
 							<tr>
 								<th class="text-center" scope="col">번호</th>
@@ -407,29 +407,6 @@
 								<th scope="col"></th>
 							</tr>
 						</thead>
-						<tbody>
-							<tr>
-								<th class="text-center" scope="row">1</th>
-								<td ><a href="reply">문의</a></td>
-								<td>user</td>
-								<td>2022.05.10</td>
-								<td><span class="badge badge-pill badge-success">응답완료</span></td>
-							</tr>
-							<tr>
-								<th class="text-center" scope="row">2</th>
-								<td><a href="reply">문의</a></td>
-								<td>user</td>
-								<td>2022.05.10</td>
-								<td><span class="badge badge-pill badge-warning">미응답</span></td>
-							</tr>
-							<tr>
-								<th class="text-center" scope="row">3</th>
-								<td><a href="reply.html">문의</a></td>
-								<td>user</td>
-								<td>2022.05.10</td>
-								<td><span class="badge badge-pill badge-warning">미응답</span></td>
-							</tr>
-						</tbody>
 					</table>
 			</div>
 			<div class="footer-wrap pd-20 mb-20 card-box">
@@ -460,4 +437,72 @@
 	<script src="${path}/resources/src/plugins/sweetalert2/sweetalert2.all.js"></script>
 	<script src="${path}/resources/src/plugins/sweetalert2/sweet-alert.init.js"></script>
 </body>
+	<!-- 테이블출력 js -->
+	<script src="${path}/resources/js/webjs.js"></script>
+	
+	<script>
+	$(document).ready(()=>{
+		qnaList1()
+	})
+
+	function qnaList1() {
+	    var table = $("#list").DataTable({
+	    	scrollCollapse: true,
+			autoWidth: false,
+			responsive: true,
+			destroy: true,
+			columnDefs: [{
+				targets: "datatable-nosort",
+				orderable: false,
+			}],
+			"lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+			"language": {
+				"info": "_START_-_END_ of _TOTAL_ entries",
+				searchPlaceholder: "Search",
+				paginate: {
+					next: '<i class="ion-chevron-right"></i>',
+					previous: '<i class="ion-chevron-left"></i>'  
+				}
+			},
+			
+		      ajax:{
+		    		url :  getContextPath()+"/QnaList.do", 
+		    		type : "get",
+		    		dataType : "json",
+		    		dataSrc :''
+		    	},
+		    	columns:[//번호	제목	작성자	작성일	
+
+		    		{data:"qna_seq"},
+		    		{data:"qna_title"},
+		    		{data:"qna_id"},
+		    		{data:"qna_date"},
+		    		{
+			              data: null,
+			              render: function ( data, type, row ) {
+			                return "<div class='dropdown'><a class='btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle' href='#' role='button' data-toggle='dropdown'><i class='dw dw-more'></i></a><div class='dropdown-menu dropdown-menu-right dropdown-menu-icon-list'><a class='dropdown-item' href='reply?qna_seq="+row.qna_seq+"'><i class='dw dw-eye'></i>상세보기</a><button class='dropdown-item' type='button' onclick='umbDel(\"" +row.umb_seq + "\")'><i class='dw dw-delete-3'></i>삭제</button></div></div>";
+			              }
+			            } 
+		    	]		    	
+		    });
+	    
+	    
+		$('#example-select-all').on('click', function(){
+			var rows = table.rows({ 'search': 'applied' }).nodes();
+			$('input[type="checkbox"]', rows).prop('checked', this.checked);
+		});
+
+		$('.checkbox-datatable tbody').on('change', 'input[type="checkbox"]', function(){
+			if(!this.checked){
+				var el = $('#example-select-all').get(0);
+				if(el && el.checked && ('indeterminate' in el)){
+					el.indeterminate = true;
+				}
+			}
+		});
+	    
+	}
+
+
+	</script>
 </html>

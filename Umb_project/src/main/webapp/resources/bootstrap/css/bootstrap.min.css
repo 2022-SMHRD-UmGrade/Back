@@ -5889,7 +5889,8 @@ fieldset:disabled .btn {
   font-weight: 800;
 }
 .carousel p {
-  color: black;
+  color: white;
+  font-weight: 500;
 }
 @media (prefers-reduced-motion: reduce) {
   .carousel-indicators [data-bs-target] {

@@ -53,7 +53,7 @@
           <!-- content -->
           <div
             id="carouselExampleControlsNoTouching"
-            class="carousel carousel-dark slide wow fadeInLeft"
+            class="carousel slide wow fadeInLeft"
             data-wow-duration="1s"
             data-wow-delay="1s"
             data-bs-touch="false"
@@ -80,45 +80,125 @@
                 data-bs-slide-to="2"
                 aria-label="Slide 3"
               ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleControlsNoTouching"
+                data-bs-slide-to="3"
+                aria-label="Slide 4"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleControlsNoTouching"
+                data-bs-slide-to="4"
+                aria-label="Slide 5"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleControlsNoTouching"
+                data-bs-slide-to="5"
+                aria-label="Slide 6"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleControlsNoTouching"
+                data-bs-slide-to="6"
+                aria-label="Slide 7"
+              ></button>
             </div>
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <img
-                  src="./resources/images/testbg01.jpg"
+                  src="./resources/images/carousel/01.png"
                   class="d-block w-100"
                   alt="testbg01"
                 />
                 <div class="carousel-caption d-md-block">
                   <h5>보관함 찾기</h5>
-                  <p>
-                    Some representative placeholder content for the first slide.
-                  </p>
+                  <p>지도에서 주변에 있는 보관함을 검색합니다.<br /></p>
                 </div>
               </div>
               <div class="carousel-item">
                 <img
-                  src="./resources/images/testbg02.jpg"
+                  src="./resources/images/carousel/02.png"
                   class="d-block w-100"
                   alt="testbg02"
                 />
                 <div class="carousel-caption d-md-block">
-                  <h5>우산 대여하기</h5>
+                  <h5>QR코드 스캔하기</h5>
                   <p>
-                    Some representative placeholder content for the second
-                    slide.
+                    UmCycle 애플리케이션에서 보관함의 QR 코드를 스캔합니다.<br />
                   </p>
                 </div>
               </div>
+
               <div class="carousel-item">
                 <img
-                  src="./resources/images/testbg03.jpg"
+                  src="./resources/images/carousel/03.png"
+                  class="d-block w-100"
+                  alt="testbg03"
+                />
+                <div class="carousel-caption d-md-block">
+                  <h5>우산 대여하기</h5>
+                  <p>
+                    보관함의 잠금장치가 열리면 우산을 골라 대여합니다.<br />
+                  </p>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <img
+                  src="./resources/images/carousel/04.png"
+                  class="d-block w-100"
+                  alt="testbg03"
+                />
+                <div class="carousel-caption d-md-block">
+                  <h5>파손 확인하기</h5>
+                  <p>우산을 가지고 가기 전 파손 여부를 확인해주세요.<br /></p>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <img
+                  src="./resources/images/carousel/05.png"
+                  class="d-block w-100"
+                  alt="testbg03"
+                />
+                <div class="carousel-caption d-md-block">
+                  <h5>파손 신고하기</h5>
+                  <p>
+                    만약 우산이 파손되었다면 파손 신고 후 파손 우산을
+                    반납해주세요. <br />파손 신고 시 다른 우산을 재대여할 수
+                    있습니다.
+                  </p>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <img
+                  src="./resources/images/carousel/06.png"
+                  class="d-block w-100"
+                  alt="testbg03"
+                />
+                <div class="carousel-caption d-md-block">
+                  <h5>우산 사용 요금</h5>
+                  <p>
+                    우산 대여 비용은 1일(24시간)에 800원이며, <br />대여비는
+                    반납 시에 등록된 결제정보에서 자동결제 됩니다.
+                  </p>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <img
+                  src="./resources/images/carousel/07.png"
                   class="d-block w-100"
                   alt="testbg03"
                 />
                 <div class="carousel-caption d-md-block">
                   <h5>우산 반납하기</h5>
                   <p>
-                    Some representative placeholder content for the third slide.
+                    반납 시에는 별도의 QR 스캔 과정 없이 <br />보관함에 우산을
+                    돌려두는 것만으로 반납을 완료할 수 있습니다.
                   </p>
                 </div>
               </div>
