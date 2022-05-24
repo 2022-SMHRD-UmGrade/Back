@@ -7,7 +7,10 @@ public class RaspService {
 	
 	
 	String ip = "172.30.1.4:8083";
+<<<<<<< HEAD
+=======
 
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-UmGrade/Back.git
 	
 		// 대여 절차 1
 	   public String Rantal1() {
