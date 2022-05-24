@@ -87,17 +87,18 @@ public class RaspController {
 	
 	// 우산대여요청
 	@RequestMapping("/Android/Rent")
-	public String umbRent(@RequestParam(value="uboxId") String uboxId, @RequestParam(value="userId") String userId) {
+	public String umbRent(@RequestParam(value="uboxSeq") String uboxSeq, @RequestParam(value="userId") String userId) {
 			System.out.println("안드로이드 : 대여 요청");
-			System.out.println("대여 URL : " + uboxId);
+			System.out.println("대여 보관함 : " + uboxSeq);
 			System.out.println("대여 User : " + userId);
 
 			Umbbox vo = new Umbbox(); // 보관함 VO 생성
 			vo.setUbox_id(userId);
-			vo.setUbox_seq(1);
+			vo.setUbox_seq(Integer.parseInt(uboxSeq));
 			umbboxServive.updateUboxID(vo); // 보관함에 사용자 아이디 업데이트
 			
 			return raspService.ledGreen();
+		
 			// Rentservice.insertRent(null);
 	}
 	

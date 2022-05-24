@@ -57,8 +57,14 @@ public class CronScheduler {
 		
 		
 		for(int i=0; i<list.size(); i++) {
-			payService.auto(list.get(i).getRent_id(), 8000, Integer.toString(list.get(i).getRent_seq())); // 자동결제
+			payService.auto(list.get(i).getRent_id(), 13600, Integer.toString(list.get(i).getRent_seq())); // 자동결제
 			System.out.println("자동결제된 유저 : " + list.get(i).getRent_id());
+			Rent vo = new Rent();
+			vo.setPay_amount(13600);
+			vo.setPay_method("E");
+			vo.setPay_done("Y");
+			vo.setRent_seq(list.get(i).getRent_seq());
+			rentService.updateRentReturn(vo);
 		}
 	}
 
